@@ -2,46 +2,53 @@ import json
 import random
 from copy import deepcopy
 
-def modify_merchandise(merchandise, driver_merchandise):
-    for product, quantity in driver_merchandise.items():
-        if random.random() < 0.5:
-            merchandise[product] = quantity
-
 def modify_route(actual_element, driver):
-    if random.random() < driver["probabilities"]["cityError"]:
-        if random.random() < 0.5:
-            actual_element["route"].pop(random.randint(0, len(actual_element["route"]) - 1))
-            print(f"Driver {actual_element['driver']} skipped a city in route {actual_element['sroute']}")
-        else:
-            #actual_element["route"].insert(random.randint(0, len(actual_element["route"])), random.choice(deepcopy(driver))) To develop later
-            print(f"Driver {actual_element['driver']} added wrong city in route {actual_element['sroute']}")
+    stubborness = driver["stubborness"]
+    act_route = actual_element["route"]
+    pref_cities = driver["preferences"]["cities"]
+    pref_merch = driver["preferences"]["merchandise"]
+    n_cities = len(pref_cities)
+    n_merch = len(pref_merch)
+    cities = [act_route[0]["from"]]
+
+    for trip in act_route:
+        if random.random() < stubborness["del_city"] / (n_cities - pref_cities.index(trip["to"])):
+            i = act_route.index(trip)
+            
+            if i < len(act_route) - 1:
+                act_route[i - 1]["to"] = act_route[i + 1]["from"]
     
-    for i in range(len(actual_element["route"])):
-        if random.random() < driver["probabilities"]["merchandiseError"]:
-            modify_merchandise(actual_element["route"][i]["merchandise"], driver["preferences"][i]["merchandise"])
-            print(f"Driver {actual_element['driver']} added wrong item in route {actual_element['sroute']}")
+            act_route.remove(trip)
+        else:
+            cities.append(trip["to"])
+            merch = trip["merchandise"].copy()
 
-        matching_preference = find_matching_preference(driver["preferences"], actual_element["route"][i]["from"], actual_element["route"][i]["to"])
+            for product in merch:
+                bias = n_merch - (list)(pref_merch.keys()).index(product) # Every driver has a bias 
+                # (for every product) which is relative to how much he likes a product 
+                # (its position on pref_merch). The lower the position, the higher the bias, and the higher 
+                # the bias, the lower the probability to divert from the standard route
+                
+                if random.random() < stubborness["del_merch"] / bias:
+                    trip["merchandise"].pop(product)
+                elif random.random() < stubborness["edit_merch"] / bias:
+                    product = pref_merch[product]
+            
+            for product in pref_merch:
+                if product not in merch and random.random() < stubborness["add_merch"] / (1 + (list)(pref_merch.keys()).index(product)):
+                    trip["merchandise"][product] = pref_merch[product]
+    
+    for city in pref_cities:
+        if city not in cities and random.random() < stubborness["add_city"] / (1 + pref_cities.index(city)):
+            print(f"Driver {driver["id"]} added {city} with probability {stubborness["add_city"] / (1 + pref_cities.index(city))} in route {actual_element["sroute"]}")
+            route_length = len(act_route)
+            pos = random.randint(0, route_length)
+            act_route.insert(pos, {"from": city if pos != route_length else act_route[-1]["to"], "to": city if pos == route_length else act_route[pos]["from"], "merchandise": None if pos == 0 or pos == route_length else act_route[pos - 1]["merchandise"]})
+            cities.append(city)
 
-        for product in actual_element["route"][i]["merchandise"].items():
-            if random.random() < driver["probabilities"]["merchandiseError2"] and product in matching_preference:
-                actual_element["route"][i]["merchandise"][product] = matching_preference[product]
-                print(f"Driver {actual_element['driver']} loaded wrong number of item {product} in route {actual_element['sroute']}")
-
-def find_matching_preference(driver_preferences, from_location, to_location):
-    for preference in driver_preferences:
-        if preference["from"] == from_location and preference["to"] == to_location:
-            return preference["merchandise"]
-
-def create_actual_element(driver, standard, element_id):
-    actual_element = {
-        "id": f"a{element_id}",
-        "driver": driver["id"],
-        "sroute": standard["id"],
-        "route": deepcopy(standard["route"])
-    }
-    modify_route(actual_element, driver)
-    return actual_element
+            if pos != 0 and pos != route_length:
+                act_route[pos - 1]["to"] = city
+                act_route[pos - 1]["merchandise"] = None
 
 # Load driver.json and standard.json
 with open('driver_attributes.json', 'r', encoding='utf-8') as f:
@@ -55,7 +62,14 @@ actual_data = []
 element_id = 1
 for driver in driver_data:
     for standard in standard_data:
-        actual_data.append(create_actual_element(driver, standard, element_id))
+        actual_element = {
+            "id": f"a{element_id}",
+            "driver": driver["id"],
+            "sroute": standard["id"],
+            "route": deepcopy(standard["route"])
+        }
+        modify_route(actual_element, driver)
+        actual_data.append(actual_element)
         element_id += 1
 
 # Write actual.json

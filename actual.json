@@ -9,10 +9,8 @@
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 18,
-                    "milk": 5,
-                    "pens": 1,
-                    "bread": 17,
-                    "honey": 10
+                    "pens": 2,
+                    "bread": 7
                 }
             },
             {
@@ -20,7 +18,6 @@
                 "to": "Cagliari",
                 "merchandise": {
                     "tomatoes": 12,
-                    "bread": 4,
                     "honey": 17
                 }
             },
@@ -28,18 +25,7 @@
                 "from": "Cagliari",
                 "to": "Venice",
                 "merchandise": {
-                    "tomatoes": 17,
                     "milk": 15
-                }
-            },
-            {
-                "from": "Venice",
-                "to": "Florence",
-                "merchandise": {
-                    "tomatoes": 19,
-                    "butter": 2,
-                    "pens": 19,
-                    "milk": 12
                 }
             }
         ]
@@ -51,29 +37,23 @@
         "route": [
             {
                 "from": "Verona",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
                 "to": "Bologna",
                 "merchandise": {
                     "honey": 4,
                     "butter": 5,
-                    "pens": 14,
-                    "tomatoes": 19
+                    "pens": 14
                 }
             },
             {
                 "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
-                    "milk": 3
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Florence",
-                "merchandise": {
-                    "butter": 19,
-                    "milk": 5,
-                    "honey": 2
+                    "honey": 18
                 }
             }
         ]
@@ -85,21 +65,10 @@
         "route": [
             {
                 "from": "Venice",
-                "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 19,
-                    "butter": 14,
-                    "milk": 6,
-                    "honey": 10
-                }
-            },
-            {
-                "from": "Modena",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 18,
-                    "tomatoes": 16,
-                    "bread": 14
+                    "butter": 14,
+                    "milk": 6
                 }
             },
             {
@@ -128,28 +97,20 @@
             },
             {
                 "from": "Cagliari",
-                "to": "Reggio Calabria",
+                "to": "Naples",
                 "merchandise": {
                     "bread": 10,
                     "honey": 5,
                     "pens": 5,
-                    "milk": 16,
-                    "tomatoes": 14
-                }
-            },
-            {
-                "from": "Reggio Calabria",
-                "to": "Naples",
-                "merchandise": {
-                    "pens": 10
+                    "milk": 16
                 }
             },
             {
                 "from": "Naples",
                 "to": "Rome",
                 "merchandise": {
-                    "pens": 4,
-                    "milk": 12,
+                    "pens": 11,
+                    "milk": 19,
                     "bread": 16
                 }
             },
@@ -157,9 +118,7 @@
                 "from": "Rome",
                 "to": "Bari",
                 "merchandise": {
-                    "butter": 17,
-                    "pens": 10,
-                    "honey": 9
+                    "butter": 17
                 }
             }
         ]
@@ -180,8 +139,7 @@
                 "from": "Florence",
                 "to": "Catania",
                 "merchandise": {
-                    "tomatoes": 6,
-                    "butter": 18
+                    "tomatoes": 6
                 }
             },
             {
@@ -194,16 +152,13 @@
             {
                 "from": "Brescia",
                 "to": "Syracuse",
-                "merchandise": {
-                    "bread": 9
-                }
+                "merchandise": {}
             },
             {
                 "from": "Syracuse",
                 "to": "Rome",
                 "merchandise": {
-                    "milk": 8,
-                    "bread": 2
+                    "milk": 9
                 }
             }
         ]
@@ -213,15 +168,6 @@
         "driver": "d1",
         "sroute": "s6",
         "route": [
-            {
-                "from": "Modena",
-                "to": "Verona",
-                "merchandise": {
-                    "milk": 6,
-                    "honey": 18,
-                    "butter": 17
-                }
-            },
             {
                 "from": "Verona",
                 "to": "Bari",
@@ -235,19 +181,16 @@
                 "from": "Bari",
                 "to": "Rome",
                 "merchandise": {
-                    "bread": 5,
                     "pens": 4,
-                    "milk": 3
+                    "milk": 3,
+                    "honey": 13
                 }
             },
             {
                 "from": "Rome",
-                "to": "Catania",
+                "to": "Verona",
                 "merchandise": {
-                    "butter": 13,
-                    "pens": 4,
-                    "bread": 3,
-                    "tomatoes": 17
+                    "butter": 20
                 }
             }
         ]
@@ -261,27 +204,21 @@
                 "from": "Brescia",
                 "to": "Naples",
                 "merchandise": {
-                    "milk": 4,
-                    "bread": 17,
-                    "tomatoes": 19
+                    "milk": 4
                 }
             },
             {
                 "from": "Naples",
                 "to": "Genoa",
                 "merchandise": {
-                    "bread": 14,
-                    "honey": 10,
-                    "tomatoes": 16
+                    "honey": 10
                 }
             },
             {
                 "from": "Genoa",
                 "to": "Syracuse",
                 "merchandise": {
-                    "milk": 5,
-                    "pens": 16,
-                    "tomatoes": 10
+                    "pens": 16
                 }
             }
         ]
@@ -293,18 +230,10 @@
         "route": [
             {
                 "from": "Venice",
-                "to": "Milan",
-                "merchandise": {
-                    "milk": 5,
-                    "honey": 16,
-                    "bread": 16
-                }
-            },
-            {
-                "from": "Milan",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 15
+                    "milk": 5,
+                    "honey": 16
                 }
             },
             {
@@ -333,17 +262,16 @@
                 "from": "Parma",
                 "to": "Palermo",
                 "merchandise": {
-                    "tomatoes": 16,
-                    "bread": 2
+                    "bread": 2,
+                    "milk": 15
                 }
             },
             {
                 "from": "Palermo",
                 "to": "Pisa",
                 "merchandise": {
-                    "bread": 10,
                     "milk": 18,
-                    "tomatoes": 16
+                    "tomatoes": 9
                 }
             },
             {
@@ -359,7 +287,6 @@
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "tomatoes": 14,
-                    "bread": 1,
                     "honey": 18
                 }
             }
@@ -371,15 +298,6 @@
         "sroute": "s10",
         "route": [
             {
-                "from": "Florence",
-                "to": "Brescia",
-                "merchandise": {
-                    "pens": 12,
-                    "butter": 19,
-                    "honey": 10
-                }
-            },
-            {
                 "from": "Brescia",
                 "to": "Pisa",
                 "merchandise": {
@@ -389,9 +307,10 @@
             },
             {
                 "from": "Pisa",
-                "to": "Cagliari",
+                "to": "Brescia",
                 "merchandise": {
-                    "butter": 5
+                    "butter": 5,
+                    "tomatoes": 1
                 }
             }
         ]
@@ -407,17 +326,19 @@
                 "merchandise": {
                     "tomatoes": 18,
                     "milk": 5,
-                    "pens": 2,
                     "bread": 7
                 }
             },
             {
                 "from": "Catania",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
                 "to": "Cagliari",
                 "merchandise": {
-                    "tomatoes": 12,
-                    "bread": 4,
-                    "honey": 17
+                    "tomatoes": 12
                 }
             },
             {
@@ -425,9 +346,7 @@
                 "to": "Venice",
                 "merchandise": {
                     "tomatoes": 17,
-                    "milk": 11,
-                    "pens": 18,
-                    "honey": 7
+                    "milk": 15
                 }
             },
             {
@@ -450,7 +369,6 @@
                 "from": "Verona",
                 "to": "Bologna",
                 "merchandise": {
-                    "honey": 4,
                     "butter": 5,
                     "pens": 14
                 }
@@ -459,9 +377,31 @@
                 "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
                     "milk": 3
                 }
+            },
+            {
+                "from": "Naples",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
+                "to": "Florence",
+                "merchandise": {
+                    "butter": 19,
+                    "milk": 5
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Cagliari",
+                "merchandise": null
             }
         ]
     },
@@ -472,15 +412,23 @@
         "route": [
             {
                 "from": "Venice",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6
+                    "tomatoes": 18
                 }
             },
             {
                 "from": "Modena",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 18,
@@ -490,13 +438,27 @@
             },
             {
                 "from": "Brescia",
+                "to": "Cagliari",
+                "merchandise": null
+            },
+            {
+                "from": "Cagliari",
                 "to": "Milan",
                 "merchandise": {
-                    "butter": 8,
                     "tomatoes": 6,
                     "bread": 19,
                     "pens": 12
                 }
+            },
+            {
+                "from": "Milan",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Rome",
+                "merchandise": null
             }
         ]
     },
@@ -508,17 +470,13 @@
             {
                 "from": "Brescia",
                 "to": "Cagliari",
-                "merchandise": {
-                    "honey": 17
-                }
+                "merchandise": {}
             },
             {
                 "from": "Cagliari",
                 "to": "Reggio Calabria",
                 "merchandise": {
-                    "bread": 6,
                     "honey": 5,
-                    "pens": 5,
                     "milk": 16,
                     "tomatoes": 14
                 }
@@ -526,28 +484,27 @@
             {
                 "from": "Reggio Calabria",
                 "to": "Naples",
-                "merchandise": {
-                    "pens": 10
-                }
+                "merchandise": {}
             },
             {
                 "from": "Naples",
                 "to": "Rome",
                 "merchandise": {
                     "pens": 11,
-                    "milk": 19,
-                    "bread": 16
+                    "milk": 19
                 }
             },
             {
                 "from": "Rome",
                 "to": "Bari",
                 "merchandise": {
-                    "butter": 17,
-                    "pens": 10,
-                    "honey": 9,
-                    "bread": 5
+                    "pens": 10
                 }
+            },
+            {
+                "from": "Bari",
+                "to": "Pisa",
+                "merchandise": null
             }
         ]
     },
@@ -581,17 +538,20 @@
             {
                 "from": "Brescia",
                 "to": "Syracuse",
-                "merchandise": {
-                    "bread": 9
-                }
+                "merchandise": {}
             },
             {
                 "from": "Syracuse",
                 "to": "Rome",
                 "merchandise": {
                     "milk": 9,
-                    "bread": 5
+                    "bread": 2
                 }
+            },
+            {
+                "from": "Rome",
+                "to": "Turin",
+                "merchandise": null
             }
         ]
     },
@@ -601,7 +561,22 @@
         "sroute": "s6",
         "route": [
             {
+                "from": "Reggio Calabria",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
+                "to": "Modena",
+                "merchandise": null
+            },
+            {
                 "from": "Modena",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Verona",
                 "merchandise": {
                     "milk": 6,
@@ -611,6 +586,11 @@
             },
             {
                 "from": "Verona",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Bari",
                 "merchandise": {
                     "bread": 11,
@@ -623,9 +603,8 @@
                 "to": "Rome",
                 "merchandise": {
                     "bread": 5,
-                    "pens": 18,
-                    "milk": 3,
-                    "honey": 7
+                    "pens": 4,
+                    "milk": 3
                 }
             },
             {
@@ -634,8 +613,7 @@
                 "merchandise": {
                     "butter": 20,
                     "pens": 15,
-                    "bread": 3,
-                    "tomatoes": 17
+                    "bread": 3
                 }
             }
         ]
@@ -647,14 +625,23 @@
         "route": [
             {
                 "from": "Brescia",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
                 "to": "Naples",
                 "merchandise": {
-                    "milk": 4,
-                    "tomatoes": 12
+                    "milk": 4
                 }
             },
             {
                 "from": "Naples",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
                 "to": "Genoa",
                 "merchandise": {
                     "bread": 14,
@@ -667,7 +654,6 @@
                 "to": "Syracuse",
                 "merchandise": {
                     "milk": 5,
-                    "pens": 16,
                     "tomatoes": 15
                 }
             }
@@ -679,11 +665,20 @@
         "sroute": "s8",
         "route": [
             {
+                "from": "Turin",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
+                "to": "Bari",
+                "merchandise": null
+            },
+            {
+                "from": "Bari",
                 "to": "Milan",
                 "merchandise": {
                     "milk": 5,
-                    "honey": 16,
                     "bread": 16
                 }
             },
@@ -705,9 +700,7 @@
             {
                 "from": "Parma",
                 "to": "Reggio Calabria",
-                "merchandise": {
-                    "honey": 18
-                }
+                "merchandise": {}
             }
         ]
     },
@@ -718,10 +711,14 @@
         "route": [
             {
                 "from": "Parma",
+                "to": "Bari",
+                "merchandise": null
+            },
+            {
+                "from": "Bari",
                 "to": "Palermo",
                 "merchandise": {
-                    "tomatoes": 16,
-                    "bread": 2
+                    "tomatoes": 16
                 }
             },
             {
@@ -735,20 +732,26 @@
             },
             {
                 "from": "Pisa",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
                 "to": "Florence",
-                "merchandise": {
-                    "milk": 2,
-                    "pens": 12
-                }
+                "merchandise": {}
             },
             {
                 "from": "Florence",
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "tomatoes": 14,
-                    "bread": 1,
-                    "honey": 18
+                    "bread": 1
                 }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Venice",
+                "merchandise": null
             }
         ]
     },
@@ -758,10 +761,24 @@
         "sroute": "s10",
         "route": [
             {
+                "from": "Turin",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
                 "from": "Florence",
+                "to": "Bari",
+                "merchandise": null
+            },
+            {
+                "from": "Bari",
+                "to": "Modena",
+                "merchandise": null
+            },
+            {
+                "from": "Modena",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 12,
                     "butter": 19,
                     "honey": 10
                 }
@@ -789,26 +806,33 @@
         "sroute": "s1",
         "route": [
             {
+                "from": "Venice",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
                 "from": "Pisa",
-                "to": "Catania",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Cagliari",
                 "merchandise": {
                     "tomatoes": 18,
                     "milk": 5,
                     "pens": 2,
-                    "bread": 7
-                }
-            },
-            {
-                "from": "Catania",
-                "to": "Cagliari",
-                "merchandise": {
-                    "tomatoes": 12,
-                    "bread": 4,
-                    "honey": 17
+                    "bread": 7,
+                    "honey": 4
                 }
             },
             {
                 "from": "Cagliari",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Venice",
                 "merchandise": {
                     "tomatoes": 17,
@@ -820,10 +844,9 @@
                 "to": "Florence",
                 "merchandise": {
                     "tomatoes": 11,
-                    "butter": 9,
+                    "butter": 2,
                     "pens": 19,
-                    "bread": 6,
-                    "milk": 8
+                    "honey": 4
                 }
             }
         ]
@@ -835,12 +858,17 @@
         "route": [
             {
                 "from": "Verona",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
                 "to": "Bologna",
                 "merchandise": {
                     "honey": 4,
                     "butter": 5,
                     "pens": 14,
-                    "milk": 1
+                    "milk": 15
                 }
             },
             {
@@ -848,7 +876,19 @@
                 "to": "Naples",
                 "merchandise": {
                     "honey": 18,
-                    "milk": 3
+                    "milk": 3,
+                    "tomatoes": 9
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Florence",
+                "merchandise": {
+                    "butter": 19,
+                    "milk": 5,
+                    "honey": 2,
+                    "tomatoes": 9,
+                    "bread": 4
                 }
             }
         ]
@@ -859,34 +899,51 @@
         "sroute": "s3",
         "route": [
             {
+                "from": "Pisa",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
                 "to": "Modena",
                 "merchandise": {
                     "tomatoes": 18,
                     "butter": 14,
-                    "milk": 6
+                    "milk": 6,
+                    "honey": 4
                 }
             },
             {
                 "from": "Modena",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 5,
-                    "tomatoes": 1,
+                    "pens": 18,
+                    "tomatoes": 9,
                     "bread": 14,
-                    "honey": 5,
-                    "milk": 9
+                    "honey": 4,
+                    "butter": 14
                 }
             },
             {
                 "from": "Brescia",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
                 "to": "Milan",
                 "merchandise": {
                     "butter": 8,
                     "tomatoes": 6,
                     "bread": 19,
-                    "pens": 12
+                    "pens": 12,
+                    "honey": 4
                 }
+            },
+            {
+                "from": "Milan",
+                "to": "Florence",
+                "merchandise": null
             }
         ]
     },
@@ -895,14 +952,6 @@
         "driver": "d3",
         "sroute": "s4",
         "route": [
-            {
-                "from": "Brescia",
-                "to": "Cagliari",
-                "merchandise": {
-                    "honey": 17,
-                    "milk": 1
-                }
-            },
             {
                 "from": "Cagliari",
                 "to": "Reggio Calabria",
@@ -915,22 +964,30 @@
                 }
             },
             {
+                "from": "Reggio Calabria",
+                "to": "Naples",
+                "merchandise": {
+                    "pens": 10,
+                    "honey": 4,
+                    "butter": 14
+                }
+            },
+            {
                 "from": "Naples",
                 "to": "Rome",
                 "merchandise": {
                     "pens": 11,
                     "milk": 19,
-                    "bread": 15
+                    "tomatoes": 9
                 }
             },
             {
                 "from": "Rome",
-                "to": "Bari",
+                "to": "Cagliari",
                 "merchandise": {
-                    "butter": 9,
+                    "butter": 17,
                     "pens": 10,
-                    "honey": 9,
-                    "milk": 8
+                    "honey": 9
                 }
             }
         ]
@@ -942,9 +999,23 @@
         "route": [
             {
                 "from": "Venice",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 15
+                    "pens": 15,
+                    "honey": 4,
+                    "butter": 14,
+                    "bread": 4,
+                    "milk": 15
                 }
             },
             {
@@ -953,7 +1024,8 @@
                 "merchandise": {
                     "tomatoes": 6,
                     "butter": 18,
-                    "honey": 5
+                    "honey": 4,
+                    "pens": 5
                 }
             },
             {
@@ -961,7 +1033,15 @@
                 "to": "Brescia",
                 "merchandise": {
                     "butter": 6,
-                    "bread": 15
+                    "pens": 5
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Syracuse",
+                "merchandise": {
+                    "bread": 9,
+                    "pens": 5
                 }
             },
             {
@@ -981,20 +1061,12 @@
         "route": [
             {
                 "from": "Modena",
-                "to": "Verona",
+                "to": "Bari",
                 "merchandise": {
                     "milk": 6,
                     "honey": 18,
-                    "butter": 17
-                }
-            },
-            {
-                "from": "Verona",
-                "to": "Bari",
-                "merchandise": {
-                    "bread": 11,
-                    "honey": 17,
-                    "tomatoes": 2
+                    "butter": 17,
+                    "bread": 4
                 }
             },
             {
@@ -1012,9 +1084,15 @@
                 "merchandise": {
                     "butter": 20,
                     "pens": 15,
-                    "bread": 3,
-                    "tomatoes": 17
+                    "tomatoes": 17,
+                    "honey": 4,
+                    "milk": 15
                 }
+            },
+            {
+                "from": "Catania",
+                "to": "Genoa",
+                "merchandise": null
             }
         ]
     },
@@ -1025,19 +1103,56 @@
         "route": [
             {
                 "from": "Brescia",
+                "to": "Catania",
+                "merchandise": null
+            },
+            {
+                "from": "Catania",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "milk": 4
+                    "honey": 4,
+                    "pens": 5
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
+                "from": "Florence",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
+                "to": "Genoa",
+                "merchandise": {
+                    "bread": 14,
+                    "honey": 10,
+                    "tomatoes": 8,
+                    "milk": 15
                 }
             },
             {
                 "from": "Genoa",
                 "to": "Syracuse",
                 "merchandise": {
-                    "milk": 9,
+                    "milk": 5,
                     "pens": 16,
-                    "tomatoes": 15
+                    "tomatoes": 15,
+                    "honey": 4
                 }
+            },
+            {
+                "from": "Syracuse",
+                "to": "Turin",
+                "merchandise": null
             }
         ]
     },
@@ -1047,21 +1162,15 @@
         "sroute": "s8",
         "route": [
             {
-                "from": "Venice",
-                "to": "Milan",
-                "merchandise": {
-                    "milk": 5,
-                    "honey": 16,
-                    "bread": 16
-                }
+                "from": "Milan",
+                "to": "Florence",
+                "merchandise": null
             },
             {
-                "from": "Milan",
+                "from": "Florence",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 1,
-                    "pens": 5,
-                    "milk": 9
+                    "tomatoes": 15
                 }
             },
             {
@@ -1069,15 +1178,23 @@
                 "to": "Parma",
                 "merchandise": {
                     "tomatoes": 17,
-                    "bread": 4
+                    "bread": 4,
+                    "honey": 4,
+                    "pens": 5
                 }
             },
             {
                 "from": "Parma",
-                "to": "Reggio Calabria",
+                "to": "Milan",
                 "merchandise": {
-                    "honey": 18
+                    "honey": 18,
+                    "tomatoes": 9
                 }
+            },
+            {
+                "from": "Milan",
+                "to": "Bologna",
+                "merchandise": null
             }
         ]
     },
@@ -1087,29 +1204,34 @@
         "sroute": "s9",
         "route": [
             {
+                "from": "Brescia",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
                 "from": "Parma",
                 "to": "Palermo",
                 "merchandise": {
                     "tomatoes": 16,
-                    "bread": 2
+                    "bread": 2,
+                    "honey": 4,
+                    "butter": 14
                 }
             },
             {
                 "from": "Palermo",
                 "to": "Pisa",
                 "merchandise": {
-                    "bread": 10,
                     "milk": 18,
-                    "tomatoes": 9
+                    "tomatoes": 9,
+                    "honey": 4
                 }
             },
             {
                 "from": "Pisa",
                 "to": "Florence",
                 "merchandise": {
-                    "milk": 2,
-                    "pens": 12,
-                    "bread": 15
+                    "pens": 12
                 }
             },
             {
@@ -1117,10 +1239,7 @@
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "tomatoes": 14,
-                    "bread": 1,
-                    "honey": 18,
-                    "butter": 9,
-                    "milk": 8
+                    "honey": 18
                 }
             }
         ]
@@ -1140,10 +1259,21 @@
             },
             {
                 "from": "Pisa",
-                "to": "Cagliari",
+                "to": "Brescia",
                 "merchandise": {
-                    "butter": 5
+                    "butter": 5,
+                    "honey": 4
                 }
+            },
+            {
+                "from": "Brescia",
+                "to": "Genoa",
+                "merchandise": null
+            },
+            {
+                "from": "Genoa",
+                "to": "Modena",
+                "merchandise": null
             }
         ]
     },
@@ -1153,17 +1283,17 @@
         "sroute": "s1",
         "route": [
             {
-                "from": "Pisa",
+                "from": "Cagliari",
                 "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "milk": 5,
-                    "pens": 2,
-                    "bread": 7
-                }
+                "merchandise": null
             },
             {
                 "from": "Catania",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Cagliari",
                 "merchandise": {
                     "tomatoes": 12,
@@ -1172,12 +1302,18 @@
                 }
             },
             {
-                "from": "Venice",
-                "to": "Florence",
+                "from": "Cagliari",
+                "to": "Venice",
                 "merchandise": {
-                    "tomatoes": 11,
-                    "butter": 2,
-                    "pens": 19
+                    "tomatoes": 17,
+                    "milk": 15
+                }
+            },
+            {
+                "from": "Venice",
+                "to": "Catania",
+                "merchandise": {
+                    "butter": 2
                 }
             }
         ]
@@ -1189,29 +1325,43 @@
         "route": [
             {
                 "from": "Verona",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Bologna",
                 "merchandise": {
                     "honey": 4,
-                    "butter": 5,
-                    "pens": 14
+                    "butter": 5
                 }
             },
             {
                 "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
-                    "milk": 3
+                    "milk": 3,
+                    "bread": 3
                 }
             },
             {
                 "from": "Naples",
+                "to": "Catania",
+                "merchandise": null
+            },
+            {
+                "from": "Catania",
                 "to": "Florence",
                 "merchandise": {
                     "butter": 19,
                     "milk": 5,
                     "honey": 2
                 }
+            },
+            {
+                "from": "Florence",
+                "to": "Pisa",
+                "merchandise": null
             }
         ]
     },
@@ -1222,31 +1372,44 @@
         "route": [
             {
                 "from": "Venice",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Modena",
                 "merchandise": {
                     "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6
+                    "milk": 6,
+                    "bread": 3
                 }
             },
             {
                 "from": "Modena",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 18,
                     "tomatoes": 9,
-                    "bread": 14
+                    "bread": 14,
+                    "milk": 13
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Milan",
                 "merchandise": {
-                    "butter": 8,
                     "tomatoes": 6,
-                    "bread": 19,
-                    "pens": 12
+                    "bread": 19
                 }
+            },
+            {
+                "from": "Milan",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
+                "from": "Florence",
+                "to": "Catania",
+                "merchandise": null
             }
         ]
     },
@@ -1259,7 +1422,8 @@
                 "from": "Brescia",
                 "to": "Cagliari",
                 "merchandise": {
-                    "honey": 17
+                    "honey": 17,
+                    "bread": 3
                 }
             },
             {
@@ -1277,29 +1441,41 @@
                 "from": "Reggio Calabria",
                 "to": "Naples",
                 "merchandise": {
-                    "pens": 10,
-                    "honey": 7
+                    "milk": 13,
+                    "honey": 16
                 }
             },
             {
                 "from": "Naples",
+                "to": "Catania",
+                "merchandise": null
+            },
+            {
+                "from": "Catania",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Rome",
                 "merchandise": {
                     "pens": 11,
-                    "milk": 19,
-                    "bread": 16,
-                    "honey": 6
+                    "bread": 16
                 }
             },
             {
                 "from": "Rome",
                 "to": "Bari",
                 "merchandise": {
-                    "butter": 8,
+                    "butter": 17,
                     "pens": 10,
                     "honey": 9,
-                    "tomatoes": 8,
-                    "bread": 20
+                    "milk": 13
                 }
             }
         ]
@@ -1310,34 +1486,38 @@
         "sroute": "s5",
         "route": [
             {
+                "from": "Milan",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 15
+                    "honey": 16,
+                    "tomatoes": 4
                 }
             },
             {
                 "from": "Florence",
                 "to": "Catania",
                 "merchandise": {
-                    "tomatoes": 6,
                     "butter": 18,
-                    "honey": 17,
-                    "bread": 13
+                    "milk": 13,
+                    "pens": 4
                 }
             },
             {
                 "from": "Catania",
                 "to": "Brescia",
-                "merchandise": {
-                    "butter": 6
-                }
+                "merchandise": {}
             },
             {
                 "from": "Brescia",
                 "to": "Syracuse",
                 "merchandise": {
-                    "bread": 9
+                    "bread": 9,
+                    "tomatoes": 4
                 }
             },
             {
@@ -1345,7 +1525,7 @@
                 "to": "Rome",
                 "merchandise": {
                     "milk": 9,
-                    "bread": 20
+                    "bread": 2
                 }
             }
         ]
@@ -1357,19 +1537,27 @@
         "route": [
             {
                 "from": "Modena",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
+                "from": "Florence",
                 "to": "Verona",
                 "merchandise": {
                     "milk": 6,
-                    "honey": 18,
-                    "butter": 17
+                    "honey": 18
                 }
             },
             {
                 "from": "Verona",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Bari",
                 "merchandise": {
                     "bread": 11,
-                    "honey": 17,
                     "tomatoes": 2
                 }
             },
@@ -1378,19 +1566,20 @@
                 "to": "Rome",
                 "merchandise": {
                     "bread": 5,
-                    "pens": 4,
-                    "milk": 3
+                    "butter": 19
                 }
             },
             {
                 "from": "Rome",
                 "to": "Catania",
                 "merchandise": {
-                    "butter": 20,
-                    "pens": 15,
-                    "bread": 3,
                     "tomatoes": 17
                 }
+            },
+            {
+                "from": "Catania",
+                "to": "Reggio Calabria",
+                "merchandise": null
             }
         ]
     },
@@ -1400,19 +1589,25 @@
         "sroute": "s7",
         "route": [
             {
-                "from": "Brescia",
-                "to": "Naples",
-                "merchandise": {
-                    "milk": 4
-                }
+                "from": "Naples",
+                "to": "Milan",
+                "merchandise": null
             },
             {
-                "from": "Naples",
+                "from": "Milan",
                 "to": "Genoa",
                 "merchandise": {
                     "bread": 14,
                     "honey": 10,
                     "tomatoes": 8
+                }
+            },
+            {
+                "from": "Genoa",
+                "to": "Naples",
+                "merchandise": {
+                    "pens": 16,
+                    "bread": 3
                 }
             }
         ]
@@ -1424,26 +1619,54 @@
         "route": [
             {
                 "from": "Venice",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
+                "from": "Florence",
                 "to": "Milan",
                 "merchandise": {
                     "milk": 5,
                     "honey": 16,
-                    "bread": 16
+                    "bread": 16,
+                    "tomatoes": 4
                 }
             },
             {
                 "from": "Milan",
+                "to": "Bari",
+                "merchandise": null
+            },
+            {
+                "from": "Bari",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 15
+                    "honey": 16
                 }
             },
             {
                 "from": "Modena",
                 "to": "Parma",
                 "merchandise": {
-                    "tomatoes": 17,
                     "bread": 4
+                }
+            },
+            {
+                "from": "Parma",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "honey": 18,
+                    "milk": 13
                 }
             }
         ]
@@ -1472,10 +1695,33 @@
             },
             {
                 "from": "Pisa",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Genoa",
+                "merchandise": null
+            },
+            {
+                "from": "Genoa",
                 "to": "Florence",
                 "merchandise": {
                     "milk": 2,
-                    "pens": 12
+                    "butter": 19
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "tomatoes": 14,
+                    "bread": 1
                 }
             }
         ]
@@ -1487,19 +1733,36 @@
         "route": [
             {
                 "from": "Florence",
+                "to": "Genoa",
+                "merchandise": null
+            },
+            {
+                "from": "Genoa",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 12,
-                    "butter": 19,
                     "honey": 10
                 }
             },
             {
                 "from": "Brescia",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Pisa",
                 "merchandise": {
                     "tomatoes": 20,
-                    "milk": 1
+                    "milk": 1,
+                    "bread": 3
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Cagliari",
+                "merchandise": {
+                    "milk": 13
                 }
             }
         ]
@@ -1510,30 +1773,38 @@
         "sroute": "s1",
         "route": [
             {
+                "from": "Reggio Calabria",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
                 "from": "Pisa",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
                 "to": "Catania",
                 "merchandise": {
-                    "tomatoes": 18,
                     "milk": 5,
-                    "pens": 9,
                     "bread": 7
                 }
             },
             {
                 "from": "Catania",
-                "to": "Cagliari",
-                "merchandise": {
-                    "tomatoes": 12,
-                    "bread": 4,
-                    "honey": 17
-                }
+                "to": "Naples",
+                "merchandise": null
             },
             {
-                "from": "Cagliari",
+                "from": "Naples",
                 "to": "Venice",
                 "merchandise": {
-                    "tomatoes": 17,
-                    "milk": 15
+                    "honey": 17
                 }
             },
             {
@@ -1542,8 +1813,7 @@
                 "merchandise": {
                     "tomatoes": 11,
                     "butter": 2,
-                    "pens": 19,
-                    "honey": 14
+                    "pens": 19
                 }
             }
         ]
@@ -1555,6 +1825,11 @@
         "route": [
             {
                 "from": "Verona",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
                 "to": "Bologna",
                 "merchandise": {
                     "honey": 4,
@@ -1566,8 +1841,7 @@
                 "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
-                    "milk": 3
+                    "honey": 18
                 }
             }
         ]
@@ -1578,16 +1852,17 @@
         "sroute": "s3",
         "route": [
             {
-                "from": "Venice",
+                "from": "Reggio Calabria",
                 "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6
-                }
+                "merchandise": null
             },
             {
                 "from": "Modena",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 18,
@@ -1597,13 +1872,27 @@
             },
             {
                 "from": "Brescia",
-                "to": "Milan",
+                "to": "Cagliari",
+                "merchandise": null
+            },
+            {
+                "from": "Cagliari",
+                "to": "Modena",
                 "merchandise": {
                     "butter": 8,
-                    "tomatoes": 6,
                     "bread": 19,
                     "pens": 12
                 }
+            },
+            {
+                "from": "Modena",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Rome",
+                "merchandise": null
             }
         ]
     },
@@ -1614,9 +1903,15 @@
         "route": [
             {
                 "from": "Brescia",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
                 "to": "Cagliari",
                 "merchandise": {
-                    "honey": 17
+                    "honey": 17,
+                    "pens": 8
                 }
             },
             {
@@ -1626,7 +1921,6 @@
                     "bread": 10,
                     "honey": 5,
                     "pens": 5,
-                    "milk": 16,
                     "tomatoes": 14
                 }
             },
@@ -1641,9 +1935,8 @@
                 "from": "Naples",
                 "to": "Rome",
                 "merchandise": {
-                    "pens": 15,
-                    "milk": 19,
-                    "bread": 11
+                    "pens": 11,
+                    "bread": 16
                 }
             },
             {
@@ -1651,9 +1944,8 @@
                 "to": "Bari",
                 "merchandise": {
                     "butter": 17,
-                    "pens": 16,
-                    "honey": 9,
-                    "milk": 1
+                    "pens": 10,
+                    "honey": 9
                 }
             }
         ]
@@ -1665,9 +1957,14 @@
         "route": [
             {
                 "from": "Venice",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 9
+                    "pens": 15
                 }
             },
             {
@@ -1680,19 +1977,29 @@
             },
             {
                 "from": "Catania",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Brescia",
                 "merchandise": {
                     "butter": 6,
-                    "milk": 18
+                    "pens": 8
                 }
             },
             {
                 "from": "Brescia",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
                 "to": "Syracuse",
                 "merchandise": {
-                    "bread": 11,
-                    "butter": 4,
-                    "honey": 14
+                    "bread": 9,
+                    "pens": 8,
+                    "butter": 4
                 }
             },
             {
@@ -1700,9 +2007,7 @@
                 "to": "Rome",
                 "merchandise": {
                     "milk": 9,
-                    "bread": 2,
-                    "pens": 16,
-                    "tomatoes": 6
+                    "bread": 2
                 }
             }
         ]
@@ -1714,22 +2019,32 @@
         "route": [
             {
                 "from": "Modena",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Verona",
                 "merchandise": {
-                    "milk": 6,
                     "honey": 18,
-                    "butter": 17,
-                    "pens": 9
+                    "butter": 17
+                }
+            },
+            {
+                "from": "Verona",
+                "to": "Bari",
+                "merchandise": {
+                    "bread": 11,
+                    "honey": 17,
+                    "tomatoes": 2
                 }
             },
             {
                 "from": "Bari",
                 "to": "Rome",
                 "merchandise": {
-                    "bread": 5,
                     "pens": 4,
-                    "milk": 10,
-                    "honey": 6
+                    "milk": 3
                 }
             },
             {
@@ -1741,6 +2056,11 @@
                     "bread": 3,
                     "tomatoes": 17
                 }
+            },
+            {
+                "from": "Catania",
+                "to": "Palermo",
+                "merchandise": null
             }
         ]
     },
@@ -1751,28 +2071,37 @@
         "route": [
             {
                 "from": "Brescia",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
+                "from": "Venice",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Catania",
+                "merchandise": null
+            },
+            {
+                "from": "Catania",
                 "to": "Naples",
-                "merchandise": {
-                    "milk": 4
-                }
+                "merchandise": {}
             },
             {
                 "from": "Naples",
                 "to": "Genoa",
                 "merchandise": {
-                    "bread": 6,
-                    "honey": 6,
+                    "bread": 14,
+                    "honey": 10,
                     "tomatoes": 8,
-                    "milk": 10
-                }
-            },
-            {
-                "from": "Genoa",
-                "to": "Syracuse",
-                "merchandise": {
-                    "milk": 5,
-                    "pens": 16,
-                    "tomatoes": 15
+                    "pens": 8
                 }
             }
         ]
@@ -1783,13 +2112,29 @@
         "sroute": "s8",
         "route": [
             {
+                "from": "Verona",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
                 "to": "Milan",
                 "merchandise": {
                     "milk": 5,
-                    "honey": 16,
                     "bread": 16,
-                    "pens": 9
+                    "tomatoes": 16
+                }
+            },
+            {
+                "from": "Milan",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Modena",
+                "merchandise": {
+                    "tomatoes": 15
                 }
             },
             {
@@ -1797,9 +2142,7 @@
                 "to": "Parma",
                 "merchandise": {
                     "tomatoes": 17,
-                    "bread": 4,
-                    "honey": 6,
-                    "milk": 10
+                    "bread": 4
                 }
             },
             {
@@ -1808,6 +2151,16 @@
                 "merchandise": {
                     "honey": 18
                 }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Genoa",
+                "merchandise": null
             }
         ]
     },
@@ -1821,15 +2174,29 @@
                 "to": "Palermo",
                 "merchandise": {
                     "tomatoes": 16,
-                    "bread": 2,
-                    "pens": 9
+                    "honey": 8
                 }
             },
             {
                 "from": "Palermo",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
                 "to": "Pisa",
                 "merchandise": {
-                    "bread": 6,
+                    "bread": 10,
                     "milk": 18,
                     "tomatoes": 9
                 }
@@ -1847,10 +2214,13 @@
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "tomatoes": 14,
-                    "bread": 11,
-                    "honey": 18,
-                    "butter": 4
+                    "honey": 18
                 }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Bari",
+                "merchandise": null
             }
         ]
     },
@@ -1859,6 +2229,11 @@
         "driver": "d5",
         "sroute": "s10",
         "route": [
+            {
+                "from": "Reggio Calabria",
+                "to": "Florence",
+                "merchandise": null
+            },
             {
                 "from": "Florence",
                 "to": "Brescia",
@@ -1869,13 +2244,28 @@
                 }
             },
             {
+                "from": "Brescia",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Pisa",
+                "merchandise": {
+                    "tomatoes": 20,
+                    "milk": 1
+                }
+            },
+            {
                 "from": "Pisa",
                 "to": "Cagliari",
                 "merchandise": {
-                    "butter": 5,
-                    "honey": 6,
-                    "milk": 10,
-                    "bread": 6
+                    "butter": 5
                 }
             }
         ]
@@ -1886,11 +2276,15 @@
         "sroute": "s1",
         "route": [
             {
+                "from": "Rome",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
                 "from": "Pisa",
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 18,
-                    "milk": 5,
                     "pens": 2,
                     "bread": 7
                 }
@@ -1916,9 +2310,9 @@
                 "from": "Venice",
                 "to": "Florence",
                 "merchandise": {
-                    "tomatoes": 11,
                     "butter": 2,
-                    "pens": 19
+                    "pens": 19,
+                    "milk": 20
                 }
             }
         ]
@@ -1941,8 +2335,7 @@
                 "from": "Bologna",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
-                    "milk": 3
+                    "honey": 18
                 }
             },
             {
@@ -1951,7 +2344,8 @@
                 "merchandise": {
                     "butter": 19,
                     "milk": 5,
-                    "honey": 2
+                    "honey": 2,
+                    "pens": 15
                 }
             }
         ]
@@ -1966,12 +2360,18 @@
                 "to": "Modena",
                 "merchandise": {
                     "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6
+                    "milk": 6,
+                    "pens": 15,
+                    "bread": 16
                 }
             },
             {
                 "from": "Modena",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 18,
@@ -2000,11 +2400,980 @@
                 "from": "Brescia",
                 "to": "Cagliari",
                 "merchandise": {
+                    "pens": 15,
+                    "bread": 16,
+                    "butter": 19
+                }
+            },
+            {
+                "from": "Cagliari",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "bread": 10,
+                    "pens": 5,
+                    "milk": 16,
+                    "tomatoes": 14
+                }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Naples",
+                "merchandise": {
+                    "pens": 10,
+                    "honey": 1
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Rome",
+                "merchandise": {
+                    "milk": 19,
+                    "bread": 16
+                }
+            },
+            {
+                "from": "Rome",
+                "to": "Bari",
+                "merchandise": {
+                    "pens": 10,
+                    "honey": 9,
+                    "milk": 20
+                }
+            },
+            {
+                "from": "Bari",
+                "to": "Verona",
+                "merchandise": null
+            }
+        ]
+    },
+    {
+        "id": "a55",
+        "driver": "d6",
+        "sroute": "s5",
+        "route": [
+            {
+                "from": "Venice",
+                "to": "Florence",
+                "merchandise": {
+                    "butter": 19
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Catania",
+                "merchandise": {
+                    "tomatoes": 6,
+                    "butter": 18,
+                    "milk": 20
+                }
+            },
+            {
+                "from": "Catania",
+                "to": "Brescia",
+                "merchandise": {
+                    "butter": 6
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Syracuse",
+                "merchandise": {
+                    "bread": 9,
+                    "pens": 15
+                }
+            },
+            {
+                "from": "Syracuse",
+                "to": "Rome",
+                "merchandise": {
+                    "milk": 9,
+                    "bread": 2,
+                    "pens": 15
+                }
+            }
+        ]
+    },
+    {
+        "id": "a56",
+        "driver": "d6",
+        "sroute": "s6",
+        "route": [
+            {
+                "from": "Modena",
+                "to": "Verona",
+                "merchandise": {
+                    "honey": 18,
+                    "pens": 15
+                }
+            },
+            {
+                "from": "Verona",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Bari",
+                "merchandise": {
+                    "bread": 11,
+                    "tomatoes": 2,
+                    "milk": 20
+                }
+            },
+            {
+                "from": "Bari",
+                "to": "Rome",
+                "merchandise": {
+                    "bread": 5,
+                    "pens": 4,
+                    "milk": 3,
+                    "honey": 1
+                }
+            },
+            {
+                "from": "Rome",
+                "to": "Catania",
+                "merchandise": {
+                    "butter": 20,
+                    "pens": 15
+                }
+            }
+        ]
+    },
+    {
+        "id": "a57",
+        "driver": "d6",
+        "sroute": "s7",
+        "route": [
+            {
+                "from": "Rome",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Catania",
+                "merchandise": null
+            },
+            {
+                "from": "Catania",
+                "to": "Genoa",
+                "merchandise": {
+                    "milk": 4,
+                    "pens": 15,
+                    "honey": 1
+                }
+            },
+            {
+                "from": "Genoa",
+                "to": "Syracuse",
+                "merchandise": {
+                    "milk": 5,
+                    "pens": 16,
+                    "tomatoes": 15
+                }
+            }
+        ]
+    },
+    {
+        "id": "a58",
+        "driver": "d6",
+        "sroute": "s8",
+        "route": [
+            {
+                "from": "Venice",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Genoa",
+                "merchandise": null
+            },
+            {
+                "from": "Genoa",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
+                "to": "Milan",
+                "merchandise": {
+                    "milk": 5,
+                    "honey": 16,
+                    "bread": 16,
+                    "pens": 15
+                }
+            },
+            {
+                "from": "Milan",
+                "to": "Parma",
+                "merchandise": {
+                    "tomatoes": 15,
+                    "pens": 15,
+                    "milk": 20
+                }
+            },
+            {
+                "from": "Parma",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "honey": 18
+                }
+            }
+        ]
+    },
+    {
+        "id": "a59",
+        "driver": "d6",
+        "sroute": "s9",
+        "route": [
+            {
+                "from": "Verona",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
+                "from": "Venice",
+                "to": "Pisa",
+                "merchandise": {
+                    "bread": 10,
+                    "milk": 18,
+                    "tomatoes": 9
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Florence",
+                "merchandise": {
+                    "milk": 2,
+                    "pens": 12
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Palermo",
+                "merchandise": {
+                    "tomatoes": 14,
+                    "bread": 1,
+                    "honey": 18,
+                    "pens": 15
+                }
+            }
+        ]
+    },
+    {
+        "id": "a60",
+        "driver": "d6",
+        "sroute": "s10",
+        "route": [
+            {
+                "from": "Rome",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
+                "to": "Pisa",
+                "merchandise": {
+                    "tomatoes": 20,
+                    "milk": 1
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Brescia",
+                "merchandise": {
+                    "butter": 5
+                }
+            }
+        ]
+    },
+    {
+        "id": "a61",
+        "driver": "d7",
+        "sroute": "s1",
+        "route": [
+            {
+                "from": "Brescia",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
+                "to": "Catania",
+                "merchandise": {
+                    "tomatoes": 18,
+                    "pens": 2,
+                    "bread": 7,
+                    "butter": 2
+                }
+            },
+            {
+                "from": "Catania",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Venice",
+                "merchandise": {
+                    "tomatoes": 12,
+                    "bread": 4,
+                    "honey": 17,
+                    "butter": 2,
+                    "pens": 8
+                }
+            },
+            {
+                "from": "Venice",
+                "to": "Florence",
+                "merchandise": {
+                    "tomatoes": 11,
+                    "butter": 2,
+                    "pens": 19
+                }
+            }
+        ]
+    },
+    {
+        "id": "a62",
+        "driver": "d7",
+        "sroute": "s2",
+        "route": [
+            {
+                "from": "Verona",
+                "to": "Bologna",
+                "merchandise": {
+                    "butter": 5,
+                    "pens": 14,
+                    "milk": 18
+                }
+            },
+            {
+                "from": "Bologna",
+                "to": "Naples",
+                "merchandise": {
+                    "honey": 18,
+                    "milk": 3,
+                    "pens": 8
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            }
+        ]
+    },
+    {
+        "id": "a63",
+        "driver": "d7",
+        "sroute": "s3",
+        "route": [
+            {
+                "from": "Reggio Calabria",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
+                "from": "Venice",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Modena",
+                "merchandise": {
+                    "tomatoes": 18,
+                    "butter": 14,
+                    "milk": 6,
+                    "bread": 1,
+                    "honey": 20
+                }
+            },
+            {
+                "from": "Modena",
+                "to": "Brescia",
+                "merchandise": {
+                    "pens": 18,
+                    "tomatoes": 9,
+                    "bread": 14
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Milan",
+                "merchandise": {
+                    "bread": 19,
+                    "pens": 12,
+                    "honey": 20
+                }
+            }
+        ]
+    },
+    {
+        "id": "a64",
+        "driver": "d7",
+        "sroute": "s4",
+        "route": [
+            {
+                "from": "Brescia",
+                "to": "Cagliari",
+                "merchandise": {
+                    "honey": 17,
+                    "bread": 1,
+                    "butter": 2,
+                    "pens": 8
+                }
+            },
+            {
+                "from": "Cagliari",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "bread": 10,
+                    "honey": 5,
+                    "pens": 5,
+                    "milk": 16,
+                    "tomatoes": 14,
+                    "butter": 2
+                }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Naples",
+                "merchandise": {
+                    "pens": 10,
+                    "bread": 1,
+                    "butter": 2,
+                    "tomatoes": 3
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Rome",
+                "merchandise": {
+                    "pens": 11,
+                    "milk": 19,
+                    "bread": 16,
+                    "tomatoes": 3
+                }
+            },
+            {
+                "from": "Rome",
+                "to": "Bari",
+                "merchandise": {
+                    "butter": 17,
+                    "pens": 10,
+                    "honey": 9,
+                    "bread": 1,
+                    "milk": 18
+                }
+            }
+        ]
+    },
+    {
+        "id": "a65",
+        "driver": "d7",
+        "sroute": "s5",
+        "route": [
+            {
+                "from": "Venice",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Florence",
+                "merchandise": {
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Catania",
+                "merchandise": {
+                    "tomatoes": 6,
+                    "butter": 18,
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Catania",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Brescia",
+                "merchandise": {
+                    "butter": 6,
+                    "bread": 1,
+                    "honey": 20
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Syracuse",
+                "merchandise": {
+                    "bread": 9,
+                    "butter": 2,
+                    "pens": 8
+                }
+            },
+            {
+                "from": "Syracuse",
+                "to": "Rome",
+                "merchandise": {
+                    "milk": 9,
+                    "bread": 2,
+                    "butter": 2,
+                    "tomatoes": 3
+                }
+            }
+        ]
+    },
+    {
+        "id": "a66",
+        "driver": "d7",
+        "sroute": "s6",
+        "route": [
+            {
+                "from": "Reggio Calabria",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Bari",
+                "merchandise": {
+                    "bread": 11,
+                    "honey": 17,
+                    "tomatoes": 2
+                }
+            },
+            {
+                "from": "Bari",
+                "to": "Rome",
+                "merchandise": {
+                    "bread": 5,
+                    "pens": 4,
+                    "milk": 3,
+                    "tomatoes": 3
+                }
+            },
+            {
+                "from": "Rome",
+                "to": "Verona",
+                "merchandise": {
+                    "butter": 20,
+                    "bread": 3,
+                    "tomatoes": 17,
+                    "honey": 20
+                }
+            }
+        ]
+    },
+    {
+        "id": "a67",
+        "driver": "d7",
+        "sroute": "s7",
+        "route": [
+            {
+                "from": "Brescia",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Naples",
+                "merchandise": {
+                    "milk": 4,
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Genoa",
+                "merchandise": {
+                    "honey": 10,
+                    "tomatoes": 8,
+                    "milk": 18
+                }
+            },
+            {
+                "from": "Genoa",
+                "to": "Syracuse",
+                "merchandise": {
+                    "milk": 5,
+                    "pens": 16,
+                    "tomatoes": 15,
+                    "honey": 20
+                }
+            }
+        ]
+    },
+    {
+        "id": "a68",
+        "driver": "d7",
+        "sroute": "s8",
+        "route": [
+            {
+                "from": "Venice",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
+                "from": "Brescia",
+                "to": "Milan",
+                "merchandise": {
+                    "milk": 5,
+                    "honey": 16,
+                    "bread": 16,
+                    "pens": 8
+                }
+            },
+            {
+                "from": "Milan",
+                "to": "Modena",
+                "merchandise": {
+                    "tomatoes": 15,
+                    "bread": 1,
+                    "butter": 2
+                }
+            },
+            {
+                "from": "Modena",
+                "to": "Parma",
+                "merchandise": {
+                    "tomatoes": 17,
+                    "bread": 4,
+                    "honey": 20
+                }
+            },
+            {
+                "from": "Parma",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "honey": 18,
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Palermo",
+                "merchandise": null
+            }
+        ]
+    },
+    {
+        "id": "a69",
+        "driver": "d7",
+        "sroute": "s9",
+        "route": [
+            {
+                "from": "Brescia",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Modena",
+                "merchandise": null
+            },
+            {
+                "from": "Modena",
+                "to": "Pisa",
+                "merchandise": {
+                    "bread": 10,
+                    "milk": 18,
+                    "tomatoes": 9
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Florence",
+                "merchandise": {
+                    "pens": 12,
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Florence",
+                "to": "Palermo",
+                "merchandise": {
+                    "tomatoes": 14,
+                    "bread": 1,
+                    "honey": 18
+                }
+            }
+        ]
+    },
+    {
+        "id": "a70",
+        "driver": "d7",
+        "sroute": "s10",
+        "route": [
+            {
+                "from": "Florence",
+                "to": "Genoa",
+                "merchandise": null
+            },
+            {
+                "from": "Genoa",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Brescia",
+                "merchandise": {
+                    "pens": 12,
+                    "butter": 19,
+                    "honey": 10,
+                    "bread": 1
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Pisa",
+                "merchandise": {
+                    "tomatoes": 20,
+                    "milk": 1,
+                    "bread": 1,
+                    "honey": 20
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Cagliari",
+                "merchandise": {
+                    "butter": 5,
+                    "honey": 20,
+                    "milk": 18
+                }
+            }
+        ]
+    },
+    {
+        "id": "a71",
+        "driver": "d8",
+        "sroute": "s1",
+        "route": [
+            {
+                "from": "Verona",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
+                "to": "Catania",
+                "merchandise": {
+                    "tomatoes": 18,
+                    "milk": 5,
+                    "pens": 2,
+                    "bread": 7
+                }
+            },
+            {
+                "from": "Catania",
+                "to": "Venice",
+                "merchandise": {
+                    "tomatoes": 12,
+                    "bread": 4,
+                    "honey": 17,
+                    "pens": 6
+                }
+            },
+            {
+                "from": "Venice",
+                "to": "Florence",
+                "merchandise": {
+                    "tomatoes": 11,
+                    "butter": 2,
+                    "pens": 19
+                }
+            }
+        ]
+    },
+    {
+        "id": "a72",
+        "driver": "d8",
+        "sroute": "s2",
+        "route": [
+            {
+                "from": "Syracuse",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Bologna",
+                "merchandise": {
+                    "honey": 4,
+                    "butter": 5,
+                    "pens": 14
+                }
+            },
+            {
+                "from": "Bologna",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
+                "to": "Naples",
+                "merchandise": {
+                    "honey": 18,
+                    "milk": 3,
+                    "pens": 6,
+                    "tomatoes": 3,
+                    "butter": 8
+                }
+            },
+            {
+                "from": "Naples",
+                "to": "Florence",
+                "merchandise": {
+                    "butter": 19,
+                    "milk": 5,
+                    "honey": 2,
+                    "pens": 6
+                }
+            }
+        ]
+    },
+    {
+        "id": "a73",
+        "driver": "d8",
+        "sroute": "s3",
+        "route": [
+            {
+                "from": "Venice",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Modena",
+                "merchandise": {
+                    "tomatoes": 18,
+                    "butter": 14,
+                    "milk": 6,
+                    "pens": 6
+                }
+            },
+            {
+                "from": "Modena",
+                "to": "Brescia",
+                "merchandise": {
+                    "pens": 18,
+                    "tomatoes": 9,
+                    "bread": 14
+                }
+            },
+            {
+                "from": "Brescia",
+                "to": "Milan",
+                "merchandise": {
+                    "butter": 8,
+                    "tomatoes": 6,
+                    "bread": 19,
+                    "pens": 12
+                }
+            },
+            {
+                "from": "Milan",
+                "to": "Parma",
+                "merchandise": null
+            }
+        ]
+    },
+    {
+        "id": "a74",
+        "driver": "d8",
+        "sroute": "s4",
+        "route": [
+            {
+                "from": "Brescia",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Cagliari",
+                "merchandise": {
                     "honey": 17
                 }
             },
             {
                 "from": "Cagliari",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "bread": 10,
@@ -2036,21 +3405,24 @@
                 "merchandise": {
                     "butter": 17,
                     "pens": 10,
-                    "honey": 9
+                    "honey": 9,
+                    "tomatoes": 3,
+                    "bread": 15
                 }
             }
         ]
     },
     {
-        "id": "a55",
-        "driver": "d6",
+        "id": "a75",
+        "driver": "d8",
         "sroute": "s5",
         "route": [
             {
                 "from": "Venice",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 15
+                    "pens": 15,
+                    "bread": 15
                 }
             },
             {
@@ -2058,14 +3430,16 @@
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 6,
-                    "butter": 18
+                    "butter": 18,
+                    "pens": 6
                 }
             },
             {
                 "from": "Catania",
                 "to": "Brescia",
                 "merchandise": {
-                    "butter": 6
+                    "pens": 6,
+                    "honey": 16
                 }
             },
             {
@@ -2080,18 +3454,39 @@
                 "to": "Rome",
                 "merchandise": {
                     "milk": 9,
-                    "bread": 2
+                    "bread": 2,
+                    "pens": 6
                 }
+            },
+            {
+                "from": "Rome",
+                "to": "Parma",
+                "merchandise": null
             }
         ]
     },
     {
-        "id": "a56",
-        "driver": "d6",
+        "id": "a76",
+        "driver": "d8",
         "sroute": "s6",
         "route": [
             {
                 "from": "Modena",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Bologna",
+                "merchandise": null
+            },
+            {
+                "from": "Bologna",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
                 "to": "Verona",
                 "merchandise": {
                     "milk": 6,
@@ -2105,7 +3500,9 @@
                 "merchandise": {
                     "bread": 11,
                     "honey": 17,
-                    "tomatoes": 2
+                    "tomatoes": 2,
+                    "pens": 6,
+                    "milk": 12
                 }
             },
             {
@@ -2130,19 +3527,35 @@
         ]
     },
     {
-        "id": "a57",
-        "driver": "d6",
+        "id": "a77",
+        "driver": "d8",
         "sroute": "s7",
         "route": [
             {
+                "from": "Rome",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
                 "from": "Brescia",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
                 "to": "Naples",
                 "merchandise": {
-                    "milk": 4
+                    "milk": 4,
+                    "pens": 6
                 }
             },
             {
                 "from": "Naples",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
                 "to": "Genoa",
                 "merchandise": {
                     "bread": 14,
@@ -2158,14 +3571,24 @@
                     "pens": 16,
                     "tomatoes": 15
                 }
+            },
+            {
+                "from": "Syracuse",
+                "to": "Verona",
+                "merchandise": null
             }
         ]
     },
     {
-        "id": "a58",
-        "driver": "d6",
+        "id": "a78",
+        "driver": "d8",
         "sroute": "s8",
         "route": [
+            {
+                "from": "Turin",
+                "to": "Venice",
+                "merchandise": null
+            },
             {
                 "from": "Venice",
                 "to": "Milan",
@@ -2179,7 +3602,9 @@
                 "from": "Milan",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 15
+                    "tomatoes": 15,
+                    "pens": 6,
+                    "honey": 16
                 }
             },
             {
@@ -2187,23 +3612,52 @@
                 "to": "Parma",
                 "merchandise": {
                     "tomatoes": 17,
-                    "bread": 4
+                    "bread": 4,
+                    "pens": 6
                 }
             },
             {
                 "from": "Parma",
                 "to": "Reggio Calabria",
                 "merchandise": {
-                    "honey": 18
+                    "honey": 18,
+                    "tomatoes": 3,
+                    "milk": 12,
+                    "butter": 8
                 }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Genoa",
+                "merchandise": null
             }
         ]
     },
     {
-        "id": "a59",
-        "driver": "d6",
+        "id": "a79",
+        "driver": "d8",
         "sroute": "s9",
         "route": [
+            {
+                "from": "Cagliari",
+                "to": "Milan",
+                "merchandise": null
+            },
+            {
+                "from": "Milan",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
+                "to": "Parma",
+                "merchandise": null
+            },
             {
                 "from": "Parma",
                 "to": "Palermo",
@@ -2235,792 +3689,8 @@
                 "merchandise": {
                     "tomatoes": 14,
                     "bread": 1,
-                    "honey": 18
-                }
-            }
-        ]
-    },
-    {
-        "id": "a60",
-        "driver": "d6",
-        "sroute": "s10",
-        "route": [
-            {
-                "from": "Florence",
-                "to": "Brescia",
-                "merchandise": {
-                    "pens": 12,
-                    "butter": 19,
-                    "honey": 10
-                }
-            },
-            {
-                "from": "Brescia",
-                "to": "Pisa",
-                "merchandise": {
-                    "tomatoes": 20,
-                    "milk": 1
-                }
-            },
-            {
-                "from": "Pisa",
-                "to": "Cagliari",
-                "merchandise": {
-                    "butter": 5
-                }
-            }
-        ]
-    },
-    {
-        "id": "a61",
-        "driver": "d7",
-        "sroute": "s1",
-        "route": [
-            {
-                "from": "Pisa",
-                "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "milk": 5,
-                    "pens": 2,
-                    "bread": 7
-                }
-            },
-            {
-                "from": "Catania",
-                "to": "Cagliari",
-                "merchandise": {
-                    "tomatoes": 12,
-                    "bread": 4,
-                    "honey": 17
-                }
-            },
-            {
-                "from": "Cagliari",
-                "to": "Venice",
-                "merchandise": {
-                    "tomatoes": 17,
-                    "milk": 15,
-                    "honey": 2
-                }
-            },
-            {
-                "from": "Venice",
-                "to": "Florence",
-                "merchandise": {
-                    "tomatoes": 11,
-                    "butter": 2,
-                    "pens": 15
-                }
-            }
-        ]
-    },
-    {
-        "id": "a62",
-        "driver": "d7",
-        "sroute": "s2",
-        "route": [
-            {
-                "from": "Verona",
-                "to": "Bologna",
-                "merchandise": {
-                    "honey": 4,
-                    "butter": 5,
-                    "pens": 14
-                }
-            },
-            {
-                "from": "Bologna",
-                "to": "Naples",
-                "merchandise": {
                     "honey": 18,
-                    "milk": 3,
-                    "pens": 20
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Florence",
-                "merchandise": {
-                    "butter": 19,
-                    "milk": 5,
-                    "honey": 2,
-                    "pens": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a63",
-        "driver": "d7",
-        "sroute": "s3",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6,
-                    "pens": 15
-                }
-            },
-            {
-                "from": "Modena",
-                "to": "Brescia",
-                "merchandise": {
-                    "pens": 20,
-                    "tomatoes": 9,
-                    "bread": 14,
-                    "honey": 17
-                }
-            },
-            {
-                "from": "Brescia",
-                "to": "Milan",
-                "merchandise": {
-                    "butter": 8,
-                    "tomatoes": 6,
-                    "bread": 19,
-                    "pens": 2,
-                    "honey": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a64",
-        "driver": "d7",
-        "sroute": "s4",
-        "route": [
-            {
-                "from": "Brescia",
-                "to": "Cagliari",
-                "merchandise": {
-                    "honey": 17,
-                    "pens": 15
-                }
-            },
-            {
-                "from": "Cagliari",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "bread": 10,
-                    "honey": 5,
-                    "pens": 20,
-                    "milk": 16,
-                    "tomatoes": 14
-                }
-            },
-            {
-                "from": "Reggio Calabria",
-                "to": "Naples",
-                "merchandise": {
-                    "pens": 2
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Rome",
-                "merchandise": {
-                    "pens": 11,
-                    "milk": 19,
-                    "bread": 16
-                }
-            },
-            {
-                "from": "Rome",
-                "to": "Bari",
-                "merchandise": {
-                    "butter": 17,
-                    "pens": 16,
-                    "honey": 9
-                }
-            }
-        ]
-    },
-    {
-        "id": "a65",
-        "driver": "d7",
-        "sroute": "s5",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Florence",
-                "merchandise": {
-                    "pens": 15
-                }
-            },
-            {
-                "from": "Florence",
-                "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 6,
-                    "butter": 18
-                }
-            },
-            {
-                "from": "Catania",
-                "to": "Brescia",
-                "merchandise": {
-                    "butter": 6,
-                    "pens": 2
-                }
-            },
-            {
-                "from": "Syracuse",
-                "to": "Rome",
-                "merchandise": {
-                    "milk": 9,
-                    "bread": 2,
-                    "pens": 15,
-                    "tomatoes": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a66",
-        "driver": "d7",
-        "sroute": "s6",
-        "route": [
-            {
-                "from": "Modena",
-                "to": "Verona",
-                "merchandise": {
-                    "milk": 6,
-                    "honey": 18,
-                    "butter": 17
-                }
-            },
-            {
-                "from": "Verona",
-                "to": "Bari",
-                "merchandise": {
-                    "bread": 11,
-                    "honey": 17,
-                    "tomatoes": 2,
-                    "pens": 20
-                }
-            },
-            {
-                "from": "Rome",
-                "to": "Catania",
-                "merchandise": {
-                    "butter": 20,
-                    "pens": 15,
-                    "bread": 3,
-                    "tomatoes": 17,
-                    "honey": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a67",
-        "driver": "d7",
-        "sroute": "s7",
-        "route": [
-            {
-                "from": "Brescia",
-                "to": "Naples",
-                "merchandise": {
-                    "milk": 4
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Genoa",
-                "merchandise": {
-                    "bread": 14,
-                    "honey": 17,
-                    "tomatoes": 8,
-                    "pens": 20
-                }
-            }
-        ]
-    },
-    {
-        "id": "a68",
-        "driver": "d7",
-        "sroute": "s8",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Milan",
-                "merchandise": {
-                    "milk": 5,
-                    "honey": 16,
-                    "bread": 16
-                }
-            },
-            {
-                "from": "Milan",
-                "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 15,
-                    "honey": 17
-                }
-            },
-            {
-                "from": "Parma",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "honey": 2,
-                    "pens": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a69",
-        "driver": "d7",
-        "sroute": "s9",
-        "route": [
-            {
-                "from": "Parma",
-                "to": "Palermo",
-                "merchandise": {
-                    "tomatoes": 16,
-                    "bread": 2,
-                    "pens": 15
-                }
-            },
-            {
-                "from": "Palermo",
-                "to": "Pisa",
-                "merchandise": {
-                    "bread": 10,
-                    "milk": 18,
-                    "tomatoes": 9,
-                    "honey": 17,
-                    "pens": 20
-                }
-            },
-            {
-                "from": "Florence",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "tomatoes": 14,
-                    "bread": 1,
-                    "honey": 2,
-                    "pens": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a70",
-        "driver": "d7",
-        "sroute": "s10",
-        "route": [
-            {
-                "from": "Florence",
-                "to": "Brescia",
-                "merchandise": {
-                    "pens": 12,
-                    "butter": 19,
-                    "honey": 10
-                }
-            },
-            {
-                "from": "Brescia",
-                "to": "Pisa",
-                "merchandise": {
-                    "tomatoes": 20,
-                    "milk": 1,
-                    "honey": 17
-                }
-            },
-            {
-                "from": "Pisa",
-                "to": "Cagliari",
-                "merchandise": {
-                    "butter": 5,
-                    "pens": 2,
-                    "honey": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a71",
-        "driver": "d8",
-        "sroute": "s1",
-        "route": [
-            {
-                "from": "Pisa",
-                "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "milk": 5,
-                    "pens": 2,
-                    "bread": 4,
-                    "butter": 14
-                }
-            },
-            {
-                "from": "Catania",
-                "to": "Cagliari",
-                "merchandise": {
-                    "tomatoes": 12,
-                    "bread": 4,
-                    "honey": 17
-                }
-            },
-            {
-                "from": "Cagliari",
-                "to": "Venice",
-                "merchandise": {
-                    "tomatoes": 17,
-                    "milk": 2,
-                    "pens": 19,
-                    "honey": 5
-                }
-            },
-            {
-                "from": "Venice",
-                "to": "Florence",
-                "merchandise": {
-                    "tomatoes": 11,
-                    "butter": 2,
-                    "pens": 19,
-                    "honey": 1
-                }
-            }
-        ]
-    },
-    {
-        "id": "a72",
-        "driver": "d8",
-        "sroute": "s2",
-        "route": [
-            {
-                "from": "Verona",
-                "to": "Bologna",
-                "merchandise": {
-                    "honey": 4,
-                    "butter": 14,
-                    "pens": 14,
-                    "bread": 4
-                }
-            },
-            {
-                "from": "Bologna",
-                "to": "Naples",
-                "merchandise": {
-                    "honey": 18,
-                    "milk": 3,
-                    "butter": 8,
-                    "tomatoes": 7
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Florence",
-                "merchandise": {
-                    "butter": 19,
-                    "milk": 5,
-                    "honey": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a73",
-        "driver": "d8",
-        "sroute": "s3",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6,
-                    "bread": 4,
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Modena",
-                "to": "Brescia",
-                "merchandise": {
-                    "pens": 14,
-                    "tomatoes": 9,
-                    "bread": 14
-                }
-            },
-            {
-                "from": "Brescia",
-                "to": "Milan",
-                "merchandise": {
-                    "butter": 8,
-                    "tomatoes": 6,
-                    "bread": 19,
-                    "pens": 19,
-                    "milk": 2,
-                    "honey": 5
-                }
-            }
-        ]
-    },
-    {
-        "id": "a74",
-        "driver": "d8",
-        "sroute": "s4",
-        "route": [
-            {
-                "from": "Brescia",
-                "to": "Cagliari",
-                "merchandise": {
-                    "honey": 17,
-                    "bread": 4,
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Cagliari",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "bread": 10,
-                    "honey": 5,
-                    "pens": 14,
-                    "milk": 16,
-                    "tomatoes": 7,
-                    "butter": 8
-                }
-            },
-            {
-                "from": "Reggio Calabria",
-                "to": "Naples",
-                "merchandise": {
-                    "pens": 19,
-                    "milk": 2,
-                    "honey": 5
-                }
-            },
-            {
-                "from": "Naples",
-                "to": "Rome",
-                "merchandise": {
-                    "pens": 11,
-                    "milk": 19,
-                    "bread": 16
-                }
-            },
-            {
-                "from": "Rome",
-                "to": "Bari",
-                "merchandise": {
-                    "butter": 17,
-                    "pens": 10,
-                    "honey": 9
-                }
-            }
-        ]
-    },
-    {
-        "id": "a75",
-        "driver": "d8",
-        "sroute": "s5",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Florence",
-                "merchandise": {
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Florence",
-                "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 6,
-                    "butter": 8
-                }
-            },
-            {
-                "from": "Catania",
-                "to": "Brescia",
-                "merchandise": {
-                    "butter": 6,
-                    "milk": 2
-                }
-            },
-            {
-                "from": "Brescia",
-                "to": "Syracuse",
-                "merchandise": {
-                    "bread": 9,
-                    "honey": 1
-                }
-            },
-            {
-                "from": "Syracuse",
-                "to": "Rome",
-                "merchandise": {
-                    "milk": 9,
-                    "bread": 2
-                }
-            }
-        ]
-    },
-    {
-        "id": "a76",
-        "driver": "d8",
-        "sroute": "s6",
-        "route": [
-            {
-                "from": "Modena",
-                "to": "Verona",
-                "merchandise": {
-                    "milk": 6,
-                    "honey": 18,
-                    "butter": 14,
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Verona",
-                "to": "Bari",
-                "merchandise": {
-                    "bread": 11,
-                    "honey": 17,
-                    "tomatoes": 2
-                }
-            },
-            {
-                "from": "Bari",
-                "to": "Rome",
-                "merchandise": {
-                    "bread": 5,
-                    "pens": 19,
-                    "milk": 3,
-                    "honey": 5
-                }
-            },
-            {
-                "from": "Rome",
-                "to": "Catania",
-                "merchandise": {
-                    "butter": 20,
-                    "pens": 15,
-                    "bread": 3,
-                    "tomatoes": 17
-                }
-            }
-        ]
-    },
-    {
-        "id": "a77",
-        "driver": "d8",
-        "sroute": "s7",
-        "route": [
-            {
-                "from": "Naples",
-                "to": "Genoa",
-                "merchandise": {
-                    "bread": 14,
-                    "honey": 10,
-                    "tomatoes": 8,
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Genoa",
-                "to": "Syracuse",
-                "merchandise": {
-                    "milk": 5,
-                    "pens": 16,
-                    "tomatoes": 7
-                }
-            }
-        ]
-    },
-    {
-        "id": "a78",
-        "driver": "d8",
-        "sroute": "s8",
-        "route": [
-            {
-                "from": "Venice",
-                "to": "Milan",
-                "merchandise": {
-                    "milk": 5,
-                    "honey": 16,
-                    "bread": 4,
-                    "pens": 3
-                }
-            },
-            {
-                "from": "Milan",
-                "to": "Modena",
-                "merchandise": {
-                    "tomatoes": 15,
-                    "pens": 14
-                }
-            },
-            {
-                "from": "Modena",
-                "to": "Parma",
-                "merchandise": {
-                    "tomatoes": 17,
-                    "bread": 4,
-                    "milk": 2,
-                    "honey": 5
-                }
-            },
-            {
-                "from": "Parma",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "honey": 18,
-                    "pens": 7
-                }
-            }
-        ]
-    },
-    {
-        "id": "a79",
-        "driver": "d8",
-        "sroute": "s9",
-        "route": [
-            {
-                "from": "Parma",
-                "to": "Palermo",
-                "merchandise": {
-                    "tomatoes": 16,
-                    "bread": 2,
-                    "butter": 14
-                }
-            },
-            {
-                "from": "Palermo",
-                "to": "Pisa",
-                "merchandise": {
-                    "bread": 10,
-                    "milk": 18,
-                    "tomatoes": 7,
-                    "pens": 14,
-                    "butter": 8
-                }
-            },
-            {
-                "from": "Pisa",
-                "to": "Florence",
-                "merchandise": {
-                    "milk": 2,
-                    "pens": 12
-                }
-            },
-            {
-                "from": "Florence",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "tomatoes": 14,
-                    "bread": 1,
-                    "honey": 18
+                    "pens": 6
                 }
             }
         ]
@@ -3041,19 +3711,30 @@
             },
             {
                 "from": "Brescia",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
+                "to": "Verona",
+                "merchandise": null
+            },
+            {
+                "from": "Verona",
                 "to": "Pisa",
                 "merchandise": {
-                    "tomatoes": 7,
+                    "tomatoes": 20,
                     "milk": 1,
-                    "pens": 14,
-                    "butter": 8
+                    "pens": 6
                 }
             },
             {
                 "from": "Pisa",
                 "to": "Cagliari",
                 "merchandise": {
-                    "butter": 5
+                    "butter": 5,
+                    "pens": 6,
+                    "tomatoes": 3
                 }
             }
         ]
@@ -3065,38 +3746,49 @@
         "route": [
             {
                 "from": "Pisa",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 18,
                     "milk": 5,
-                    "pens": 2,
-                    "bread": 7
+                    "pens": 2
                 }
             },
             {
                 "from": "Catania",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Cagliari",
                 "merchandise": {
-                    "tomatoes": 12,
                     "bread": 4,
-                    "honey": 17
+                    "pens": 10,
+                    "butter": 11
                 }
             },
             {
                 "from": "Cagliari",
                 "to": "Venice",
                 "merchandise": {
-                    "tomatoes": 20,
-                    "milk": 16
+                    "tomatoes": 17,
+                    "milk": 15,
+                    "pens": 10
                 }
             },
             {
                 "from": "Venice",
                 "to": "Florence",
                 "merchandise": {
-                    "tomatoes": 8,
+                    "tomatoes": 11,
                     "butter": 2,
-                    "pens": 19
+                    "pens": 19,
+                    "milk": 2
                 }
             }
         ]
@@ -3110,28 +3802,44 @@
                 "from": "Verona",
                 "to": "Bologna",
                 "merchandise": {
-                    "honey": 4,
-                    "butter": 5,
-                    "pens": 14
+                    "tomatoes": 18
                 }
             },
             {
                 "from": "Bologna",
+                "to": "Cagliari",
+                "merchandise": null
+            },
+            {
+                "from": "Cagliari",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 18,
-                    "milk": 3
+                    "milk": 3,
+                    "butter": 11
                 }
             },
             {
                 "from": "Naples",
                 "to": "Florence",
                 "merchandise": {
-                    "butter": 19,
-                    "milk": 16,
-                    "honey": 2,
-                    "tomatoes": 20
+                    "milk": 5,
+                    "pens": 10
                 }
+            },
+            {
+                "from": "Florence",
+                "to": "Palermo",
+                "merchandise": null
             }
         ]
     },
@@ -3141,33 +3849,53 @@
         "sroute": "s3",
         "route": [
             {
+                "from": "Bari",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
+                "to": "Florence",
+                "merchandise": null
+            },
+            {
+                "from": "Florence",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Modena",
                 "merchandise": {
                     "tomatoes": 18,
                     "butter": 14,
                     "milk": 6,
-                    "pens": 1,
-                    "bread": 13
+                    "bread": 7
                 }
             },
             {
                 "from": "Modena",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 18,
                     "tomatoes": 9,
-                    "bread": 14
+                    "bread": 14,
+                    "milk": 2
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Milan",
                 "merchandise": {
-                    "butter": 8,
                     "tomatoes": 6,
                     "bread": 19,
-                    "pens": 12
+                    "pens": 12,
+                    "milk": 2,
+                    "honey": 20
                 }
             }
         ]
@@ -3181,22 +3909,36 @@
                 "from": "Brescia",
                 "to": "Cagliari",
                 "merchandise": {
-                    "honey": 17
+                    "honey": 17,
+                    "milk": 2
                 }
             },
             {
                 "from": "Cagliari",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
                 "to": "Reggio Calabria",
                 "merchandise": {
                     "bread": 10,
-                    "honey": 5,
                     "pens": 5,
-                    "milk": 16,
-                    "tomatoes": 14
+                    "milk": 16
                 }
             },
             {
                 "from": "Reggio Calabria",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
+                "from": "Venice",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
                 "to": "Naples",
                 "merchandise": {
                     "pens": 10
@@ -3208,18 +3950,21 @@
                 "merchandise": {
                     "pens": 11,
                     "milk": 19,
-                    "bread": 16,
-                    "tomatoes": 8
+                    "bread": 16
                 }
             },
             {
                 "from": "Rome",
                 "to": "Bari",
                 "merchandise": {
-                    "butter": 17,
                     "pens": 10,
-                    "honey": 9
+                    "milk": 2
                 }
+            },
+            {
+                "from": "Bari",
+                "to": "Syracuse",
+                "merchandise": null
             }
         ]
     },
@@ -3232,41 +3977,50 @@
                 "from": "Venice",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 15
+                    "tomatoes": 18,
+                    "honey": 20
                 }
             },
             {
                 "from": "Florence",
+                "to": "Modena",
+                "merchandise": null
+            },
+            {
+                "from": "Modena",
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 6,
-                    "butter": 18
+                    "butter": 18,
+                    "milk": 2
                 }
             },
             {
                 "from": "Catania",
                 "to": "Brescia",
                 "merchandise": {
-                    "butter": 6
+                    "milk": 2
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Syracuse",
                 "merchandise": {
-                    "bread": 9,
-                    "tomatoes": 8
+                    "tomatoes": 18
                 }
             },
             {
                 "from": "Syracuse",
                 "to": "Rome",
                 "merchandise": {
-                    "milk": 19,
-                    "bread": 2,
-                    "honey": 8,
-                    "pens": 13
+                    "milk": 9,
+                    "pens": 10
                 }
+            },
+            {
+                "from": "Rome",
+                "to": "Palermo",
+                "merchandise": null
             }
         ]
     },
@@ -3277,11 +4031,15 @@
         "route": [
             {
                 "from": "Modena",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
                 "to": "Verona",
                 "merchandise": {
                     "milk": 6,
-                    "honey": 18,
-                    "butter": 17
+                    "bread": 7
                 }
             },
             {
@@ -3290,7 +4048,8 @@
                 "merchandise": {
                     "bread": 11,
                     "honey": 17,
-                    "tomatoes": 2
+                    "milk": 2,
+                    "pens": 10
                 }
             },
             {
@@ -3298,18 +4057,17 @@
                 "to": "Rome",
                 "merchandise": {
                     "bread": 5,
-                    "pens": 4,
-                    "milk": 3
+                    "honey": 20
                 }
             },
             {
                 "from": "Rome",
                 "to": "Catania",
                 "merchandise": {
-                    "butter": 20,
                     "pens": 15,
                     "bread": 3,
-                    "tomatoes": 17
+                    "tomatoes": 17,
+                    "milk": 2
                 }
             }
         ]
@@ -3319,6 +4077,16 @@
         "driver": "d9",
         "sroute": "s7",
         "route": [
+            {
+                "from": "Venice",
+                "to": "Palermo",
+                "merchandise": null
+            },
+            {
+                "from": "Palermo",
+                "to": "Brescia",
+                "merchandise": null
+            },
             {
                 "from": "Brescia",
                 "to": "Naples",
@@ -3332,17 +4100,17 @@
                 "merchandise": {
                     "bread": 14,
                     "honey": 10,
-                    "tomatoes": 8
+                    "tomatoes": 8,
+                    "milk": 2
                 }
             },
             {
                 "from": "Genoa",
                 "to": "Syracuse",
                 "merchandise": {
-                    "milk": 16,
+                    "milk": 5,
                     "pens": 16,
-                    "tomatoes": 15,
-                    "butter": 7
+                    "tomatoes": 15
                 }
             }
         ]
@@ -3356,16 +4124,20 @@
                 "from": "Venice",
                 "to": "Milan",
                 "merchandise": {
-                    "milk": 5,
-                    "honey": 16,
-                    "bread": 16
+                    "bread": 16,
+                    "pens": 10,
+                    "tomatoes": 18
                 }
             },
             {
                 "from": "Milan",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 15
+                    "tomatoes": 15,
+                    "milk": 2,
+                    "pens": 10,
+                    "bread": 7,
+                    "honey": 20
                 }
             },
             {
@@ -3380,8 +4152,14 @@
                 "from": "Parma",
                 "to": "Reggio Calabria",
                 "merchandise": {
-                    "honey": 18
+                    "milk": 2,
+                    "pens": 10
                 }
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Palermo",
+                "merchandise": null
             }
         ]
     },
@@ -3391,29 +4169,57 @@
         "sroute": "s9",
         "route": [
             {
+                "from": "Catania",
+                "to": "Turin",
+                "merchandise": null
+            },
+            {
+                "from": "Turin",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
                 "from": "Parma",
                 "to": "Palermo",
                 "merchandise": {
                     "tomatoes": 16,
-                    "bread": 2
+                    "bread": 2,
+                    "milk": 2
                 }
             },
             {
                 "from": "Palermo",
+                "to": "Bari",
+                "merchandise": null
+            },
+            {
+                "from": "Bari",
                 "to": "Pisa",
                 "merchandise": {
-                    "bread": 10,
                     "milk": 18,
-                    "tomatoes": 2
+                    "tomatoes": 9
+                }
+            },
+            {
+                "from": "Pisa",
+                "to": "Florence",
+                "merchandise": {
+                    "milk": 2,
+                    "pens": 12
                 }
             },
             {
                 "from": "Florence",
                 "to": "Reggio Calabria",
                 "merchandise": {
-                    "tomatoes": 20,
+                    "tomatoes": 14,
                     "bread": 1,
-                    "honey": 18
+                    "milk": 2
                 }
             }
         ]
@@ -3425,27 +4231,44 @@
         "route": [
             {
                 "from": "Florence",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
+                "from": "Venice",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 12,
                     "butter": 19,
-                    "honey": 10
+                    "honey": 10,
+                    "milk": 2
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Pisa",
                 "merchandise": {
-                    "tomatoes": 2,
-                    "milk": 1
+                    "tomatoes": 20,
+                    "milk": 1,
+                    "pens": 10
                 }
             },
             {
                 "from": "Pisa",
                 "to": "Cagliari",
                 "merchandise": {
-                    "butter": 5
+                    "milk": 2
                 }
+            },
+            {
+                "from": "Cagliari",
+                "to": "Palermo",
+                "merchandise": null
             }
         ]
     },
@@ -3459,9 +4282,9 @@
                 "to": "Catania",
                 "merchandise": {
                     "tomatoes": 18,
-                    "milk": 13,
-                    "pens": 14,
-                    "bread": 7
+                    "milk": 5,
+                    "bread": 7,
+                    "honey": 11
                 }
             },
             {
@@ -3469,7 +4292,6 @@
                 "to": "Cagliari",
                 "merchandise": {
                     "tomatoes": 12,
-                    "bread": 4,
                     "honey": 17
                 }
             },
@@ -3486,9 +4308,7 @@
                 "to": "Florence",
                 "merchandise": {
                     "tomatoes": 11,
-                    "butter": 2,
-                    "pens": 19,
-                    "honey": 4
+                    "pens": 19
                 }
             }
         ]
@@ -3502,18 +4322,21 @@
                 "from": "Verona",
                 "to": "Bologna",
                 "merchandise": {
-                    "honey": 5,
                     "butter": 5,
-                    "pens": 14,
-                    "milk": 13
+                    "pens": 14
                 }
             },
             {
                 "from": "Bologna",
+                "to": "Rome",
+                "merchandise": null
+            },
+            {
+                "from": "Rome",
                 "to": "Naples",
                 "merchandise": {
-                    "honey": 8,
-                    "milk": 8
+                    "tomatoes": 13,
+                    "butter": 3
                 }
             },
             {
@@ -3521,10 +4344,13 @@
                 "to": "Florence",
                 "merchandise": {
                     "butter": 19,
-                    "milk": 5,
-                    "honey": 2,
-                    "bread": 20
+                    "honey": 2
                 }
+            },
+            {
+                "from": "Florence",
+                "to": "Syracuse",
+                "merchandise": null
             }
         ]
     },
@@ -3538,19 +4364,21 @@
                 "to": "Modena",
                 "merchandise": {
                     "tomatoes": 18,
-                    "butter": 14,
-                    "milk": 6,
-                    "pens": 14
+                    "milk": 6
                 }
             },
             {
                 "from": "Modena",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
                 "to": "Brescia",
                 "merchandise": {
                     "pens": 18,
                     "tomatoes": 9,
-                    "bread": 14,
-                    "honey": 8
+                    "bread": 14
                 }
             },
             {
@@ -3558,11 +4386,15 @@
                 "to": "Milan",
                 "merchandise": {
                     "butter": 8,
-                    "tomatoes": 13,
+                    "tomatoes": 6,
                     "bread": 19,
-                    "pens": 12,
-                    "honey": 5
+                    "pens": 12
                 }
+            },
+            {
+                "from": "Milan",
+                "to": "Turin",
+                "merchandise": null
             }
         ]
     },
@@ -3572,11 +4404,36 @@
         "sroute": "s4",
         "route": [
             {
+                "from": "Verona",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
                 "from": "Brescia",
                 "to": "Cagliari",
                 "merchandise": {
-                    "honey": 17,
-                    "milk": 13
+                    "honey": 17
+                }
+            },
+            {
+                "from": "Cagliari",
+                "to": "Syracuse",
+                "merchandise": null
+            },
+            {
+                "from": "Syracuse",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
+                "to": "Reggio Calabria",
+                "merchandise": {
+                    "bread": 10,
+                    "honey": 5,
+                    "pens": 5,
+                    "milk": 16,
+                    "tomatoes": 14
                 }
             },
             {
@@ -3584,7 +4441,7 @@
                 "to": "Naples",
                 "merchandise": {
                     "pens": 10,
-                    "honey": 8
+                    "tomatoes": 13
                 }
             },
             {
@@ -3593,7 +4450,8 @@
                 "merchandise": {
                     "pens": 11,
                     "milk": 19,
-                    "bread": 16
+                    "bread": 16,
+                    "tomatoes": 13
                 }
             },
             {
@@ -3602,7 +4460,7 @@
                 "merchandise": {
                     "butter": 17,
                     "pens": 10,
-                    "honey": 4
+                    "tomatoes": 13
                 }
             }
         ]
@@ -3613,47 +4471,52 @@
         "sroute": "s5",
         "route": [
             {
+                "from": "Milan",
+                "to": "Venice",
+                "merchandise": null
+            },
+            {
                 "from": "Venice",
+                "to": "Parma",
+                "merchandise": null
+            },
+            {
+                "from": "Parma",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
                 "to": "Florence",
                 "merchandise": {
-                    "pens": 14,
-                    "honey": 5
+                    "pens": 15
                 }
             },
             {
                 "from": "Florence",
-                "to": "Catania",
-                "merchandise": {
-                    "tomatoes": 6,
-                    "butter": 18,
-                    "bread": 5
-                }
+                "to": "Naples",
+                "merchandise": null
             },
             {
-                "from": "Catania",
+                "from": "Naples",
                 "to": "Brescia",
                 "merchandise": {
-                    "butter": 6,
-                    "tomatoes": 13,
-                    "bread": 20,
-                    "honey": 5
+                    "tomatoes": 6,
+                    "butter": 18
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Syracuse",
                 "merchandise": {
-                    "bread": 9,
-                    "honey": 4
+                    "bread": 9
                 }
             },
             {
                 "from": "Syracuse",
                 "to": "Rome",
                 "merchandise": {
-                    "milk": 9,
-                    "bread": 2,
-                    "butter": 11
+                    "milk": 9
                 }
             }
         ]
@@ -3664,11 +4527,26 @@
         "sroute": "s6",
         "route": [
             {
+                "from": "Pisa",
+                "to": "Modena",
+                "merchandise": null
+            },
+            {
                 "from": "Modena",
+                "to": "Cagliari",
+                "merchandise": null
+            },
+            {
+                "from": "Cagliari",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Verona",
                 "merchandise": {
-                    "milk": 13,
-                    "honey": 5,
+                    "milk": 6,
+                    "honey": 18,
                     "butter": 17
                 }
             },
@@ -3676,19 +4554,13 @@
                 "from": "Verona",
                 "to": "Bari",
                 "merchandise": {
-                    "bread": 11,
-                    "honey": 8,
                     "tomatoes": 2
                 }
             },
             {
                 "from": "Bari",
                 "to": "Rome",
-                "merchandise": {
-                    "bread": 20,
-                    "pens": 4,
-                    "milk": 3
-                }
+                "merchandise": {}
             }
         ]
     },
@@ -3698,31 +4570,37 @@
         "sroute": "s7",
         "route": [
             {
+                "from": "Cagliari",
+                "to": "Brescia",
+                "merchandise": null
+            },
+            {
                 "from": "Brescia",
+                "to": "Pisa",
+                "merchandise": null
+            },
+            {
+                "from": "Pisa",
                 "to": "Naples",
                 "merchandise": {
-                    "milk": 4
+                    "milk": 4,
+                    "tomatoes": 13
                 }
             },
             {
                 "from": "Naples",
                 "to": "Genoa",
                 "merchandise": {
-                    "bread": 5,
                     "honey": 10,
-                    "tomatoes": 8,
-                    "milk": 8
+                    "tomatoes": 8
                 }
             },
             {
                 "from": "Genoa",
                 "to": "Syracuse",
                 "merchandise": {
-                    "milk": 5,
                     "pens": 16,
-                    "tomatoes": 13,
-                    "bread": 20,
-                    "honey": 5
+                    "tomatoes": 15
                 }
             }
         ]
@@ -3736,33 +4614,30 @@
                 "from": "Venice",
                 "to": "Milan",
                 "merchandise": {
-                    "milk": 13,
-                    "honey": 5,
-                    "bread": 16
+                    "milk": 5,
+                    "honey": 16,
+                    "pens": 13
                 }
             },
             {
                 "from": "Milan",
                 "to": "Modena",
                 "merchandise": {
-                    "tomatoes": 15,
-                    "bread": 5,
-                    "honey": 8
+                    "tomatoes": 15
                 }
             },
             {
                 "from": "Modena",
                 "to": "Parma",
                 "merchandise": {
-                    "tomatoes": 13,
-                    "bread": 4
+                    "tomatoes": 17
                 }
             },
             {
                 "from": "Parma",
                 "to": "Reggio Calabria",
                 "merchandise": {
-                    "honey": 4
+                    "honey": 18
                 }
             }
         ]
@@ -3773,21 +4648,17 @@
         "sroute": "s9",
         "route": [
             {
-                "from": "Parma",
-                "to": "Palermo",
-                "merchandise": {
-                    "tomatoes": 16,
-                    "bread": 2
-                }
+                "from": "Palermo",
+                "to": "Naples",
+                "merchandise": null
             },
             {
-                "from": "Palermo",
+                "from": "Naples",
                 "to": "Pisa",
                 "merchandise": {
                     "bread": 10,
                     "milk": 18,
-                    "tomatoes": 9,
-                    "honey": 8
+                    "tomatoes": 9
                 }
             },
             {
@@ -3795,18 +4666,7 @@
                 "to": "Florence",
                 "merchandise": {
                     "milk": 2,
-                    "pens": 12,
-                    "bread": 20,
-                    "honey": 5
-                }
-            },
-            {
-                "from": "Florence",
-                "to": "Reggio Calabria",
-                "merchandise": {
-                    "tomatoes": 14,
-                    "bread": 1,
-                    "honey": 18
+                    "honey": 11
                 }
             }
         ]
@@ -3818,29 +4678,33 @@
         "route": [
             {
                 "from": "Florence",
+                "to": "Reggio Calabria",
+                "merchandise": null
+            },
+            {
+                "from": "Reggio Calabria",
+                "to": "Naples",
+                "merchandise": null
+            },
+            {
+                "from": "Naples",
                 "to": "Brescia",
                 "merchandise": {
-                    "pens": 12,
                     "butter": 19,
-                    "honey": 5
+                    "honey": 10,
+                    "tomatoes": 13
                 }
             },
             {
                 "from": "Brescia",
                 "to": "Pisa",
-                "merchandise": {
-                    "tomatoes": 20,
-                    "milk": 8,
-                    "honey": 8
-                }
+                "merchandise": {}
             },
             {
                 "from": "Pisa",
                 "to": "Cagliari",
                 "merchandise": {
-                    "butter": 5,
-                    "tomatoes": 13,
-                    "honey": 5
+                    "butter": 5
                 }
             }
         ]
