@@ -1,0 +1,412 @@
+[
+    {
+        "id": "d1",
+        "stubborness": {
+            "del_city": 0.5770398190920681,
+            "add_city": 0.04704388752538058,
+            "del_merch": 0.6959318700513766,
+            "add_merch": 0.0916196015707057,
+            "edit_merch": 0.35239379593249065
+        },
+        "preferences": {
+            "cities": [
+                "Venice",
+                "Pisa",
+                "Syracuse",
+                "Milan",
+                "Cagliari",
+                "Rome",
+                "Catania",
+                "Turin",
+                "Palermo",
+                "Reggio Calabria",
+                "Verona",
+                "Parma",
+                "Genoa",
+                "Bari",
+                "Bologna",
+                "Naples",
+                "Brescia",
+                "Florence",
+                "Modena"
+            ],
+            "merchandise": {
+                "milk": 15,
+                "honey": 13,
+                "pens": 8,
+                "butter": 19,
+                "tomatoes": 1,
+                "bread": 12
+            }
+        }
+    },
+    {
+        "id": "d2",
+        "stubborness": {
+            "del_city": 0.00010174268797957797,
+            "add_city": 0.7265736494061714,
+            "del_merch": 0.6558956138755067,
+            "add_merch": 0.008898438742119041,
+            "edit_merch": 0.4182699602908785
+        },
+        "preferences": {
+            "cities": [
+                "Turin",
+                "Bari",
+                "Brescia",
+                "Naples",
+                "Pisa",
+                "Venice",
+                "Modena",
+                "Catania",
+                "Bologna",
+                "Cagliari",
+                "Genoa",
+                "Syracuse",
+                "Rome",
+                "Florence",
+                "Parma",
+                "Palermo",
+                "Verona",
+                "Reggio Calabria",
+                "Milan"
+            ],
+            "merchandise": {
+                "tomatoes": 3,
+                "butter": 2,
+                "milk": 1,
+                "bread": 20,
+                "pens": 5,
+                "honey": 7
+            }
+        }
+    },
+    {
+        "id": "d3",
+        "stubborness": {
+            "del_city": 0.7293253622153508,
+            "add_city": 0.6883012265816021,
+            "del_merch": 0.20413797430225655,
+            "add_merch": 0.6301686658087948,
+            "edit_merch": 0.7477950970169275
+        },
+        "preferences": {
+            "cities": [
+                "Florence",
+                "Bologna",
+                "Genoa",
+                "Venice",
+                "Rome",
+                "Modena",
+                "Naples",
+                "Syracuse",
+                "Catania",
+                "Brescia",
+                "Palermo",
+                "Turin",
+                "Milan",
+                "Pisa",
+                "Bari",
+                "Verona",
+                "Reggio Calabria",
+                "Parma",
+                "Cagliari"
+            ],
+            "merchandise": {
+                "honey": 4,
+                "tomatoes": 9,
+                "pens": 5,
+                "butter": 14,
+                "bread": 4,
+                "milk": 15
+            }
+        }
+    },
+    {
+        "id": "d4",
+        "stubborness": {
+            "del_city": 0.6342397984175245,
+            "add_city": 0.8947182648874371,
+            "del_merch": 0.6945920922709741,
+            "add_merch": 0.4558484256841868,
+            "edit_merch": 0.5897885009839725
+        },
+        "preferences": {
+            "cities": [
+                "Milan",
+                "Florence",
+                "Cagliari",
+                "Verona",
+                "Bologna",
+                "Turin",
+                "Bari",
+                "Brescia",
+                "Naples",
+                "Reggio Calabria",
+                "Parma",
+                "Pisa",
+                "Modena",
+                "Palermo",
+                "Catania",
+                "Rome",
+                "Venice",
+                "Genoa",
+                "Syracuse"
+            ],
+            "merchandise": {
+                "milk": 13,
+                "bread": 3,
+                "honey": 16,
+                "tomatoes": 4,
+                "butter": 19,
+                "pens": 4
+            }
+        }
+    },
+    {
+        "id": "d5",
+        "stubborness": {
+            "del_city": 0.41921230616715366,
+            "add_city": 0.962051654518293,
+            "del_merch": 0.4778484074155558,
+            "add_merch": 0.24256536401580542,
+            "edit_merch": 0.7461277005553844
+        },
+        "preferences": {
+            "cities": [
+                "Verona",
+                "Naples",
+                "Reggio Calabria",
+                "Rome",
+                "Catania",
+                "Milan",
+                "Palermo",
+                "Cagliari",
+                "Pisa",
+                "Genoa",
+                "Syracuse",
+                "Venice",
+                "Bologna",
+                "Brescia",
+                "Turin",
+                "Bari",
+                "Modena",
+                "Parma",
+                "Florence"
+            ],
+            "merchandise": {
+                "pens": 8,
+                "butter": 4,
+                "honey": 8,
+                "bread": 18,
+                "tomatoes": 16,
+                "milk": 10
+            }
+        }
+    },
+    {
+        "id": "d6",
+        "stubborness": {
+            "del_city": 0.49246656115544873,
+            "add_city": 0.6947596106095505,
+            "del_merch": 0.530852699112799,
+            "add_merch": 0.5857125652208182,
+            "edit_merch": 0.705571155140255
+        },
+        "preferences": {
+            "cities": [
+                "Rome",
+                "Verona",
+                "Venice",
+                "Florence",
+                "Bologna",
+                "Parma",
+                "Catania",
+                "Pisa",
+                "Modena",
+                "Turin",
+                "Syracuse",
+                "Cagliari",
+                "Naples",
+                "Genoa",
+                "Reggio Calabria",
+                "Milan",
+                "Brescia",
+                "Palermo",
+                "Bari"
+            ],
+            "merchandise": {
+                "pens": 15,
+                "honey": 1,
+                "bread": 16,
+                "milk": 20,
+                "tomatoes": 13,
+                "butter": 19
+            }
+        }
+    },
+    {
+        "id": "d7",
+        "stubborness": {
+            "del_city": 0.7566296380020147,
+            "add_city": 0.5853473703452698,
+            "del_merch": 0.1879653446644286,
+            "add_merch": 0.8824462125160979,
+            "edit_merch": 0.8909141707598431
+        },
+        "preferences": {
+            "cities": [
+                "Reggio Calabria",
+                "Syracuse",
+                "Palermo",
+                "Modena",
+                "Brescia",
+                "Cagliari",
+                "Parma",
+                "Naples",
+                "Catania",
+                "Florence",
+                "Bologna",
+                "Milan",
+                "Bari",
+                "Rome",
+                "Pisa",
+                "Turin",
+                "Verona",
+                "Genoa",
+                "Venice"
+            ],
+            "merchandise": {
+                "bread": 1,
+                "honey": 20,
+                "butter": 2,
+                "tomatoes": 3,
+                "pens": 8,
+                "milk": 18
+            }
+        }
+    },
+    {
+        "id": "d8",
+        "stubborness": {
+            "del_city": 0.1516415559561406,
+            "add_city": 0.742310846475244,
+            "del_merch": 0.05014412288889414,
+            "add_merch": 0.4510170157227966,
+            "edit_merch": 0.786829066134073
+        },
+        "preferences": {
+            "cities": [
+                "Verona",
+                "Parma",
+                "Syracuse",
+                "Bologna",
+                "Turin",
+                "Milan",
+                "Florence",
+                "Brescia",
+                "Bari",
+                "Rome",
+                "Palermo",
+                "Cagliari",
+                "Genoa",
+                "Naples",
+                "Reggio Calabria",
+                "Modena",
+                "Catania",
+                "Venice",
+                "Pisa"
+            ],
+            "merchandise": {
+                "pens": 6,
+                "tomatoes": 3,
+                "bread": 15,
+                "milk": 12,
+                "honey": 16,
+                "butter": 8
+            }
+        }
+    },
+    {
+        "id": "d9",
+        "stubborness": {
+            "del_city": 0.04386749124635214,
+            "add_city": 0.9845369480020999,
+            "del_merch": 0.7807135817753017,
+            "add_merch": 0.6545412096965834,
+            "edit_merch": 0.8024325614449153
+        },
+        "preferences": {
+            "cities": [
+                "Palermo",
+                "Venice",
+                "Naples",
+                "Florence",
+                "Syracuse",
+                "Parma",
+                "Genoa",
+                "Cagliari",
+                "Turin",
+                "Reggio Calabria",
+                "Catania",
+                "Bari",
+                "Pisa",
+                "Brescia",
+                "Modena",
+                "Milan",
+                "Verona",
+                "Rome",
+                "Bologna"
+            ],
+            "merchandise": {
+                "milk": 2,
+                "pens": 10,
+                "tomatoes": 18,
+                "bread": 7,
+                "butter": 11,
+                "honey": 20
+            }
+        }
+    },
+    {
+        "id": "d10",
+        "stubborness": {
+            "del_city": 0.7759785062638866,
+            "add_city": 0.5617721846694204,
+            "del_merch": 0.7895267763692603,
+            "add_merch": 0.17934953045194912,
+            "edit_merch": 0.6018252092666083
+        },
+        "preferences": {
+            "cities": [
+                "Syracuse",
+                "Pisa",
+                "Cagliari",
+                "Bologna",
+                "Venice",
+                "Naples",
+                "Florence",
+                "Turin",
+                "Reggio Calabria",
+                "Rome",
+                "Bari",
+                "Milan",
+                "Verona",
+                "Parma",
+                "Brescia",
+                "Genoa",
+                "Modena",
+                "Catania",
+                "Palermo"
+            ],
+            "merchandise": {
+                "tomatoes": 13,
+                "honey": 11,
+                "butter": 3,
+                "milk": 14,
+                "pens": 13,
+                "bread": 1
+            }
+        }
+    }
+]
