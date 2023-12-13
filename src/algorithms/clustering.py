@@ -9,7 +9,8 @@ import unittest
     n: The number of users
 
     Complexity: 
-    time: O(n * k^2 * T)
+    time: O(n * k^2 * T). k is the number of clusters of the final model, whereas T is the average number of steps
+    the algorithm takes to converge
 
     Returns:
     The centroids
