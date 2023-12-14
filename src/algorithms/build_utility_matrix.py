@@ -12,8 +12,6 @@ def calculate_cosine_similarity(vec1, vec2):
     return similarity.item()
 
 def build_utility_matrix(standard_routes, actual_routes):
-    drivers = set(route['driver'] for route in standard_routes) #rows
-    routes = set(route['id'] for route in actual_routes) #columns 
     #initialization None 
     utility_matrix = {driver: {route: None for route in routes} for driver in drivers}
 
@@ -33,17 +31,3 @@ def build_utility_matrix(standard_routes, actual_routes):
                 utility_matrix[driver][standard_route['sroute']] = similarity
 
     return utility_matrix
-
-#read JSON files
-with open('standard_routes.json', 'r') as f:
-    standard_routes = json.load(f)
-
-with open('actual_routes.json', 'r') as f:
-    actual_routes = json.load(f)
-
-#build utility matrix
-utility_matrix = build_utility_matrix(standard_routes, actual_routes)
-
-#print utility matrix dictionary: keys = drivers, values = route information for each driver 
-for driver, routes in utility_matrix.items():
-    print(f"Driver {driver}: {routes}")

@@ -18,21 +18,9 @@ def route_to_vector(r):
     dict = {}
 
     for trip in r:
-        for product in trip["merchandise"]:
-            dict[(trip["from"], True, product)] = trip["merchandise"][product]
-            dict[(trip["to"], False, product)] = trip["merchandise"][product] 
+        if trip["merchandise"] is not None:
+            for product in trip["merchandise"]:
+                dict[(trip["from"], True, product)] = trip["merchandise"][product]
+                dict[(trip["to"], False, product)] = trip["merchandise"][product] 
 
     return dict
-
-
-# Following lines for testing
-with open('src/data/standard.json', 'r', encoding='utf-8') as f:
-    standard_data = json.load(f)
-
-i = 0
-dict = []
-
-for route in standard_data:
-    dict.append(route_to_vector(route["route"]))
-    print(f"Feature vector of route {route["id"]} is {dict[-1]}")
-    i += 1

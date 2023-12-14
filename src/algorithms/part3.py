@@ -1,14 +1,10 @@
-import build_profiles
-import build_utility_matrix
-import json
-
 def edit_merch(trip_merch, keys, feature):
     if(keys[2] in trip_merch):
         trip_merch[keys[2]] = (trip_merch[keys[2]] + feature[1]) / 2
     else:
         trip_merch[keys[2]] = feature[1]
 
-def part3(profiles):
+def get_best_route(profiles):
     routes_part_3 = []
 
     for profile in profiles:
@@ -70,5 +66,5 @@ def part3(profiles):
                         route.append({"from": route[-1]["to"], "to": keys[0], "merchandise": {keys[2]: best[feature[1]]}})
         
         routes_part_3.append(route)
-        
+
     return routes_part_3
