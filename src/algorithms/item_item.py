@@ -8,7 +8,7 @@ It recommends items to a user based on the similarity of items that the user has
     unrated_routes: the routes where the rating is None = the driver never made/rated it 
 '''
 def item_item_collaborative_filtering(u, n=5):
-    all_recommendations = []
+    all_recommendations = [] 
 
     for d, d_rating in u.items():
         #list of routes never rated/made by driver 
