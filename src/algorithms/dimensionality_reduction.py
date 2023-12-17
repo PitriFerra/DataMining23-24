@@ -4,7 +4,8 @@ import random
 import numpy as np
 from sklearn.decomposition import TruncatedSVD
 
-'''
+def svd(X, n, max_loss):
+    '''
     Performs dimensionality reduction on the given matrix in such a way that the total information loss
     is less than max_loss
     
@@ -15,12 +16,12 @@ from sklearn.decomposition import TruncatedSVD
     
     Returns:
     The reduced matrix X    
-'''
-def svd(X, n, max_loss):
+    '''
     Y = None
+    mid = None
     i = 1
     
-    while i != n:
+    while i != n and n - i > 20:
         mid = int((i + n) / 2)
                 
         svd = TruncatedSVD(n_components=mid, random_state=42)
@@ -30,12 +31,12 @@ def svd(X, n, max_loss):
             n = mid
         else:
             i = mid + 1
-        
-        if n - i <= 20:
-            return Y, svd
-    
+
+    print("reduced to ", mid, " dimensions")
     return Y, svd
-'''
+
+def information_loss(X, Y):
+    '''
     Given two matrices X and Y, where Y is the reconstructed X matrix, it calculates the difference in terms of the average 
     cosine distance between all the elements
     
@@ -49,14 +50,15 @@ def svd(X, n, max_loss):
     
     Returns:
     The total information loss, in a number between 0 and 1, where 0.32 means 33% of informations were lost
-'''
-def information_loss(X, Y):
+    '''
     delta = 0.0
     for i in range(len(X)):
         delta += 1 - cosine_similarity(X[i], Y[i])
     return delta / (2 * len(X))
 
-'''
+
+def cosine_similarity(X, Y):
+    '''
     Given two lists, it calculates the cosine similarity between them
     
     Arguments:
@@ -69,8 +71,7 @@ def information_loss(X, Y):
     Returns:
     The cosine similarity, i.e. a number between -1 and 1
     
-'''
-def cosine_similarity(X, Y):
+    '''
     product = 0.0
     n1 = 0.0
     n2 = 0.0
@@ -85,9 +86,7 @@ def cosine_similarity(X, Y):
         
     return product / (math.sqrt(n1) * math.sqrt(n2))
 
-'''
-Unit tests 
-'''
+# Unit tests
 class TestBuildProfiles(unittest.TestCase):             
     def test_information_loss(self):
         X1 = [[0.0, 1.0, 1.0, 0.5, 0.0],
