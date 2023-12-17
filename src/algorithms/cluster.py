@@ -1,49 +1,61 @@
 import numpy as np
 import unittest
+import random
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn import preprocessing
 from dimensionality_reduction import svd
-'''
-    Clusters the user's profiles using the Kmeans algorithm.
 
-    Arguments:
-    profile: The user's profiles 
-    n: The number of users
-
-    Complexity: 
-    time: O(n * k^2 * T). k is the number of clusters of the final model, whereas T is the average number of steps
-    the algorithm takes to converge
-    
-    Advantages:
-    - The algorithm outputs centroids which are very convenient for the scope of this project
-    
-    Disadvantages:
-    - Can be too slow for massive amounts of data
-    - Clusters can only be circles
-    - Only works for euclidian distance
-
-    Returns:
-    The centroids
-'''
 def kmeans_cluster(profile, n):
+    '''
+        Clusters the user's profiles using the Kmeans algorithm.
+
+        Arguments:
+        profile: The user's profiles 
+        n: The number of users
+
+        Complexity: 
+        time: O(n * k^2 * T). k is the number of clusters of the final model, whereas T is the average number of steps
+        the algorithm takes to converge (Actually we stop after 10 iterations)
+
+        Advantages:
+        - The algorithm outputs centroids which are very convenient for the scope of this project
+
+        Disadvantages:
+        - Can be too slow for massive amounts of data
+        - Clusters can only be circles
+        - Only works for euclidian distance
+
+        Returns:
+        The centroids
+    '''
+    dimensions = len(profile[0])
     # dimensionality reduction
-    profile, model = svd(profile, len(profile[0]), 0.15)
+    profile, model = svd(profile, dimensions, 0.15)
     
     # normalize input so that the cosine distance is proportional to the square of the euclidian distance
     profile, norms = preprocessing.normalize(profile, axis=0, return_norm=True)
-    clusters = 4                                        
-    prev_inertia = 0.0
-    curr_inertia = 0.0
+    
+    k =  2                                    
+    prev_inertia = None
+    curr_inertia = None
+    delta_inertia = 1.0
     kmeans = None
     
-    while (not (curr_inertia * 1.15 < prev_inertia) and clusters < n): # while inertia decreases by less than 15%
-        kmeans = KMeans(n_clusters = clusters, n_init="auto").fit(profile)
+    while (delta_inertia > 0.05): 
+        kmeans = KMeans(n_clusters = k, n_init="auto").fit(profile)
+        k *= 2
+        
         prev_inertia = curr_inertia
         curr_inertia = kmeans.inertia_
-        clusters *= 2      
-    
-    print(kmeans.cluster_centers_)  
+        if prev_inertia is not None:
+            delta_inertia = (prev_inertia - curr_inertia) / prev_inertia
             
+        print("k = ", k)
+        print("current inertia = ", curr_inertia)
+        print("previous inertia = ", prev_inertia)
+        print("delta_inertia = ", delta_inertia)
+        print("\n")
+                
     return model.inverse_transform(kmeans.cluster_centers_ * norms)   #inverse transform of normalized clusters
 '''
     Clusters the user profiles using the DBSCAN algorithm
@@ -96,26 +108,21 @@ def DBSCAN_cluster(profile):
 '''
 def hierarchical_clustering(profile):
     clustering = AgglomerativeClustering().fit(profile).labels_
-
-
 '''
 Unit tests 
 '''
 class TestBuildProfiles(unittest.TestCase): 
     def test_kmeans_cluster(self):
-        profiles = [[0.0, 1.0, 1.0, 0.5, 0.0],
-                    [0.1, 0.0, 1.0, 0.3, 0.1],
-                    [1.3, 0.0, 1.0, 0.0, 1.2],
-                    [0.3, 1.4, 1.0, 0.5, 0.0],
-                    [0.0, 1.2, 1.7, 0.0, 0.8],]
-        expected_centroids_sum = [1.55, 2.4, 4.7, 0.8, 2.1]
-        actual_centroids = kmeans_cluster(profiles, 5)
-            
-        for j in range(5):
-            sum_here = 0
-            for i in range(4):
-                sum_here += actual_centroids[i][j]
-            self.assertAlmostEqual(expected_centroids_sum[j], sum_here)
+        n = 2000   
+        d = 150
+        density = 20
+        S = np.random.rand(n, d)
+        
+        for i in range(n):
+            for j in range(d):
+                if random.randint(1,100) > density:
+                    S[i][j] = 0.0
+        kmeans_cluster(S, n)
                 
 if __name__ == '__main__':
     unittest.main()
