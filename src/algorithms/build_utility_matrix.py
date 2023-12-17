@@ -1,26 +1,40 @@
-import json
+from build_route_vector import route_to_vector
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 def calculate_cosine_similarity(vec1, vec2):
-    #convert dictionaries to vectors
-    vec1_values = np.array(list(vec1.values()))
-    vec2_values = np.array(list(vec2.values()))
+    vec1_values = []
+    vec2_values = []
+    copy = vec2.copy()
+
+    for key in vec1.keys():
+        vec1_values.append(vec1[key])
+        vec2_values.append(0)
+
+        for key2 in vec2.keys():
+            if(key == key2):
+                vec2_values[-1] = copy.pop(key2)
+                break
+                
+
+    for key in copy.keys():
+        vec2_values.append(vec2[key])
+        vec1_values.append(0)
 
     #cosine similarity between two vectors -> Pietro's function
     similarity = cosine_similarity([vec1_values], [vec2_values])
     return similarity.item()
 
-def build_utility_matrix(standard_routes, actual_routes):
+def build_utility_matrix(s_data, a_data, drivers):
     #initialization None 
-    utility_matrix = {driver: {route: None for route in routes} for driver in drivers}
+    utility_matrix = {driver: {route['id']: None for route in s_data} for driver in drivers}
 
-    for standard_route in standard_routes:
-        for actual_route in actual_routes:
+    for standard_route in s_data:
+        for actual_route in a_data:
             #if there is a match, it means we have corresponding routes 
-            if standard_route['sroute'] == actual_route['id']:
+            if actual_route['sroute'] == standard_route['id']:
                 #assign the driver from standard_route to the variable 'driver'
-                driver = standard_route['driver']
+                driver = actual_route['driver']
                 
                 #convert routes to feature vectors = Pietro's function
                 standard_vector = route_to_vector(standard_route['route'])
@@ -28,6 +42,6 @@ def build_utility_matrix(standard_routes, actual_routes):
                 
                 #calculate cosine similarity and update the utility matrix with the rating 
                 similarity = calculate_cosine_similarity(standard_vector, actual_vector)
-                utility_matrix[driver][standard_route['sroute']] = similarity
+                utility_matrix[driver][standard_route['id']] = similarity
 
     return utility_matrix
