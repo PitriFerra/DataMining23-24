@@ -16,22 +16,16 @@ def main():
     with open('actual.json', 'r', encoding='utf-8') as f:
         actual_data = json.load(f)
         
-    std_features_vectors = []
-    act_features_vectors = []
     drivers = set()
         
-    for route in standard_data:
-        std_features_vectors.append(route_to_vector(route["route"]))
-
     for route in actual_data:
-        act_features_vectors.append(route_to_vector(route["route"]))
         drivers.add(route["driver"])
 
     n = len(drivers)
     m = len(actual_data)
         
     # build utility matrix
-    u = build_utility_matrix(std_features_vectors, act_features_vectors)
+    u = build_utility_matrix(standard_data, actual_data, drivers)
     
     # build user profiles
     profiles = build_profiles(u, actual_data, n, m, len(profiles[0]))
