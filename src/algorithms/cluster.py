@@ -31,9 +31,9 @@ def kmeans_cluster(profile, n):
     dimensions = len(profile[0])
     # dimensionality reduction
     profile, model = svd(profile, dimensions, 0.15)
-    
+        
     # normalize input so that the cosine distance is proportional to the square of the euclidian distance
-    profile, norms = preprocessing.normalize(profile, axis=0, return_norm=True)
+    profile, norms = preprocessing.normalize(X=profile, axis=0, return_norm=True)
     
     k =  2                                    
     prev_inertia = None
@@ -41,7 +41,7 @@ def kmeans_cluster(profile, n):
     delta_inertia = 1.0
     kmeans = None
     
-    while (delta_inertia > 0.05): 
+    while (delta_inertia > 0.1 and k < len(profile) / 2): 
         kmeans = KMeans(n_clusters = k, n_init="auto").fit(profile)
         k *= 2
         
@@ -49,12 +49,6 @@ def kmeans_cluster(profile, n):
         curr_inertia = kmeans.inertia_
         if prev_inertia is not None:
             delta_inertia = (prev_inertia - curr_inertia) / prev_inertia
-            
-        print("k = ", k)
-        print("current inertia = ", curr_inertia)
-        print("previous inertia = ", prev_inertia)
-        print("delta_inertia = ", delta_inertia)
-        print("\n")
                 
     return model.inverse_transform(kmeans.cluster_centers_ * norms)   #inverse transform of normalized clusters
 '''
