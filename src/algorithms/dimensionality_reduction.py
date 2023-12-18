@@ -17,14 +17,14 @@ def svd(X, n, max_loss):
     Returns:
     The reduced matrix X    
     '''
-    Y = None
-    mid = None
     i = 1
+    mid = int(n / 2)
+    svd = TruncatedSVD(n_components=mid, random_state=42)
+    Y = svd.fit_transform(X)
     
     while i != n and n - i > 20:
         mid = int((i + n) / 2)
                 
-        svd = TruncatedSVD(n_components=mid, random_state=42)
         Y = svd.fit_transform(X)
         loss = information_loss(X, svd.inverse_transform(Y)) 
         if loss < max_loss:
@@ -132,8 +132,8 @@ class TestBuildProfiles(unittest.TestCase):
         self.assertAlmostEqual(1.0, cosine_similarity(X1, X2))   
     
     def test_svd(self):
-        n = 400   
-        d = 50
+        n = 20000   
+        d = 400
         density = 10
         S = np.random.rand(n, d)
         
