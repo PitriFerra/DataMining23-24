@@ -1,5 +1,6 @@
 import unittest
-'''
+def build_profiles(u, item, n, m, features):
+    '''
     Given the utility matrix U, it computes the profile of each user.
     
     Arguments:
@@ -15,8 +16,7 @@ import unittest
     
     Returns:
     The profile of each driver, i.e. the vector of features of each driver
-'''
-def build_profiles(u, item, n, m, features):
+    '''
     profile = [[0.0] * features for _ in range(n)]
     count = [[0.0] * features for _ in range(n)]
     avg = [0.0] * n
