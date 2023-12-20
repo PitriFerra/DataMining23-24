@@ -3,6 +3,7 @@ import math
 import random
 import numpy as np
 from sklearn.decomposition import TruncatedSVD
+import matplotlib.pyplot as plt
 
 def svd(X, n, max_loss):
     '''
@@ -22,11 +23,13 @@ def svd(X, n, max_loss):
     svd = TruncatedSVD(n_components=mid, random_state=42)
     Y = svd.fit_transform(X)
     
-    while i != n and n - i > 20:
+    while i != n and n - i > 5:
         mid = int((i + n) / 2)
-                
+        
+        svd = TruncatedSVD(n_components=mid, random_state=42)    
         Y = svd.fit_transform(X)
         loss = information_loss(X, svd.inverse_transform(Y)) 
+        
         if loss < max_loss:
             n = mid
         else:
@@ -54,7 +57,7 @@ def information_loss(X, Y):
     delta = 0.0
     for i in range(len(X)):
         delta += 1 - cosine_similarity(X[i], Y[i])
-    return delta / (2 * len(X))
+    return delta / (2.0 * len(X))
 
 
 def cosine_similarity(X, Y):
@@ -132,9 +135,9 @@ class TestBuildProfiles(unittest.TestCase):
         self.assertAlmostEqual(1.0, cosine_similarity(X1, X2))   
     
     def test_svd(self):
-        n = 20000   
-        d = 400
-        density = 10
+        n = 2000
+        d = 150
+        density = 25
         S = np.random.rand(n, d)
         
         for i in range(n):
@@ -142,7 +145,21 @@ class TestBuildProfiles(unittest.TestCase):
                 if random.randint(1,100) > density:
                     S[i][j] = 0.0
         
-        svd(S, d, 0.2)
+        errs = []
+        res = []
+        curr_loss = 0.05
+        while curr_loss < 0.5:
+            X = svd(S, d, curr_loss)
+            res.append(d - len(X[0][0]))
+            errs.append(curr_loss)
+            
+            curr_loss += 0.05       
+                
+        plt.plot(errs, res)
+        plt.title("Trade off between information loss and dimensionality Reduction of a sparse matrix")
+        plt.xlabel("Max information loss")
+        plt.ylabel("Dimensions reduced")
+        plt.show()
                 
 if __name__ == '__main__':
     unittest.main()
