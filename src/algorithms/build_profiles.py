@@ -147,7 +147,6 @@ class TestBuildProfiles(unittest.TestCase):
                 u[i][j] = random.uniform(-100.0, 100.0)
         
         build_profiles(u,item,n,m,f)
-        print(build_profiles(u,item,n,m,f))
         
 
 if __name__ == '__main__':
