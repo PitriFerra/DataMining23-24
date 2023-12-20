@@ -2,7 +2,7 @@ import numpy as np
 import random
 from build_profiles import build_profiles
 from build_utility_matrix import build_utility_matrix
-from cluster import kmeans_cluster
+from cluster import kmeans_cluster, DBSCAN_cluster
 from build_route_vector import route_to_vector
 from item_item import item_item_collaborative_filtering 
 import json
@@ -36,7 +36,9 @@ def main():
     profiles = build_profiles(u, vec_act_routes, len(u), len(u[0]), len(features))
     
     # cluster users
-    centroids = kmeans_cluster(profiles, len(profiles)) 
+    centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=False) 
+    
+    labels = DBSCAN_cluster(profiles, reduce_dimensions=True, plot=True)
     
     # output JSON recommended standard routes
     with open("recStandard.json", "w") as f:
