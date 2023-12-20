@@ -7,9 +7,9 @@ from build_route_vector import route_to_vector
 from item_item import item_item_collaborative_filtering 
 import json
 from part3 import get_best_route
-import math
+import sys
 
-def main():
+def main(argv):
     ###### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
     with open('standard.json', 'r', encoding='utf-8') as f:
@@ -35,19 +35,13 @@ def main():
     # build user profiles
     profiles = build_profiles(u, vec_act_routes, len(u), len(u[0]), len(features))
     
-    # cluster users
-    centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=False) 
-    
-    labels = DBSCAN_cluster(profiles, reduce_dimensions=True, plot=True)
-    
-    # output JSON recommended standard routes
-    with open("recStandard.json", "w") as f:
-        for _ in range(int(len(std_routes) / len(centroids))):
-            tmp = centroids.copy()
-            for i in range(len(centroids)):
-                for j in range(len(centroids[0])):
-                    tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
-                #json.dump(get_best_route(tmp), f)
+    # cluster users and output recommended routes
+    if str(sys.argv).__contains__("-dbscan"):
+        dbscan = DBSCAN_cluster(profiles, reduce_dimensions=False, plot=False)
+        labels_to_routes(dbscan, len(std_routes))
+    else:
+        centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=True) 
+        centroids_to_routes(centroids, len(std_routes))
         
     # ##### PART2 #####
         
@@ -125,5 +119,22 @@ def def_features(std_data, act_data):
     
     return features
 
+def labels_to_routes(dbscan, m):
+    if len(dbscan.components_) != 0:
+        # naive approach: output one route per core point
+        with open("recStandard.json", "w") as f:
+            for i in range(int(m / len(dbscan.components_))):
+                print("hola")
+                #json.dump(get_best_route(dbscan.components_), f) 
+    
+def centroids_to_routes(centroids, m):
+    with open("recStandard.json", "w") as f:
+        for _ in range(int(m / len(centroids))):
+            tmp = centroids.copy()
+            for i in range(len(centroids)):
+                for j in range(len(centroids[0])):
+                    tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
+                #json.dump(get_best_route(tmp), f)
+
 if __name__ == '__main__':
-    main() 
+    main(sys.argv[1:]) 
