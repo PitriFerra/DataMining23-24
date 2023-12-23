@@ -8,6 +8,7 @@ Here's the list of all the libraries and tools to install before running the pro
 * [numpy](https://numpy.org/)
 * [kneed](https://pypi.org/project/kneed/)
 * [matplotlib](https://pypi.org/project/matplotlib/)
+* [faiss](https://pypi.org/project/faiss-cpu/)
 
 # How to run
 * Navigate towards the src/algorithms directory and run `python3 main.py`
