@@ -10,7 +10,7 @@ Here's the list of all the libraries and tools to install before running the pro
 * [matplotlib](https://pypi.org/project/matplotlib/)
 * [faiss](https://pypi.org/project/faiss-cpu/)
 
-If you're on a Ubuntu-like operating system you can jsut run the `dependencies.sh` file on the folder src by running `chmod +x dependencies.sh && ./dependencies.sh`
+If you're on a Ubuntu-like operating system you can run the `dependencies.sh` file on the folder src by running `chmod +x dependencies.sh && ./dependencies.sh` in order to install all the dependencies automatically.
 
 # How to run
 * Navigate towards the src/algorithms directory and run `python3 main.py`
