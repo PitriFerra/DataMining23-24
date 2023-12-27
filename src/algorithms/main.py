@@ -33,7 +33,7 @@ def main(argv):
     u = transform_utility_matrix(u_dict)
           
     # build user profiles
-    profiles = build_profiles(u, vec_act_routes, len(u), len(u[0]), len(features))
+    profiles, max_rating = build_profiles(u, vec_act_routes, len(u), len(u[0]), len(features))
     
     # cluster users and output recommended routes
     if str(sys.argv).__contains__("-dbscan"):
@@ -56,7 +56,7 @@ def main(argv):
         
 
     # ##### PART3 #####
-    part3 = get_best_route(profiles, features, max_elements, max_rating)
+    part3 = get_best_route(profiles, features, max(max(row) for row in vec_act_routes), max_rating)
     print(part3)
     
 def dict_to_vec(std_routes, act_routes, features):

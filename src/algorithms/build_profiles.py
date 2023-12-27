@@ -43,12 +43,17 @@ def build_profiles(u, item, n, m, features):
                         profile[i][f] += (rating - avg[i]) * feature_weight 
                         count[i][f] += 1
 
+    max_rating = 0
+
     for i in range(n): 
         for f in range(features):  
             if count[i][f] != 0:
                 profile[i][f] /= count[i][f]
+            
+            if profile[i][f] > max:
+                max_rating = profile[i][f]
                       
-    return profile
+    return profile, max_rating
 
 '''
 Unit tests 
