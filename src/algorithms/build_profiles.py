@@ -50,7 +50,7 @@ def build_profiles(u, item, n, m, features):
             if count[i][f] != 0:
                 profile[i][f] /= count[i][f]
             
-            if profile[i][f] > max:
+            if profile[i][f] > max_rating:
                 max_rating = profile[i][f]
                       
     return profile, max_rating
