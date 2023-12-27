@@ -3,7 +3,7 @@ import faiss
 import unittest
 from dimensionality_reduction import cosine_similarity
 
-def content_based_filtering(profile, route, k, lsh):
+def collaborative_filtering(profile, route, k, lsh):
     '''
     Recommends k routes to each driver in profiles from the matrix route
 
@@ -49,16 +49,16 @@ def content_based_filtering(profile, route, k, lsh):
 
 
 class TestBuildProfiles(unittest.TestCase):
-    def test(self):
+    def test_filtering(self):
         # generate random n * d matrix
         n = 100
         d = 50
         D = np.random.rand(n, d)
         R = np.random.rand(n, d)
         
-        res = content_based_filtering(D, R, 5, True)
+        res = collaborative_filtering(D, R, 5, True)
         
         print(res[0]) # result for driver number 0
 
-if name == 'main':
+if __name__ == '__main__':
     unittest.main()
