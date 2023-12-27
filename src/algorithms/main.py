@@ -56,8 +56,8 @@ def main(argv):
         
 
     # ##### PART3 #####
-    # part3 = get_best_route(profiles)
-    # print(part3)
+    part3 = get_best_route(profiles, features, max_elements, max_rating)
+    print(part3)
     
 def dict_to_vec(std_routes, act_routes, features):
     vec_std_routes = [[0] * len(features) for _ in range(len(std_routes))]

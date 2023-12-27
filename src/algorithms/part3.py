@@ -1,69 +1,72 @@
-def edit_merch(trip_merch, keys, feature):
-    if(keys[2] in trip_merch):
-        trip_merch[keys[2]] = (trip_merch[keys[2]] + feature[1]) / 2
+def edit_merch(trip_merch, product, feature):
+    if(product in trip_merch):
+        trip_merch[product] = (trip_merch[product] + feature[1]) / 2
     else:
-        trip_merch[keys[2]] = feature[1]
+        trip_merch[product] = feature[1]
 
-def get_best_route(profiles):
+def get_best_route(profiles, features, max_elements, max_rating):
     routes_part_3 = []
 
     for profile in profiles:
-        best = []
+        best = {}
         avg = 0
+        cnt = 0
 
         for feature in profile:
-            avg += profile[feature][0]
+            if(feature > 0):
+                avg += feature
+                cnt += 1
 
-        avg /= len(profile)
+        avg /= cnt
 
-        for feature in profile:
-            if(profile[feature][0] > avg):
-                best.append(feature)
+        for index, feature in enumerate(profile):
+            if(feature > avg):
+                best[next((key for key, value in features.items() if value == index), None)] = (feature, feature * max_elements / max_rating)
 
         route = []
         cities = [] # This is used to check whether a feature features a city that is already added to the route
 
         for feature in best:
-            keys = feature.keys()
+            city, from_to, product = feature
 
-            if(keys[0] in cities):
-                if(route[0]["from"] == keys[0]):
-                    if(keys[1]):
-                        edit_merch(route[0]["merchandise"], keys, best[feature])
+            if(city in cities):
+                if(route[0]["from"] == city):
+                    if(from_to):
+                        edit_merch(route[0]["merchandise"], product, best[feature])
                     else:
-                        route.insert(0, {"from": "", "to": keys[0], "merchandise": {keys[2]: best[feature[1]]}})
+                        route.insert(0, {"from": "", "to": city, "merchandise": {product: best[feature[1]]}})
                 else:
                     found = False
                     i = 0
 
                     while not found or i < len(route):
-                        if(route[i]["to"] == keys[0]):
+                        if(route[i]["to"] == city):
                             found = True
                         else:
                             i += 1
                     
-                    if(keys[1]):
+                    if(from_to):
                         if(len(route) - 1 > i):
-                            edit_merch(route[i + 1]["merchandise"], keys, best[feature])
+                            edit_merch(route[i + 1]["merchandise"], product, best[feature])
                         else:
-                            route.append({"from": keys[0], "to": "", "merchandise": {keys[2]: best[feature][1]}})
+                            route.append({"from": city, "to": "", "merchandise": {product: best[feature][1]}})
                     else:
-                        edit_merch(route[i]["merchandise"], keys, best[feature])
+                        edit_merch(route[i]["merchandise"], product, best[feature])
             else:
-                cities.append(keys[0])
+                cities.append(city)
 
-                if(keys[1]):
+                if(from_to):
                     if(route[0]["from"] == ""):
-                        route[0]["from"] = keys[0]
-                        edit_merch(route[0]["merchandise"], keys, best[feature])
+                        route[0]["from"] = city
+                        edit_merch(route[0]["merchandise"], product, best[feature])
                     else:
-                        route.insert(0, {"from": keys[0], "to": route[0]["from"], "merchandise": {keys[2]: best[feature[1]]}})
+                        route.insert(0, {"from": city, "to": route[0]["from"], "merchandise": {product: best[feature[1]]}})
                 else:
                     if(route[-1]["to"] == ""):
-                        route[-1]["to"] = keys[0]
-                        edit_merch(route[-1]["merchandise"], keys, best[feature])
+                        route[-1]["to"] = city
+                        edit_merch(route[-1]["merchandise"], product, best[feature])
                     else:
-                        route.append({"from": route[-1]["to"], "to": keys[0], "merchandise": {keys[2]: best[feature[1]]}})
+                        route.append({"from": route[-1]["to"], "to": city, "merchandise": {product: best[feature[1]]}})
         
         routes_part_3.append(route)
 
