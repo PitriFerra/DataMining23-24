@@ -7,6 +7,7 @@ from build_route_vector import route_to_vector
 from item_item import item_item_collaborative_filtering 
 import json
 from part3 import get_best_route
+from part3 import get_best_routes
 import sys
 
 def main(argv):
@@ -56,7 +57,7 @@ def main(argv):
         
 
     # ##### PART3 #####
-    part3 = get_best_route(profiles, features, max(max(row) for row in vec_act_routes), max_rating)
+    part3 = get_best_routes(profiles, features, max(max(row) for row in vec_act_routes), max_rating)
     print(part3)
     
 def dict_to_vec(std_routes, act_routes, features):
