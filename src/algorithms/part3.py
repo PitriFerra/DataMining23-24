@@ -6,11 +6,11 @@ def edit_merch(trip_merch, product, feature):
 
 def get_best_route(profiles, features, max_elements, max_rating):
     routes_part_3 = []
-    i = 0
+    j = 0
 
     for profile in profiles:
-        print(f"Analyzing profile {i}")
-        i += 1
+        print(f"Analyzing profile {j}")
+        j += 1
         best = {}
         avg = 0
         cnt = 0
