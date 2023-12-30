@@ -1,3 +1,5 @@
+from ..data.generate_std_routes import generate_random_route
+
 def edit_merch(trip_merch, product, feature):
     if(product in trip_merch):
         trip_merch[product] = int((trip_merch[product] + feature[1]) / 2)
@@ -151,3 +153,9 @@ def get_best_route(profile, features, max_elements, max_rating):
         route[-1]["to"] = next(iter(features))[0]
 
     return route
+
+def part3_baseline(driver):
+    return {
+        "driver_id": driver,
+        "route": generate_random_route()
+    }
