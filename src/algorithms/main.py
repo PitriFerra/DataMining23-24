@@ -57,8 +57,18 @@ def main(argv):
         
 
     # ##### PART3 #####
-    part3 = get_best_routes(profiles, features, max(max(row) for row in vec_act_routes), max_rating)
-    print(part3)
+    max_quantity = max(max(row) for row in vec_act_routes)
+    results = []
+    i = 1
+    
+    for profile in profiles:
+        results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
+        i += 1
+
+    # Write the results to a JSON file
+    with open('part3.json', 'w') as json_file:
+        json.dump(results, json_file, indent=2)
+
     
 def dict_to_vec(std_routes, act_routes, features):
     vec_std_routes = [[0] * len(features) for _ in range(len(std_routes))]
