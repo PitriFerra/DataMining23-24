@@ -4,8 +4,10 @@ from build_profiles import build_profiles
 from build_utility_matrix import build_utility_matrix
 from cluster import kmeans_cluster, DBSCAN_cluster
 from build_route_vector import route_to_vector
-from item_item import item_item_collaborative_filtering 
-import json
+#from part2 import find_routes
+#from user_user_lsh import user_user_lsh_collaborative_filtering 
+#from item_item_lsh import item_item_lsh_collaborative_filtering 
+import json 
 from part3 import get_best_route
 from part3 import get_best_routes
 import sys
@@ -45,11 +47,17 @@ def main(argv):
         centroids_to_routes(centroids, len(std_routes))
         
     # ##### PART2 #####
-        
-    # # user-user
+    # # top5 routes with full utility matrix
+    #part2 = find_routes(u, k=5) 
+    #print(part2)
+
+    # # user-user with implementation of LSH
+    #user_user = user_user_lsh_collaborative_filtering(u, k=5, lsh=False)
+    #print(user_user)  
     
-    # # item-item  
-    # item_item = item_item_collaborative_filtering(u, n=5)  
+    # # item-item with implementation of LSH
+    #item_item = item_item_lsh_collaborative_filtering(u, k=5, lsh=False)  
+    #print(item_item)
 
     # # content based
 
