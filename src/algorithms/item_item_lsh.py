@@ -78,10 +78,12 @@ def item_item_lsh_collaborative_filtering(u, k=5, lsh=False):
                     similarity = calculate_cosine_similarity(ratings_r1, ratings_r2) 
                     similarities[(route1, route2)] = similarity
         
+        j = 0
         #rating for route None
         for driver in u:
             for route in u[driver]:
                 if u[driver][route] is None:
+                    j += 1
                     #find similar routes
                     other_routes = []
                     for other_route in routes:
@@ -105,6 +107,8 @@ def item_item_lsh_collaborative_filtering(u, k=5, lsh=False):
                     if den != 0:
                         estimated_rating = num / den
                         u[driver][route] = estimated_rating
+
+        print(j)
 
     result = np.zeros((len(drivers), k), dtype='U20')
     for i, driver in enumerate(drivers):
