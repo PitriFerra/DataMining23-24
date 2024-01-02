@@ -73,6 +73,7 @@ def main(argv):
         results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
         i += 1
 
+    print(len(drivers))
     # Write the results to a JSON file
     with open('part3.json', 'w') as json_file:
         json.dump(results, json_file, indent=2)
