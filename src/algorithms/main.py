@@ -48,16 +48,16 @@ def main(argv):
         
     # ##### PART2 #####
     # # top5 routes with full utility matrix
-    #part2 = find_routes(u, k=5) 
+    #part2 = find_routes(u_dict, k=5) 
     #print(part2)
 
     # # user-user with implementation of LSH
-    #user_user = user_user_lsh_collaborative_filtering(u, k=5, lsh=False)
+    #user_user = user_user_lsh_collaborative_filtering(u_dict, k=5, lsh=False)
     #print(user_user)  
     
     # # item-item with implementation of LSH
-    item_item = item_item_lsh_collaborative_filtering(u_dict, k=5, lsh=False)  
-    print(item_item)
+    #item_item = item_item_lsh_collaborative_filtering(u_dict, k=5, lsh=False)  
+    #print(item_item)
 
     # # content based
 
