@@ -79,6 +79,8 @@ def item_item_lsh_collaborative_filtering(u, k=5, lsh=False):
                     similarities[(route1, route2)] = similarity
         
         j = 0
+        l = 0
+
         #rating for route None
         for driver in u:
             for route in u[driver]:
@@ -89,17 +91,25 @@ def item_item_lsh_collaborative_filtering(u, k=5, lsh=False):
                     for other_route in routes:
                         if other_route != route:
                             other_routes.append(other_route)
+                    
                     similarity_key = lambda other_route: similarities.get((route, other_route), 0)
                     other_routes.sort(key=similarity_key, reverse=True)
                     similar_routes = other_routes[:k] 
+                    print(other_routes) 
 
                     #weighted avg 
                     num = 0
                     den = 0
+                    enter = False
+
                     for other_route in similar_routes:
                         similarity = similarities.get((route, other_route), 0)
                         rating = u[driver][other_route]
                         if rating is not None:
+                            if enter == False:
+                                l += 1
+                                enter = True
+                                
                             num = num + (similarity * rating)
                             den = den + abs(similarity) 
 
@@ -108,7 +118,7 @@ def item_item_lsh_collaborative_filtering(u, k=5, lsh=False):
                         estimated_rating = num / den
                         u[driver][route] = estimated_rating
 
-        print(j)
+        print(l)
 
     result = np.zeros((len(drivers), k), dtype='U20')
     for i, driver in enumerate(drivers):

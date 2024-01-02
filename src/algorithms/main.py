@@ -56,7 +56,7 @@ def main(argv):
     #print(user_user)  
     
     # # item-item with implementation of LSH
-    item_item = item_item_lsh_collaborative_filtering(u, k=5, lsh=False)  
+    item_item = item_item_lsh_collaborative_filtering(u_dict, k=5, lsh=False)  
     print(item_item)
 
     # # content based

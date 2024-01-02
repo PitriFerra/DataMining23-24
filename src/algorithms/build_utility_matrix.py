@@ -3,25 +3,36 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 def calculate_cosine_similarity(vec1, vec2):
+    common_keys = set(vec1.keys()) & set(vec2.keys()) #common key between the two vectors 
+    
+    #similarity only for the routes with a rating 
     vec1_values = []
+    for key in common_keys:
+        if vec1[key] is not None:
+            vec1_values.append(vec1[key])
     vec2_values = []
-    copy = vec2.copy()
+    for key in common_keys:
+        if vec2[key] is not None:
+            vec2_values.append(vec2[key])
 
-    for key in vec1.keys():
+    #if there are not values return Nan = no calculate cosine similarity 
+    if not vec1_values or not vec2_values:
+        return np.nan
+
+    #the length of the vector has to be the same 
+    for key in set(vec1.keys()) - common_keys:
         vec1_values.append(vec1[key])
         vec2_values.append(0)
 
-        for key2 in vec2.keys():
-            if(key == key2):
-                vec2_values[-1] = copy.pop(key2)
-                break
-                
-
-    for key in copy.keys():
-        vec2_values.append(vec2[key])
+    for key in set(vec2.keys()) - common_keys:
         vec1_values.append(0)
+        vec2_values.append(vec2[key])
 
-    #cosine similarity between two vectors -> Pietro's function
+    max_len = max(len(vec1_values), len(vec2_values))
+    vec1_values += [0] * (max_len - len(vec1_values))
+    vec2_values += [0] * (max_len - len(vec2_values))
+
+    #cosine similarity between two vectors 
     similarity = cosine_similarity([vec1_values], [vec2_values])
     return similarity.item()
 
