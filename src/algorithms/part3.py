@@ -6,15 +6,15 @@ def edit_merch(trip_merch, product, feature):
     else:
         trip_merch[product] = feature[1]
 
-def get_best_routes(profiles, features, max_quantity, max_rating):
+def get_best_routes(profiles, features, maxQuantity, maxRating):
     routes_part_3 = []
 
     for profile in profiles:
-        routes_part_3.append(get_best_route(profile, features, max_quantity, max_rating))
+        routes_part_3.append(get_best_route(profile, features, maxQuantity, maxRating))
 
     return routes_part_3
 
-def get_best_route(profile, features, max_elements, max_rating):
+def get_best_route(profile, features, maxQuantity, maxRating):
     best = {}
     avg = 0
     cnt = 0
@@ -32,11 +32,7 @@ def get_best_route(profile, features, max_elements, max_rating):
 
         for index, feature in enumerate(profile):
             if(feature > avg):
-                best[next((key for key, value in features.items() if value == index), None)] = (feature, int(feature * max_elements / max_rating))
-
-        route = []
-        cities = [] # This is used to check whether a feature features a city that is already added to the route
-        route.append({"from": "", "to": "", "merchandise": {}})
+                best[next((key for key, value in features.items() if value == index), None)] = (feature, int(feature * maxQuantity / maxRating))
 
         for feature in best:
             city, from_to, product = feature
