@@ -61,12 +61,14 @@ def modify_route(act_route, driver):
             if pos != 0 and pos != route_length:
                 act_route[pos - 1]["to"] = city
                 act_route[pos - 1]["merchandise"] = generate_merchandise(pref_merch, stubborness)
+                
+    return act_route
 
 # Load driver.json and standard.json
-with open('src/data/driver_attributes.json', 'r', encoding='utf-8') as f:
+with open('driver_attributes.json', 'r', encoding='utf-8') as f:
     driver_data = json.load(f)
 
-with open('src/data/standard.json', 'r', encoding='utf-8') as f:
+with open('standard.json', 'r', encoding='utf-8') as f:
     standard_data = json.load(f)
 
 # Create actual.json data
@@ -79,12 +81,11 @@ for driver in driver_data:
                 "id": f"a{element_id}",
                 "driver": driver["id"],
                 "sroute": standard["id"],
-                "route": deepcopy(standard["route"])
-            }
-            modify_route(actual_element["route"], driver)
+                "route": modify_route(deepcopy(standard["route"]), driver)
+            }            
             actual_data.append(actual_element)
             element_id += 1
 
 # Write actual.json
-with open('src/data/actual.json', 'w', encoding='utf-8') as f:
+with open('actual.json', 'w', encoding='utf-8') as f:
     json.dump(actual_data, f, ensure_ascii=False, indent=4)

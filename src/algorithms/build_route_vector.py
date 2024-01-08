@@ -1,8 +1,6 @@
-import json
-
 def route_to_vector(r, features):
-    vec = [[0] * len(features)]
-
+    vec = [0] * len(features)
+    print(r)
     for trip in r:
         for product in trip["merchandise"]:
             vec[features[(trip["from"], True, product)]] = trip["merchandise"][product]

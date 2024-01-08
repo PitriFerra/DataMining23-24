@@ -1,10 +1,10 @@
 #!
 import json
 from build_route_vector import route_to_vector
-from build_utility_matrix import calculate_cosine_similarity
 from main import def_features
-from ..data.generate_act_routes import modify_route
-from ..data.generate_std_routes import generate_random_route
+from sklearn.metrics.pairwise import cosine_similarity
+from data.generate_act_routes import modify_route
+from data.generate_std_routes import generate_random_route
 
 def part3():
     with open('part3.json', 'r', encoding='utf-8') as f:
@@ -20,9 +20,8 @@ def part3():
 
     for driver in drivers:
         standard_route = generate_random_route()
-        similarity.append([calculate_cosine_similarity(route_to_vector(standard_route, features), 
-                                                       route_to_vector(modify_route(standard_route, driver),
-                                                                       features))])
+        similarity.append([cosine_similarity(route_to_vector(standard_route, features),
+                                             route_to_vector(modify_route(standard_route, driver), features))])
     
     print(similarity)
     '''
@@ -30,3 +29,5 @@ def part3():
         modify_route(solution["route"], drivers[i])
         i += 1
     '''
+
+part3()
