@@ -32,9 +32,8 @@ def generate_merchandise(pref_merch, stubborness):
     edit_merch(result, pref_merch, stubborness)
     return result
 
-def modify_route(actual_element, driver):
+def modify_route(act_route, driver):
     stubborness = driver["stubborness"]
-    act_route = actual_element["route"]
     pref_cities = driver["preferences"]["cities"]
     pref_merch = driver["preferences"]["merchandise"]
     n_cities = len(pref_cities)
@@ -54,7 +53,6 @@ def modify_route(actual_element, driver):
     
     for city in pref_cities:
         if city not in cities and random.random() < stubborness["add_city"] / (1 + pref_cities.index(city)):
-            print(f"Driver {driver['id']} added {city} with probability {stubborness['add_city'] / (1 + pref_cities.index(city))} in route {actual_element['sroute']}")
             route_length = len(act_route)
             pos = random.randint(0, route_length)
             act_route.insert(pos, {"from": city if pos != route_length else act_route[-1]["to"], "to": city if pos == route_length else act_route[pos]["from"], "merchandise": generate_merchandise(pref_merch, stubborness) if pos == 0 or pos == route_length else act_route[pos - 1]["merchandise"]})
@@ -83,7 +81,7 @@ for driver in driver_data:
                 "sroute": standard["id"],
                 "route": deepcopy(standard["route"])
             }
-            modify_route(actual_element, driver)
+            modify_route(actual_element["route"], driver)
             actual_data.append(actual_element)
             element_id += 1
 

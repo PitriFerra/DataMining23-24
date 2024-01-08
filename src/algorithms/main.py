@@ -21,13 +21,11 @@ def main(argv):
     with open('actual.json', 'r', encoding='utf-8') as f:
         actual_data = json.load(f)
 
-    std_routes = [route_to_vector(item["route"]) for item in standard_data]
-    act_routes = [route_to_vector(item["route"]) for item in actual_data]    
-        
     features = def_features(standard_data, actual_data)
-    vec_std_routes, vec_act_routes = dict_to_vec(std_routes, act_routes, features)
-
+    std_routes = [route_to_vector(item["route"], features) for item in standard_data]
+    act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
     drivers = set()
+
     for route in actual_data:
         drivers.add(route["driver"])
     
@@ -36,7 +34,7 @@ def main(argv):
     u = transform_utility_matrix(u_dict)
           
     # build user profiles
-    profiles, max_rating = build_profiles(u, vec_act_routes, len(u), len(u[0]), len(features))
+    profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
     
     # cluster users and output recommended routes
     if str(sys.argv).__contains__("-dbscan"):
@@ -65,7 +63,7 @@ def main(argv):
         
 
     # ##### PART3 #####
-    max_quantity = max(max(row) for row in vec_act_routes)
+    max_quantity = max(max(row) for row in act_routes)
     results = []
     i = 1
     
