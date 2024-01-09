@@ -17,7 +17,7 @@ def calculate_cosine_similarity(vec1, vec2):
 
     #if there are not values return Nan = no calculate cosine similarity 
     if not vec1_values or not vec2_values:
-        return np.nan
+        return 0
 
     #the length of the vector has to be the same 
     for key in set(vec1.keys()) - common_keys:
