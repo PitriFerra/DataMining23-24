@@ -49,79 +49,78 @@ def user_user_lsh_collaborative_filtering(u, k=5, lsh=False):
                     if similar_ratings:
                         estimated_rating = np.mean(similar_ratings)
                         u[driver][route] = estimated_rating 
-        #return u
+        return u
     else: 
         #Method = Cosine Similarity
-        while any(None in ratings.values() for ratings in u.values()):
-            drivers = sorted(list(u.keys()))
-            similarities = {}
+        drivers = sorted(list(u.keys()))
+        similarities = {}
 
-            for i in range(len(drivers)):
-                for j in range(i + 1, len(drivers)):
-                    driver1 = drivers[i]
-                    driver2 = drivers[j]
+        for i in range(len(drivers)):
+            for j in range(i + 1, len(drivers)):
+                driver1 = drivers[i]
+                driver2 = drivers[j]
 
-                    #common routes between drivers != None 
-                    common_routes = []
-                    for route in u[driver1]:
-                        if route in u[driver2] and u[driver1][route] is not None and u[driver2][route] is not None:
-                            common_routes.append(route)
-                    #print(common_routes) 
+                #common routes between drivers != None 
+                common_routes = []
+                for route in u[driver1]:
+                    if route in u[driver2] and u[driver1][route] is not None and u[driver2][route] is not None:
+                        common_routes.append(route)
+                #print(common_routes) 
 
-                    if common_routes: 
-                        d1 = {}
-                        for route in common_routes:
-                            d1[route] = u[driver1][route]  
-                        #print(d1)
-                        d2 = {}
-                        for route in common_routes:
-                            d2[route] = u[driver2][route]
-                        #print(d2)
+                if common_routes: 
+                    d1 = {}
+                    for route in common_routes:
+                        d1[route] = u[driver1][route]  
+                    #print(d1)                        
+                    d2 = {}
+                    for route in common_routes:
+                        d2[route] = u[driver2][route]
+                    #print(d2)
 
-                        #similarity between the rating of the common routes of d1 and d2 
-                        similarity = calculate_cosine_similarity(d1, d2) 
-                        similarities[(driver1, driver2)] = similarity
-                    else: 
-                        similarities[(driver1, driver2)] = None
+                    #similarity between the rating of the common routes of d1 and d2 
+                    similarity = calculate_cosine_similarity(d1, d2) 
+                    similarities[(driver1, driver2)] = similarity
+                else: 
+                    similarities[(driver1, driver2)] = None
 
-            #find similar drivers and their similarity 
-            similar_drivers = {}
-            for (driver1, driver2), similarity in similarities.items():
-                if similarity is not None:
-                    if driver1 not in similar_drivers:
-                        similar_drivers[driver1] = []
-                    if driver2 not in similar_drivers:
-                        similar_drivers[driver2] = []
+        #find similar drivers and their similarity 
+        similar_drivers = {}
+        for (driver1, driver2), similarity in similarities.items():
+            if similarity is not None:
+                if driver1 not in similar_drivers:
+                    similar_drivers[driver1] = []
+                if driver2 not in similar_drivers:
+                    similar_drivers[driver2] = []
 
-                    similar_drivers[driver1].append((driver2, similarity))
-                    similar_drivers[driver2].append((driver1, similarity))
-            for driver in similar_drivers:
-                similar_drivers[driver] = sorted(similar_drivers[driver], key=lambda x: x[1], reverse=True)
-            #print(similar_drivers) 
+                similar_drivers[driver1].append((driver2, similarity))
+                similar_drivers[driver2].append((driver1, similarity))
+        #for driver in similar_drivers:
+            #similar_drivers[driver] = sorted(similar_drivers[driver], key=lambda x: x[1], reverse=True)
+        #print(similar_drivers) 
 
-            #find the route None 
-            for driver in u: 
-                routes_none = []
-                for route in u[driver]: 
-                    if u[driver][route] is None: 
-                        routes_none.append(route)
-                #print(routes_none)
-                if routes_none:
+        #find the route None
+        for driver in u:
+            routes_none = [route for route in u[driver] if u[driver][route] is None]
+            if routes_none:
+                #print(f"Driver {driver}: {routes_none}") 
+                for route in routes_none:
                     num = 0.0
                     den = 0.0
                     #find the similar driver and the similarity for the driver with route None
                     for similar_driver, similarity in similar_drivers.get(driver, []):
-                        for r in routes_none:
-                            if r in u[similar_driver] and u[similar_driver][r] is not None:
-                                #rating based on the weighted avg
-                                num += similarity * u[similar_driver][r]
-                                den += similarity
+                        if route in u[similar_driver] and u[similar_driver][route] is not None:
+                        #rating based on the weighted avg
+                            num += similarity * u[similar_driver][route] 
+                            den += similarity
 
                     if den != 0:
                         estimated_rating = num / den 
-                        u[driver][r] = estimated_rating 
+                        u[driver][route] = estimated_rating
+                    else: 
+                        u[driver][route] = 0 
         return u 
-    
+
+'''
     result = np.zeros((len(drivers), k), dtype='U20')
     for i, driver in enumerate(drivers):
         sorted_items = sorted(u[driver].items(), key=lambda x: x[1], reverse=True)
@@ -130,20 +129,10 @@ def user_user_lsh_collaborative_filtering(u, k=5, lsh=False):
         #index of top k routes
         r_indices = [list(u[driver].keys()).index(route) for route in sorted_routes[:k]]
         result[i, :] = r_indices
-        
+    
         #name of top k routes
         #r_names = sorted_routes[:k]
         #result[i, :] = np.array(r_names, dtype='U20')
-
-    return result  
-    
-'''
-    result = {}
-    for driver in drivers:
-        sorted_items = sorted(u[driver].items(), key=lambda x: x[1], reverse=True)
-        sorted_routes = [route[0] for route in sorted_items]
-
-        result[driver] = {'top5 routes': sorted_routes[:k]} 
 
     return result 
 '''

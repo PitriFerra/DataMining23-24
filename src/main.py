@@ -53,7 +53,7 @@ def main(argv):
     '''
 
     # ##### PART2 #####
-    # # user-user with implementation of LSH
+    # # user-user collaborative filtering with implementation of LSH
     #user_user = user_user_lsh_collaborative_filtering(u_dict, k=5, lsh=False)
     #print(user_user)  
     
@@ -62,8 +62,8 @@ def main(argv):
     #print(item_item)
 
     # # item_item collaborative filtering with LSH  
-    item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
-    print(item_item_lsh)  
+    #item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
+    #print(item_item_lsh)  
     
     # # content based
 
