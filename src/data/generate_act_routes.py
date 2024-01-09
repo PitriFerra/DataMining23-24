@@ -40,7 +40,7 @@ def modify_route(act_route, driver):
     cities = [act_route[0]["from"]]
 
     for trip in act_route:
-        if random.random() < stubborness["del_city"] / (n_cities - pref_cities.index(trip["to"])):
+        if len(act_route) > 1 and random.random() < stubborness["del_city"] / (n_cities - pref_cities.index(trip["to"])):
             i = act_route.index(trip)
             
             if i < len(act_route) - 1:
@@ -55,7 +55,10 @@ def modify_route(act_route, driver):
         if city not in cities and random.random() < stubborness["add_city"] / (1 + pref_cities.index(city)):
             route_length = len(act_route)
             pos = random.randint(0, route_length)
-            act_route.insert(pos, {"from": city if pos != route_length else act_route[-1]["to"], "to": city if pos == route_length else act_route[pos]["from"], "merchandise": generate_merchandise(pref_merch, stubborness) if pos == 0 or pos == route_length else act_route[pos - 1]["merchandise"]})
+            act_route.insert(pos, 
+                             {"from": city if pos != route_length else act_route[-1]["to"], 
+                              "to": city if pos == route_length else act_route[pos]["from"], 
+                              "merchandise": generate_merchandise(pref_merch, stubborness) if pos == 0 or pos == route_length else act_route[pos - 1]["merchandise"]})
             cities.append(city)
 
             if pos != 0 and pos != route_length:

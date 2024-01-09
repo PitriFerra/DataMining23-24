@@ -5,6 +5,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 from data.generate_act_routes import modify_route
 from data.generate_std_routes import generate_random_route
 
+def part1():
+    return
+
+def part2():
+    return
+
 def part3():
     with open('solutions/part3.json', 'r', encoding='utf-8') as f:
         part3 = json.load(f)
@@ -16,8 +22,9 @@ def part3():
         standard_data = json.load(f)
     j = 0
     sum_success_rate = 0
+    global_sum_similarity = 0
 
-    while j < 10:
+    while j < 100:
         similarity = []
         features = def_features(standard_data, actual_data)
 
@@ -26,24 +33,34 @@ def part3():
             similarity.append([cosine_similarity([route_to_vector(standard_route, features)],
                                                  [route_to_vector(modify_route(standard_route, driver), features)]).item()])
 
-        print(similarity)
         i = 0
         successes = 0
+        sum_similarity = 0
 
         for solution in part3:
             similarity[i].append(cosine_similarity([route_to_vector(solution["route"], features)],
                                                    [route_to_vector(modify_route(solution["route"], drivers[i]), features)]).item())
+            sum_similarity += similarity[i][1]
 
             if similarity[i][1] > similarity[i][0]:
                 successes += 1
 
             i += 1
 
+        global_sum_similarity += sum_similarity
         success_rate = successes * 100 / i
         sum_success_rate += success_rate
         print(similarity)
-        print(f"Number of successes: {successes}. Success rate: {success_rate}%")
+        print(f"Number of successes: {successes}. Success rate: {success_rate}%. Average similarity for recommended routes: {sum_similarity / i}.")
         j += 1
 
-    print(f"Average success rate: {sum_success_rate / j}")
-part3()
+    print(f"Average success rate: {sum_success_rate / j}%. Global average similarity for recommended routes: {global_sum_similarity / (j * i)}")
+
+part = 3
+
+if part == 1:
+    part1()
+elif part == 2:
+    part2()
+elif part == 3:
+    part3()
