@@ -29,9 +29,10 @@ def get_best_route(profile, features, maxQuantity, maxRating):
 
     if cnt != 0:
         avg /= cnt
+        threshold = avg * 1.8
 
         for index, feature in enumerate(profile):
-            if(feature > avg):
+            if(feature > threshold):
                 best[next((key for key, value in features.items() if value == index), None)] = (feature, int(feature * maxQuantity / maxRating))
 
         for feature in best:
@@ -39,21 +40,25 @@ def get_best_route(profile, features, maxQuantity, maxRating):
 
             if city in cities:
                 found = False
-                i = 0
-                loc = "from" if from_to else "to"
+                i = -1
+
+                if route[0]["from"] == city:
+                    found = True
+                else:
+                    i = 0
 
                 while not found:
-                    if route[i][loc] == city:
+                    if route[i]["to"] == city:
                         found = True
                     else:
                         i += 1
 
-                if from_to and i == len(route):
+                if from_to and i == len(route) - 1:
                     route.append({"from": city, "to": "", "merchandise": {product: best[feature][1]}})
-                elif not from_to and i == 0:
+                elif not from_to and i == -1:
                     route.insert(0, {"from": "", "to": city, "merchandise": {product: best[feature][1]}})
                 else:
-                    edit_merch(route[i]["merchandise"], product, best[feature][1])
+                    edit_merch(route[i if not from_to else i + 1]["merchandise"], product, best[feature][1])
             else:
                 cities.append(city)
 

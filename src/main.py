@@ -1,24 +1,24 @@
 import numpy as np
 import random
-from build_profiles import build_profiles
-from build_utility_matrix import build_utility_matrix
-from cluster import kmeans_cluster, DBSCAN_cluster
-from build_route_vector import route_to_vector
+from algorithms.build_profiles import build_profiles
+from algorithms.build_utility_matrix import build_utility_matrix
+from algorithms.cluster import kmeans_cluster, DBSCAN_cluster
+from algorithms.build_route_vector import route_to_vector
 #from part2 import find_routes
 #from user_user_lsh import user_user_lsh_collaborative_filtering 
-from item_item_lsh import item_item_lsh_collaborative_filtering 
+from algorithms.item_item_lsh import item_item_lsh_collaborative_filtering 
 import json 
-from part3 import get_best_route
-from part3 import get_best_routes
+from algorithms.part3 import get_best_route
+from algorithms.part3 import get_best_routes
 import sys
 
 def main(argv):
     ###### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
-    with open('standard.json', 'r', encoding='utf-8') as f:
+    with open('data/standard.json', 'r', encoding='utf-8') as f:
         standard_data = json.load(f)
 
-    with open('actual.json', 'r', encoding='utf-8') as f:
+    with open('data/actual.json', 'r', encoding='utf-8') as f:
         actual_data = json.load(f)
 
     features = def_features(standard_data, actual_data)
@@ -30,7 +30,7 @@ def main(argv):
         drivers.add(route["driver"])
     
     # build utility matrix
-    u_dict = build_utility_matrix(standard_data, actual_data, drivers)
+    u_dict = build_utility_matrix(standard_data, actual_data, drivers, features)
     u = transform_utility_matrix(u_dict)
           
     # build user profiles
@@ -73,7 +73,7 @@ def main(argv):
 
     print(len(drivers))
     # Write the results to a JSON file
-    with open('part3.json', 'w') as json_file:
+    with open('solutions/part3.json', 'w') as json_file:
         json.dump(results, json_file, indent=2)
 
     

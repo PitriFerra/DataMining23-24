@@ -1,5 +1,4 @@
 import json
-import os
 import random
 from copy import deepcopy
 
@@ -88,5 +87,5 @@ for driver in driver_data:
             element_id += 1
 
 # Write actual.json
-with open('actual.json', 'w', encoding='utf-8') as f:
+with open('data/actual.json', 'w', encoding='utf-8') as f:
     json.dump(actual_data, f, ensure_ascii=False, indent=4)

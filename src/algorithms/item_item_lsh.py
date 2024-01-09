@@ -1,4 +1,4 @@
-from build_utility_matrix import calculate_cosine_similarity
+from algorithms.build_utility_matrix import calculate_cosine_similarity
 import faiss
 import numpy as np
 

@@ -25,11 +25,11 @@ def generate_random_route():
 
 data = []
 
-for i in range(10): # Ask the professor what would be a good number for standard and actual routes
+for i in range(100): # Ask the professor what would be a good number for standard and actual routes
     data.append({
         "id": f"s{i+1}",
         "route": generate_random_route()
     })
     
-with open('standard.json', 'w', encoding='utf-8') as f:
+with open('data/standard.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)

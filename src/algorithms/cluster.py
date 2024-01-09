@@ -3,7 +3,7 @@ import unittest
 import random
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn import preprocessing
-from dimensionality_reduction import svd
+from algorithms.dimensionality_reduction import svd
 from kneed import KneeLocator
 from sklearn.neighbors import NearestNeighbors
 from matplotlib import pyplot as plt
