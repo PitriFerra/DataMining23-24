@@ -1,4 +1,5 @@
 import json
+import os
 import random
 from copy import deepcopy
 
@@ -61,14 +62,14 @@ def modify_route(act_route, driver):
             if pos != 0 and pos != route_length:
                 act_route[pos - 1]["to"] = city
                 act_route[pos - 1]["merchandise"] = generate_merchandise(pref_merch, stubborness)
-                
+
     return act_route
 
 # Load driver.json and standard.json
-with open('driver_attributes.json', 'r', encoding='utf-8') as f:
+with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
     driver_data = json.load(f)
 
-with open('standard.json', 'r', encoding='utf-8') as f:
+with open('data/standard.json', 'r', encoding='utf-8') as f:
     standard_data = json.load(f)
 
 # Create actual.json data
