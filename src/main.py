@@ -10,6 +10,8 @@ import json
 from algorithms.part3 import get_best_route
 from algorithms.part3 import get_best_routes
 import sys
+from algorithms.user_user_lsh import user_user_lsh_collaborative_filtering
+from algorithms.user_user import user_user_collaborative_filtering
 
 
 # A Python program to demonstrate working of OrderedDict
@@ -26,8 +28,7 @@ def main(argv):
 
     features = def_features(standard_data, actual_data)
     std_routes = [route_to_vector(item["route"], features) for item in standard_data]
-    for item in standard_data:
-        print(item["id"])
+
     act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
     drivers = set()
 
@@ -37,8 +38,6 @@ def main(argv):
     # build utility matrix
     u_dict = build_utility_matrix(standard_data, actual_data, drivers, features)
     u = transform_utility_matrix(u_dict)
-    
-    print(std_routes[0])
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
@@ -62,9 +61,19 @@ def main(argv):
     #print(item_item)
 
     # # item_item collaborative filtering with LSH  
-    item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
-    print(item_item_lsh)  
-    
+    #item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
+    #print(item_item_lsh)  
+
+    # user user collaborative filtering with LSH
+    # user_user_lsh = user_user_lsh_collaborative_filtering(u, std_routes, k=5)
+    # for el in user_user_lsh:
+    #    print(el)
+
+    # user user collaborative filtering
+    # user_user = user_user_collaborative_filtering(u, std_routes, k=5)
+    # for el in user_user:
+    #     print(el)
+
     # # content based
 
     # # hybrid 
@@ -112,7 +121,6 @@ def transform_utility_matrix(u_dict):
 
         for route in u_dict[driver].keys():
             u[-1].append(u_dict[driver][route]) 
-    print(u[0])
     return u
 
 def def_features(std_data, act_data):
