@@ -31,7 +31,7 @@ def content_based_filtering(profile, route, k, lsh):
         # search for the k most similar route to each driver's profile
         for i in range(len(profile)):
             D, I = index.search(profile[i].reshape(1, dimensions), k)
-            result[i] = I
+            result[i] = I[0].tolist()
     else:
         for i in range(len(profile)):
             arr = []

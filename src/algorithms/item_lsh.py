@@ -75,9 +75,5 @@ def item_item_lsh_collaborative_filtering(u, std_route, k=5):
             res.append(u[i][l][1])
         
         result[i] = res
-
-    #print("RESULT SORT")
-    for i in range(len(result)):
-        print(result[i])
     
-    return res
+    return result

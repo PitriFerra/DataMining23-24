@@ -2,6 +2,17 @@ import faiss
 import numpy as np
 
 def user_user_lsh_collaborative_filtering(u, std_route, k=5):    
+    '''
+    Recommends k routes to each driver in the utility matrix
+
+    Arguments:
+    u: The utility matrix
+    std_route: The standard routes matrix
+    k: the number of routes to recommend to each driver
+
+    Returns:
+    A matrix whith 5 indexes per driver in the profile matrix
+    '''
     # convert None entries to 0.0 entries to avoid issued with FAISS
     for i in range(len(u)):
         for j in range(len(u[0])):
