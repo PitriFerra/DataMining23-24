@@ -11,17 +11,23 @@ from algorithms.part3 import get_best_route
 from algorithms.part3 import get_best_routes
 import sys
 
+
+# A Python program to demonstrate working of OrderedDict
+from collections import OrderedDict
+
 def main(argv):
     # ##### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
     with open('data/standard.json', 'r', encoding='utf-8') as f:
         standard_data = json.load(f)
-
+        
     with open('data/actual.json', 'r', encoding='utf-8') as f:
         actual_data = json.load(f)
 
     features = def_features(standard_data, actual_data)
     std_routes = [route_to_vector(item["route"], features) for item in standard_data]
+    for item in standard_data:
+        print(item["id"])
     act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
     drivers = set()
 
@@ -31,6 +37,8 @@ def main(argv):
     # build utility matrix
     u_dict = build_utility_matrix(standard_data, actual_data, drivers, features)
     u = transform_utility_matrix(u_dict)
+    
+    print(std_routes[0])
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
@@ -104,11 +112,11 @@ def transform_utility_matrix(u_dict):
 
         for route in u_dict[driver].keys():
             u[-1].append(u_dict[driver][route]) 
-            
+    print(u[0])
     return u
 
 def def_features(std_data, act_data):
-    features = {}
+    features = OrderedDict()
     cities = set()
     products = set()
     i = 0
