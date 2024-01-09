@@ -66,7 +66,7 @@ def modify_route(actual_element, driver):
     
     for city in pref_cities:
         if city not in cities and random.random() < stubborness["add_city"] / (1 + pref_cities.index(city)):
-            print(f"Driver {driver['id']} added {city} with probability {stubborness['add_city'] / (1 + pref_cities.index(city))} in route {actual_element['sroute']}")
+            #print(f"Driver {driver['id']} added {city} with probability {stubborness['add_city'] / (1 + pref_cities.index(city))} in route {actual_element['sroute']}")
             route_length = len(act_route)
             pos = random.randint(0, route_length)
             act_route.insert(pos, {"from": city if pos != route_length else act_route[-1]["to"], "to": city if pos == route_length else act_route[pos]["from"], "merchandise": generate_merchandise(pref_merch, stubborness) if pos == 0 or pos == route_length else act_route[pos - 1]["merchandise"]})

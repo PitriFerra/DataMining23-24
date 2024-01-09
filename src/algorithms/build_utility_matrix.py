@@ -45,8 +45,6 @@ def build_utility_matrix(s_data, a_data, drivers, features):
         for route in s_data:
             utility_matrix[driver][route['id']] = None
 
-    print(utility_matrix["d1"])
-
     for standard_route in s_data:
         for actual_route in a_data:
             #if there is a match, it means we have corresponding routes 
