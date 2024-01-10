@@ -30,7 +30,7 @@ with open(path_items, 'r', encoding='utf-8') as items_file:
 for i in range(n_std_routes): 
     std.append({
         "id": f"s{i+1}",
-        "route": generate_random_route()
+        "route": generate_random_route(items, locations)
     })
 
 for i in range(n_drivers):
