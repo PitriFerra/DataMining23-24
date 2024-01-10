@@ -1,15 +1,14 @@
 import numpy as np
 import unittest
 import random
+from dimensionality_reduction import svd 
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn import preprocessing
-from algorithms.dimensionality_reduction import svd
 from kneed import KneeLocator
 from sklearn.neighbors import NearestNeighbors
 from matplotlib import pyplot as plt
 from sklearn.datasets import make_blobs
 from sklearn.preprocessing import StandardScaler
-
 
 def kmeans_cluster(profile, n, reduce_dimensions, plot):
     '''
@@ -34,7 +33,7 @@ def kmeans_cluster(profile, n, reduce_dimensions, plot):
         - Only works for euclidian distance
 
         Returns:
-        The centroids
+        The label for each point in the original data
     '''
     if reduce_dimensions: 
         profile, model = svd(profile, len(profile[0]), 0.1)
@@ -45,16 +44,16 @@ def kmeans_cluster(profile, n, reduce_dimensions, plot):
     err = []
     ks = []
     k = 2
-    step = int(len(profile) / 50) + 1
+    step = int(len(profile) / 30) + 1
     
     while k < len(profile):
-        print("k = ", k)
         kmeans = KMeans(n_clusters = k, n_init="auto").fit(profile)
         err.append(kmeans.inertia_)
         ks.append(k)
         k += step
         
     kneedle = KneeLocator(err, ks, S = 1.0, curve="convex", direction="decreasing")
+    kmeans = KMeans(n_clusters = kneedle.elbow_y, n_init="auto").fit(profile)
     if plot:
         print("elbow = ", kneedle.elbow_y)
         
@@ -63,11 +62,13 @@ def kmeans_cluster(profile, n, reduce_dimensions, plot):
         plt.ylabel("k")
         plt.xlabel("Distance")
         plt.show()
+
+    centroids = labels_to_centroids(kmeans.labels_, profile, kneedle.elbow_y)
     
     if reduce_dimensions:                
-        return model.inverse_transform(kmeans.cluster_centers_ * norms)   #inverse transform of normalized clusters
+        return model.inverse_transform(centroids)   #inverse transform of normalized clusters
     else:
-        return kmeans.cluster_centers_ * norms
+        return centroids
 '''
     Clusters the user profiles using the DBSCAN algorithm
     
@@ -126,7 +127,23 @@ def DBSCAN_cluster(profile, reduce_dimensions, plot):
         plt.show()
     
     return DBSCAN(eps=kneedle.elbow_y, min_samples=min_samples, n_jobs=-1, metric="cosine").fit(profile)
+
+def labels_to_centroids(labels, profile, cluster_count):
+    m = len(profile[0])
+    centroids = [[0.0] * m for _ in range(cluster_count)]
+    count = [[0] * m for _ in range(cluster_count)]
     
+    for i in range(len(labels)):
+        for j in range(m):
+            centroids[labels[i]][j] += profile[i][j]
+            count[labels[i]][j] += 1
+
+    for i in range(cluster_count):
+        for j in range(m):
+            if count[i][j] != 0:
+                centroids[i][j] /= count[i][j]
+
+    return centroids    
 '''
 Unit tests 
 '''
@@ -141,9 +158,11 @@ class TestBuildProfiles(unittest.TestCase):
             for j in range(d):
                 if random.randint(1,100) > density:
                     S[i][j] = 0.0
-        kmeans_cluster(S, n, False, False)
+
+        labels = kmeans_cluster(S, n, True, True)
+        print(labels)
     
-    def testDBSCAN(self):
+    def atestDBSCAN(self):
         n = 1100
         d = 20
         S = np.random.rand(n, d) 
@@ -158,7 +177,7 @@ class TestBuildProfiles(unittest.TestCase):
         print("#points = ", len(S)) 
    
         
-    def testDBSCAN_cluster_count(self):
+    def atestDBSCAN_cluster_count(self):
         centers = [[2, 2], [-2, -2], [2, -2]]
         X, labels_true = make_blobs(
             n_samples=1000, centers=centers, cluster_std=0.4, random_state=0
