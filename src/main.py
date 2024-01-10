@@ -89,7 +89,6 @@ def main(argv):
     print("HYBRID")
     print(hybrid)
     # ##### PART3 #####
-    '''
     max_quantity = max(max(row) for row in act_routes)
     results = []
     i = 1
@@ -102,7 +101,7 @@ def main(argv):
     # Write the results to a JSON file
     with open('solutions/part3.json', 'w') as json_file:
         json.dump(results, json_file, indent=2)
-    '''
+    
     
 def dict_to_vec(std_routes, act_routes, features):
     vec_std_routes = [[0] * len(features) for _ in range(len(std_routes))]

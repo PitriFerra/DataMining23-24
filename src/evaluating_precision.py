@@ -12,6 +12,8 @@ def part2():
     return
 
 def part3():
+    n_locations = 20 #number of locations from the json file 
+    n_items = 8 #number of items from the json file
     with open('solutions/part3.json', 'r', encoding='utf-8') as f:
         part3 = json.load(f)
     with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
@@ -20,41 +22,55 @@ def part3():
         actual_data = json.load(f)
     with open('data/standard.json', 'r', encoding='utf-8') as f:
         standard_data = json.load(f)
+    with open('data/locations.json', 'r', encoding='utf-8') as locations_file:
+        locations = json.load(locations_file)[:n_locations]
+    with open('data/items.json', 'r', encoding='utf-8') as items_file:
+        items = json.load(items_file)[:n_items] 
     j = 0
     sum_success_rate = 0
-    global_sum_similarity = 0
+    global_sum_similarity_recommended = 0
+    global_sum_similarity_random = 0
+    features = def_features(standard_data, actual_data)
 
     while j < 100:
         similarity = []
-        features = def_features(standard_data, actual_data)
+        sum_similarity_random = 0
 
         for driver in drivers:
-            standard_route = generate_random_route()
+            standard_route = generate_random_route(items, locations)
             similarity.append([cosine_similarity([route_to_vector(standard_route, features)],
-                                                 [route_to_vector(modify_route(standard_route, driver), features)]).item()])
+                                                 [route_to_vector(modify_route(standard_route, driver, items), features)]).item()])
+            sum_similarity_random += similarity[-1][0]
 
         i = 0
         successes = 0
-        sum_similarity = 0
+        sum_similarity_recommended = 0
 
         for solution in part3:
             similarity[i].append(cosine_similarity([route_to_vector(solution["route"], features)],
-                                                   [route_to_vector(modify_route(solution["route"], drivers[i]), features)]).item())
-            sum_similarity += similarity[i][1]
+                                                   [route_to_vector(modify_route(solution["route"], drivers[i], items), features)]).item())
+            sum_similarity_recommended += similarity[i][1]
 
             if similarity[i][1] > similarity[i][0]:
                 successes += 1
 
             i += 1
 
-        global_sum_similarity += sum_similarity
+        global_sum_similarity_recommended += sum_similarity_recommended
+        global_sum_similarity_random += sum_similarity_random
         success_rate = successes * 100 / i
         sum_success_rate += success_rate
-        print(similarity)
-        print(f"Number of successes: {successes}. Success rate: {success_rate}%. Average similarity for recommended routes: {sum_similarity / i}.")
+        #print(similarity)
+        print(f"Success rate: {success_rate}%. Avg similarity for random routes: {round(sum_similarity_random / i, 2)}. Avg similarity for recommended routes: {round(sum_similarity_recommended / i, 2)}.")
         j += 1
 
-    print(f"Average success rate: {sum_success_rate / j}%. Global average similarity for recommended routes: {global_sum_similarity / (j * i)}")
+    global_avg_similarity_random = global_sum_similarity_random / (j * i)
+    global_avg_similarity_recommended = global_sum_similarity_recommended / (j * i)
+    print(f"Average success rate: {sum_success_rate / j}%.")
+    print(f"Global average similarity for random routes: {round(global_avg_similarity_random, 2)}")
+    print(f"Global average similarity for recommended routes: {round(global_avg_similarity_recommended, 2)}")
+    print(f"Similarity has been improved by {round(global_avg_similarity_recommended / global_avg_similarity_random * 100)}%")
+
 
 part = 3
 
