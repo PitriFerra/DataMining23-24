@@ -2,10 +2,10 @@ import json
 import random
 
 #### Path of json file ####
-path_locations = 'locations.json' #path of the file with the list of locations
-path_items = 'items.json' #path of the file with the list of items
-path_driver_attr = 'driver_attributes.json' #path of the file with the driver_attributes
-path_standard = 'standard.json' #path of the output of the standard routes json file
+path_locations = 'data/locations.json' #path of the file with the list of locations
+path_items = 'data/items.json' #path of the file with the list of items
+path_driver_attr = 'data/driver_attributes.json' #path of the file with the driver_attributes
+path_standard = 'data/standard.json' #path of the output of the standard routes json file
 
 #### Parameters ####
 n_locations = 20 #number of locations from the json file 

@@ -3,10 +3,10 @@ import random
 from copy import deepcopy
 
 #### Path of json file ####
-path_items = 'items.json' #path of the file with the list of items
-path_driver_attr = 'driver_attributes.json' #path of the file with the driver_attributes
-path_standard = 'standard.json' #path of the the standard routes 
-path_actual = 'actual.json' #path of the output of the actual routes json file 
+path_items = 'data/items.json' #path of the file with the list of items
+path_driver_attr = 'data/driver_attributes.json' #path of the file with the driver_attributes
+path_standard = 'data/standard.json' #path of the the standard routes 
+path_actual = 'data/actual.json' #path of the output of the actual routes json file 
 
 #### Parameters ####
 n_items = 8 #number of items from the json file
