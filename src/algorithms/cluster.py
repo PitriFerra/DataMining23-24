@@ -1,7 +1,7 @@
 import numpy as np
 import unittest
 import random
-from dimensionality_reduction import svd 
+from algorithms.dimensionality_reduction import svd 
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn import preprocessing
 from kneed import KneeLocator
