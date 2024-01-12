@@ -14,7 +14,7 @@ import json
 from algorithms.part3 import get_best_route
 from algorithms.part3 import get_best_routes
 import sys
-
+import time 
 
 # A Python program to demonstrate working of OrderedDict
 from collections import OrderedDict
@@ -22,6 +22,7 @@ from collections import OrderedDict
 def main(argv):
     # ##### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
+    start_time = time.time()
     with open('data/standard.json', 'r', encoding='utf-8') as f:
         standard_data = json.load(f)
         
@@ -42,67 +43,37 @@ def main(argv):
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
-    '''
-    # cluster users and output recommended routes
-    if str(sys.argv).__contains__("-dbscan"):
-        dbscan = DBSCAN_cluster(profiles, reduce_dimensions=False, plot=False)
-        labels_to_routes(dbscan, len(std_routes))
-    else:
-        centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=True) 
-        centroids_to_routes(centroids, len(std_routes))
-    '''
-
-    # ##### PART2 #####
-    # # user-user collaborative filtering with implementation of LSH
-    #user_user = user_user_lsh_collaborative_filtering(u_dict, k=5, lsh=False)
-    #print(user_user)  
-    
-    # # item-item collaborative filtering
-    #item_item = item_item_collaborative_filtering(u_dict, k=5)  
-    #print(item_item)
-
-    # # item_item collaborative filtering with LSH  
-    #item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
-    #print(item_item_lsh)  
-
-    # user user collaborative filtering with LSH
-    # user_user_lsh = user_user_lsh_collaborative_filtering(u, std_routes, 5)
-    # print(user_user_lsh_collaborative_filtering)
-
-    # user user collaborative filtering without LSH
-    # user_user = user_user_collaborative_filtering(u, std_routes, 5)
-    # print(user_user)
-    
-    # # content based
-    # content_based = content_based_filtering(profiles, std_routes, k=5, lsh=True)
-
-    # # hybrid 
-    item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
-    print("ITEM")
-    print(item_item_lsh)
-    
-    content_based = content_based_filtering(profiles, std_routes, k=5, lsh=True)
-    print("CONTENT")
-    print(content_based)
-
-    hybrid = hybrid_filtering(content_based, item_item_lsh, 5)
-    print("HYBRID")
-    print(hybrid)
-    # ##### PART3 #####
     max_quantity = max(max(row) for row in act_routes)
-    results = []
-    i = 1
-    
-    for profile in profiles:
-        results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
-        i += 1
 
-    print(len(drivers))
+    # cluster users and output recommended routes
+    #if str(sys.argv).__contains__("-dbscan"):
+    #    dbscan = DBSCAN_cluster(profiles, reduce_dimensions=False, plot=False)
+    #    labels_to_routes(dbscan, len(std_routes))
+    #else:
+    centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=False, plot=False)  
+    #centroids_to_routes(centroids, len(std_routes))
+    centroids_to_routes(centroids, len(std_routes), features, max_quantity, max_rating)
+    
+
+
+    end_time = time.time()
+    print("start time = ", start_time, " end_time = ", end_time)
+    print(end_time - start_time)
+
+    # ##### PART3 #####
+    #max_quantity = max(max(row) for row in act_routes)
+    #results = []
+    #i = 1
+    
+    #for profile in profiles:
+    #    results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
+    #    i += 1
+
+    #print(len(drivers))
     # Write the results to a JSON file
-    with open('solutions/part3.json', 'w') as json_file:
-        json.dump(results, json_file, indent=2)
-    
-    
+    #with open('solutions/part3.json', 'w') as json_file:
+    #    json.dump(results, json_file, indent=2)
+'''   
 def dict_to_vec(std_routes, act_routes, features):
     vec_std_routes = [[0] * len(features) for _ in range(len(std_routes))]
     vec_act_routes = [[0] * len(features) for _ in range(len(act_routes))]
@@ -120,6 +91,7 @@ def dict_to_vec(std_routes, act_routes, features):
         i += 1
             
     return vec_std_routes, vec_act_routes
+'''
 
 def transform_utility_matrix(u_dict):
     u = []
@@ -161,6 +133,18 @@ def def_features(std_data, act_data):
             i += 1
     
     return features 
+
+#def centroids_to_routes(centroids, m):
+def centroids_to_routes(centroids, m, features, max_quantity, max_rating):
+    with open("recStandard.json", "w") as f:
+        for _ in range(int(m / len(centroids))):
+            tmp = centroids.copy()
+            for i in range(len(centroids)):
+                for j in range(len(centroids[0])):
+                    tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
+                #json.dump(get_best_route(tmp), f)
+                json.dump(get_best_route(tmp, features, max_quantity, max_rating), f)
+
 '''
 def labels_to_routes(dbscan, m):
     if len(dbscan.components_) != 0:
@@ -169,15 +153,7 @@ def labels_to_routes(dbscan, m):
             for i in range(int(m / len(dbscan.components_))):
                 print("hola")
                 #json.dump(get_best_route(dbscan.components_), f) 
-    
-def centroids_to_routes(centroids, m):
-    with open("recStandard.json", "w") as f:
-        for _ in range(int(m / len(centroids))):
-            tmp = centroids.copy()
-            for i in range(len(centroids)):
-                for j in range(len(centroids[0])):
-                    tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
-                #json.dump(get_best_route(tmp), f)
-'''
+'''   
+
 if __name__ == '__main__':
     main(sys.argv[1:]) 

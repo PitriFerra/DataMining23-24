@@ -21,7 +21,7 @@ def get_best_route(profile, features, maxQuantity, maxRating):
     route = []
     cities = [] # This is used to check whether a feature features a city that is already added to the route
     route.append({"from": "", "to": "", "merchandise": {}})
-
+    print(profile)
     for feature in profile:
         if(feature > 0):
             avg += feature
