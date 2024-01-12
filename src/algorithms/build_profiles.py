@@ -33,10 +33,11 @@ def build_profiles(u, item, n, m, features):
                 avg[i] += u[i][j]
         if cnt != 0:
             avg[i] /= cnt
+            
     for i in range(n):  
         for j in range(m):  
             rating = u[i][j]  
-            if rating is not None:  
+            if rating is not None:      
                 for f in range(features):  
                     feature_weight = item[j][f]
                     if feature_weight != 0.0:   
