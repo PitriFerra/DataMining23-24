@@ -12,8 +12,8 @@ def part2():
     return
 
 def part3():
-    n_locations = 20 #number of locations from the json file 
-    n_items = 8 #number of items from the json file
+    n_locations = 57 #number of locations from the json file 
+    n_items = 23 #number of items from the json file
     with open('solutions/part3.json', 'r', encoding='utf-8') as f:
         part3 = json.load(f)
     with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
@@ -26,13 +26,14 @@ def part3():
         locations = json.load(locations_file)[:n_locations]
     with open('data/items.json', 'r', encoding='utf-8') as items_file:
         items = json.load(items_file)[:n_items] 
+    n_iterations = 100
     j = 0
     sum_success_rate = 0
     global_sum_similarity_recommended = 0
     global_sum_similarity_random = 0
     features = def_features(standard_data, actual_data)
 
-    while j < 100:
+    while j < n_iterations:
         similarity = []
         sum_similarity_random = 0
 
@@ -61,9 +62,9 @@ def part3():
         success_rate = successes * 100 / i
         sum_success_rate += success_rate
         #print(similarity)
-        print(f"Success rate: {success_rate}%. Avg similarity for random routes: {round(sum_similarity_random / i, 2)}. Avg similarity for recommended routes: {round(sum_similarity_recommended / i, 2)}.")
         j += 1
-
+        print(f"Iteration {j} out of {n_iterations}. Success rate: {success_rate}%. Avg similarity for random routes: {round(sum_similarity_random / i, 2)}. Avg similarity for recommended routes: {round(sum_similarity_recommended / i, 2)}.")
+        
     global_avg_similarity_random = global_sum_similarity_random / (j * i)
     global_avg_similarity_recommended = global_sum_similarity_recommended / (j * i)
     print(f"Average success rate: {sum_success_rate / j}%.")

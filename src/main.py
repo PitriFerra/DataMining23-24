@@ -1,5 +1,9 @@
+from collections import OrderedDict
+import json 
 import numpy as np
 import random
+import sys
+import time
 from algorithms.build_profiles import build_profiles
 from algorithms.build_utility_matrix import build_utility_matrix
 from algorithms.cluster import kmeans_cluster, DBSCAN_cluster
@@ -10,18 +14,13 @@ from algorithms.content_based_filtering import content_based_filtering
 from algorithms.user_user import user_user_collaborative_filtering
 from algorithms.user_user_lsh import user_user_lsh_collaborative_filtering
 from algorithms.hybrid_filtering import hybrid_filtering
-import json 
 from algorithms.part3 import get_best_route
 from algorithms.part3 import get_best_routes
-import sys
-
-
-# A Python program to demonstrate working of OrderedDict
-from collections import OrderedDict
 
 def main(argv):
     # ##### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
+    start_time = time.time()
     with open('data/standard.json', 'r', encoding='utf-8') as f:
         standard_data = json.load(f)
         
@@ -29,19 +28,26 @@ def main(argv):
         actual_data = json.load(f)
 
     features = def_features(standard_data, actual_data)
+    #print("Extracted features.")
     std_routes = [route_to_vector(item["route"], features) for item in standard_data]
     act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
+    #print("Extracted routes vectors.")
     drivers = set()
 
     for route in actual_data:
         drivers.add(route["driver"])
+        
+    #print("Extracted drivers.")
     
     # build utility matrix
     u_dict = build_utility_matrix(standard_data, actual_data, drivers, features)
+    #print("Built utility matrix.")
     u = transform_utility_matrix(u_dict)
+    #print("Transformed utility matrix.")
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
+    #print("Built profiles.")
     '''
     # cluster users and output recommended routes
     if str(sys.argv).__contains__("-dbscan"):
@@ -77,6 +83,7 @@ def main(argv):
     # content_based = content_based_filtering(profiles, std_routes, k=5, lsh=True)
 
     # # hybrid 
+    '''
     item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
     print("ITEM")
     print(item_item_lsh)
@@ -88,6 +95,7 @@ def main(argv):
     hybrid = hybrid_filtering(content_based, item_item_lsh, 5)
     print("HYBRID")
     print(hybrid)
+    '''
     # ##### PART3 #####
     max_quantity = max(max(row) for row in act_routes)
     results = []
@@ -97,10 +105,10 @@ def main(argv):
         results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
         i += 1
 
-    print(len(drivers))
-    # Write the results to a JSON file
     with open('solutions/part3.json', 'w') as json_file:
         json.dump(results, json_file, indent=2)
+    end_time = time.time()
+    print(f"Final time: {end_time - start_time}")
     
     
 def dict_to_vec(std_routes, act_routes, features):

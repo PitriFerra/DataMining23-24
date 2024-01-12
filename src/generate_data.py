@@ -14,7 +14,7 @@ path_actual = 'data/actual.json' #path of the output of the actual routes json f
 n_locations = 20 #number of locations from the json file 
 n_items = 8 #number of items from the json file
 n_std_routes = 1000 #number of standard routes to create 
-n_drivers = 100 #number of drivers
+n_drivers = 400 #number of drivers
 x = 0.15 #how much to fill the utility matrix
 
 std = []
@@ -32,6 +32,8 @@ for i in range(n_std_routes):
         "id": f"s{i+1}",
         "route": generate_random_route(items, locations)
     })
+
+print("Generated std routes.")
 
 for i in range(n_drivers):
     upper_bound = random.randint(0, 10) / 10
@@ -52,6 +54,7 @@ for i in range(n_drivers):
         }
     })
 
+print("Generated drivers.")
 element_id = 1
 
 for driver in drivers:
@@ -66,6 +69,7 @@ for driver in drivers:
             act.append(actual_element)
             element_id += 1
 
+print("Generated act routes.")
 with open(path_standard, 'w', encoding='utf-8') as f:
     json.dump(std, f, ensure_ascii=False, indent=4)
 
