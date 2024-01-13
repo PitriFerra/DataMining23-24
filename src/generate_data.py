@@ -12,12 +12,12 @@ path_standard = 'data/standard.json' #path of the output of the standard routes 
 path_actual = 'data/actual.json' #path of the output of the actual routes json file 
 
 #### Parameters ####
-n_locations = 20 #number of locations from the json file 
-n_items = 8 #number of items from the json file
-n_drivers = 100 #number of drivers
+n_locations = 31 #number of locations from the json file 
+n_items = 20 #number of items from the json file
+n_drivers = 800 #number of drivers
 ##### FIXED #####
-n_std_routes = 10000 #number of standard routes to create 
-x = 0.3 #how much to fill the utility matrix
+n_std_routes = 1200 #number of standard routes to create 
+x = 0.15 #how much to fill the utility matrix
 
 std = []
 drivers = []

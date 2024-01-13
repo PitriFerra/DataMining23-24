@@ -25,8 +25,6 @@ def user_user_collaborative_filtering(u, std_route, k=5):
     #find k most similar users to each driver
     for i in range(len(u)):
         for j in range(len(u)):
-            print(u[i])
-            print(u[j])
             similarity[i][j] = (cosine_similarity(u[i], u[j]), j) # pair indicating distance similarity to driver j
 
     result = [[0] * k for _ in range(len(u))]

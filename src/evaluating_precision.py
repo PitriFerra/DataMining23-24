@@ -13,14 +13,12 @@ from algorithms.hybrid_filtering import hybrid_filtering
 from algorithms.build_utility_matrix import build_utility_matrix
 from algorithms.build_profiles import build_profiles
 from algorithms.dimensionality_reduction import cosine_similarity
+from algorithms.build_utility_matrix import build_utility_matrix_dict
 import random
 from algorithms.user_user_lsh import user_user_lsh_collaborative_filtering
 
 
-def part1():
-    return
-
-def part2():
+def part2_rmsqd():
     n_locations = 20 #number of locations from the json file 
     n_items = 8 #number of items from the json file
     with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
@@ -42,22 +40,75 @@ def part2():
     
     # build utility matrix
     u = build_utility_matrix(standard_data, actual_data, driver_attributes, features)
+    u_first = u.copy()
+    u_second = u.copy()
 
-    #print(u)
-    #print(standard_data)
+    # set to None a fourth of the utility matrix
+    for i in range(int(len(u) / 4)):
+        for j in range(int(len(u[0]) / 4)):
+            u[i][j] = None
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
 
-    item_item_lsh_recommendations = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
+    item_item_lsh_recommendations = item_item_lsh_collaborative_filtering(u_first, std_routes, k=5)
+    random_recommendations = random_filtering(u_second, 5)
     #content_based_recommendations = content_based_filtering(profiles, std_routes, k=5, lsh=True)
     #hybrid_recommendations = hybrid_filtering(content_based_recommendations, item_item_lsh_recommendations, 5)
     #user_user_lsh_recommendations = user_user_lsh_collaborative_filtering(u, std_routes, k=5)
     #user_user_vanilla_recommendations = user_user_collaborative_filtering(u, std_routes, 5)
 
+    print("RANDOM")
+    print(random_recommendations)
+    print("ITEM")
+    print(item_item_lsh_recommendations)
+
+def random_filtering(u, k):
+    for i in range(len(u)):
+        for j in range(len(u[0])):
+            if u[i][j] is None:
+                u[i][j] = random.uniform(-1.0, 1.0)
+
+    return u
+
+def part2():
+    n_locations = 20 #number of locations from the json file 
+    n_items = 8 #number of items from the json file
+    n = 800 #number of drivers
+    with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
+        driver_attributes = json.load(f)
+    with open('data/actual.json', 'r', encoding='utf-8') as f:
+        actual_data = json.load(f)
+    with open('data/standard.json', 'r', encoding='utf-8') as f:
+        standard_data = json.load(f)
+    with open('data/items.json', 'r', encoding='utf-8') as items_file:
+        items = json.load(items_file)[:n_items] 
+
+    features = def_features(standard_data, actual_data)
+    std_routes = [route_to_vector(item["route"], features) for item in standard_data]
+    act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
+    drivers = set()
+
+    for route in actual_data:
+        drivers.add(route["driver"])
+    
+    # build utility matrix
+    #u = build_utility_matrix(standard_data, actual_data, driver_attributes, features)
+    u = build_utility_matrix_dict(standard_data, actual_data, driver_attributes, features)
+
+    # build user profiles
+    #profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
+
+    #item_item_lsh_recommendations = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
+    #user_user_lsh_recommendations = user_user_lsh_collaborative_filtering(u, std_routes, k=5)
+    #content_based_recommendations = content_based_filtering(profiles, std_routes, k=5, lsh=True)
+    #hybrid_recommendations = hybrid_filtering(content_based_recommendations, user_user_lsh_recommendations, 5)
+    #user_user_vanilla_recommendations = user_user_collaborative_filtering(u, std_routes, 5)
+    item_item_recommendations = item_item_collaborative_filtering(u, 5)
+
     # random recommendation system
-    random_rec = [[0] * 5 for _ in range(len(profiles))]
-    for i in range(len(profiles)):
+    random_rec = [[0] * 5 for _ in range(n)]
+    for i in range(n):
         for j in range(5):
             random_rec[i][j] = random.randint(0, len(std_routes) - 1)
 
@@ -65,25 +116,25 @@ def part2():
 
     '''
     print("ITEM VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, item_item_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, item_item_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
     #print("USER VS RANDOM")
-    #average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, user_user_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
+    #average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, user_user_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
     print("CONTENT VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, content_based_recommendations, random_rec, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, content_based_recommendations, random_rec, standard_data, items, features, std_routes)
     print("HYHBRid VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, hybrid_recommendations, random_rec, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, hybrid_recommendations, random_rec, standard_data, items, features, std_routes)
 
     print("ITEM VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, random_rec, item_item_lsh_recommendations, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, random_rec, item_item_lsh_recommendations, standard_data, items, features, std_routes)
     #print("USER VS RANDOM")
-    #average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, user_user_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
+    #average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, user_user_lsh_recommendations, random_rec, standard_data, items, features, std_routes)
     print("CONTENT VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, random_rec, content_based_recommendations, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, random_rec, content_based_recommendations, standard_data, items, features, std_routes)
     print("HYHBRid VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, random_rec, hybrid_recommendations, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, random_rec, hybrid_recommendations, standard_data, items, features, std_routes)
     '''
     print("CONTENT VS RANDOM")
-    average_cosine_similarity_between_two_filtering_systems(len(profiles), driver_attributes, random_rec, item_item_lsh_recommendations, standard_data, items, features, std_routes)
+    average_cosine_similarity_between_two_filtering_systems(n, driver_attributes, random_rec, item_item_recommendations , standard_data, items, features, std_routes)
     
     
     

@@ -61,3 +61,23 @@ def build_utility_matrix(s_data, a_data, drivers, features):
         utility_matrix[driver_index][std_index] = cosine_similarity([std_vec], [act_vec]).item()
 
     return utility_matrix
+
+def build_utility_matrix_dict(s_data, a_data, drivers, features):
+    utility_matrix = {driver: {route['id']: None for route in s_data} for driver in drivers}
+
+    for standard_route in s_data:
+        for actual_route in a_data:
+            #if there is a match, it means we have corresponding routes 
+            if actual_route['sroute'] == standard_route['id']:
+                #assign the driver from standard_route to the variable 'driver'
+                driver = actual_route['driver']
+                
+                #convert routes to feature vectors = Pietro's function
+                standard_vector = route_to_vector(standard_route['route'])
+                actual_vector = route_to_vector(actual_route['route'])
+                
+                #calculate cosine similarity and update the utility matrix with the rating 
+                similarity = calculate_cosine_similarity(standard_vector, actual_vector)
+                utility_matrix[driver][standard_route['id']] = similarity
+        
+    return utility_matrix
