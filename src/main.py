@@ -32,7 +32,8 @@ def main(argv):
 
     features = def_features(standard_data, actual_data)
     std_routes = [route_to_vector(item["route"], features) for item in standard_data]
-    act_routes = [route_to_vector(item["route"], features) for item in actual_data]    
+    act_routes = [route_to_vector(item["route"], features) for item in actual_data]   
+    max_quantity = max(max(row) for row in act_routes) 
     drivers = set()
 
     for route in actual_data:
@@ -86,6 +87,20 @@ def main(argv):
     end_time = time.time()
     print("start time = ", start_time, " end_time = ", end_time)
     print(end_time - start_time)
+
+    # ##### PART3 #####
+    '''
+    max_quantity = max(max(row) for row in act_routes)
+    results = []
+    i = 1
+    
+    for profile in profiles:
+        results.append({"id_driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
+        i += 1
+
+    with open('solutions/part3.json', 'w') as json_file:
+        json.dump(results, json_file, indent=2)
+    '''
     
     
 def dict_to_vec(std_routes, act_routes, features):
@@ -170,7 +185,7 @@ def centroids_to_routes(centroids, m, features, max_quantity):
                 if tmp[i][j] > max_rating:
                     max_rating = tmp[i][j]
             
-            for solution in get_best_route(tmp, features, max_quantity, max_rating):
+            for solution in get_best_routes(tmp, features, max_quantity, max_rating):
                 results.append(solution)
         
     with open("solutions/recStandard.json", "w") as f:
