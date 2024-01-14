@@ -37,27 +37,14 @@ def calculate_cosine_similarity(vec1, vec2):
     similarity = cosine_similarity([vec1_values], [vec2_values])
     return similarity.item()
 
-def build_utility_matrix(s_data, a_data, drivers, features):
-    # Venite su DS quando potete. Questo codice dovrebbe andare
-
-    utility_matrix = []
-
-    for driver in drivers:
-        utility_matrix.append([None] * len(s_data))
+def build_utility_matrix(s_vects, a_vects, a_data, drivers):
+    utility_matrix = [[[None] * len(s_vects)] * len(drivers)]
     
-    for actual_route in a_data:
-        #if there is a match, it means we have corresponding routes 
+    for actual_route, index in a_data:
         driver_index = int(actual_route['driver'][1:]) - 1
         std_index = int(actual_route['sroute'][1:]) - 1
-        std_route = s_data[int(actual_route['sroute'][1:]) - 1]
-        std_vec = route_to_vector(std_route['route'], features)
-        act_vec = route_to_vector(actual_route['route'], features)
-
-        for i in std_vec:
-            if std_vec[i] == 0 and act_vec[i] == 0:
-                std_vec.pop(i)
-                act_vec.pop(i)
-
+        std_vec = s_vects[int(actual_route['sroute'][1:]) - 1]
+        act_vec = a_vects[index]
         utility_matrix[driver_index][std_index] = cosine_similarity([std_vec], [act_vec]).item()
 
     return utility_matrix

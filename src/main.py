@@ -39,7 +39,7 @@ def main(argv):
         drivers.add(route["driver"])
     
     # build utility matrix
-    u = build_utility_matrix(standard_data, actual_data, drivers, features)
+    u = build_utility_matrix(std_routes, act_routes, actual_data, drivers)
     #u = transform_utility_matrix(u_dict)
           
     # build user profiles
