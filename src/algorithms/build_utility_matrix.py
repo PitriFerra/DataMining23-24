@@ -38,9 +38,9 @@ def calculate_cosine_similarity(vec1, vec2):
     return similarity.item()
 
 def build_utility_matrix(s_vects, a_vects, a_data, drivers):
-    utility_matrix = [[[None] * len(s_vects)] * len(drivers)]
+    utility_matrix = [[None] * len(s_vects) for _ in drivers]
     
-    for actual_route, index in a_data:
+    for index, actual_route in enumerate(a_data):
         driver_index = int(actual_route['driver'][1:]) - 1
         std_index = int(actual_route['sroute'][1:]) - 1
         std_vec = s_vects[int(actual_route['sroute'][1:]) - 1]

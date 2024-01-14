@@ -16,8 +16,8 @@ n_locations = 20 #number of locations from the json file
 n_items = 8 #number of items from the json file
 n_drivers = 100 #number of drivers
 ##### FIXED #####
-n_std_routes = 10000 #number of standard routes to create 
-x = 0.3 #how much to fill the utility matrix
+n_std_routes = 1000 #number of standard routes to create 
+x = 0.15 #how much to fill the utility matrix
 
 std = []
 drivers = []

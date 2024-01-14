@@ -40,6 +40,7 @@ def main(argv):
     
     # build utility matrix
     u = build_utility_matrix(std_routes, act_routes, actual_data, drivers)
+    print(u)
     #u = transform_utility_matrix(u_dict)
           
     # build user profiles
@@ -79,7 +80,7 @@ def main(argv):
     # content_based = content_based_filtering(profiles, std_routes, k=5, lsh=True)
 
     # # hybrid 
-    item_item_2 = item_item_collaborative_filtering(u_dict,5)
+    #item_item_2 = item_item_collaborative_filtering(u_dict,5)
 
     
     end_time = time.time()
@@ -145,7 +146,7 @@ def def_features(std_data, act_data):
             i += 1
     
     return features 
-'''
+
 def labels_to_routes(dbscan, m):
     if len(dbscan.components_) != 0:
         # naive approach: output one route per core point
@@ -154,14 +155,26 @@ def labels_to_routes(dbscan, m):
                 print("hola")
                 #json.dump(get_best_route(dbscan.components_), f) 
     
-def centroids_to_routes(centroids, m):
-    with open("recStandard.json", "w") as f:
-        for _ in range(int(m / len(centroids))):
-            tmp = centroids.copy()
-            for i in range(len(centroids)):
-                for j in range(len(centroids[0])):
-                    tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
-                #json.dump(get_best_route(tmp), f)
-'''
+def centroids_to_routes(centroids, m, features, max_quantity):
+    results = []
+
+    for _ in range(int(m / len(centroids))):
+        tmp = centroids.copy()
+
+        for i in range(len(centroids)):
+            max_rating = 0
+
+            for j in range(len(centroids[0])):
+                tmp[i][j] += tmp[i][j] / 100 * random.randint(-5, 5) # add/sub +/- 5%
+
+                if tmp[i][j] > max_rating:
+                    max_rating = tmp[i][j]
+            
+            for solution in get_best_route(tmp, features, max_quantity, max_rating):
+                results.append(solution)
+        
+    with open("solutions/recStandard.json", "w") as f:
+        json.dump(results, f, indent = 2)
+
 if __name__ == '__main__':
     main(sys.argv[1:]) 
