@@ -44,16 +44,16 @@ def main(argv):
     #u = transform_utility_matrix(u_dict)
           
     # build user profiles
-    # profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
-    '''
+    profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
+    
     # cluster users and output recommended routes
     if str(sys.argv).__contains__("-dbscan"):
         dbscan = DBSCAN_cluster(profiles, reduce_dimensions=False, plot=False)
         labels_to_routes(dbscan, len(std_routes))
     else:
         centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=True) 
-        centroids_to_routes(centroids, len(std_routes))
-    '''
+        centroids_to_routes(centroids, len(std_routes), features, max_quantity)
+    
 
     # ##### PART2 #####
     # # user-user collaborative filtering with implementation of LSH
