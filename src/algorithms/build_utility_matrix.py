@@ -1,7 +1,6 @@
 from algorithms.build_route_vector import route_to_vector
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from collections import OrderedDict
 
 def calculate_cosine_similarity(vec1, vec2):
     common_keys = set(vec1.keys()) & set(vec2.keys()) #common key between the two vectors 
