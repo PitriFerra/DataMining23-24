@@ -1,7 +1,6 @@
 from algorithms.build_route_vector import route_to_vector
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from collections import OrderedDict
 
 def calculate_cosine_similarity(vec1, vec2):
     common_keys = set(vec1.keys()) & set(vec2.keys()) #common key between the two vectors 
@@ -37,13 +36,21 @@ def calculate_cosine_similarity(vec1, vec2):
     similarity = cosine_similarity([vec1_values], [vec2_values])
     return similarity.item()
 
-def build_utility_matrix(s_data, a_data, drivers, features):
-    #initialization None 
-    utility_matrix = {driver: OrderedDict() for driver in drivers}
+def build_utility_matrix(s_vects, a_vects, a_data, drivers):
+    utility_matrix = [[None] * len(s_vects) for _ in drivers]
+    
+    for index, actual_route in enumerate(a_data):
+        driver_index = int(actual_route['driver'][1:]) - 1
+        std_index = int(actual_route['sroute'][1:]) - 1
+        std_vec = s_vects[int(actual_route['sroute'][1:]) - 1]
+        act_vec = a_vects[index]
+        utility_matrix[driver_index][std_index] = cosine_similarity([std_vec], [act_vec]).item()
 
-    for driver in utility_matrix:
-        for route in s_data:
-            utility_matrix[driver][route['id']] = None
+    return utility_matrix
+
+def build_utility_matrix_dict(s_data, a_data, drivers, features):
+    #initialization None 
+    utility_matrix = {driver: {route['id']: None for route in s_data} for driver in drivers}
 
     for standard_route in s_data:
         for actual_route in a_data:
