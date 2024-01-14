@@ -94,7 +94,7 @@ def part2():
     
     # build utility matrix
     #u = build_utility_matrix(standard_data, actual_data, driver_attributes, features)
-    u = build_utility_matrix_dict(standard_data, actual_data, driver_attributes, features)
+    u = build_utility_matrix_dict(standard_data, actual_data, drivers, features)
 
     # build user profiles
     #profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
