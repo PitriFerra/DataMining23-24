@@ -90,7 +90,6 @@ def main(argv):
 
     # ##### PART3 #####
     '''
-    max_quantity = max(max(row) for row in act_routes)
     results = []
     i = 1
     
