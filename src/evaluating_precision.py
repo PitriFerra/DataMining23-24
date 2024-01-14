@@ -14,8 +14,61 @@ from algorithms.build_utility_matrix import build_utility_matrix
 from algorithms.build_profiles import build_profiles
 from algorithms.dimensionality_reduction import cosine_similarity
 from algorithms.build_utility_matrix import build_utility_matrix_dict
+from algorithms.cluster import kmeans_cluster
+from algorithms.part3 import get_best_route
 import random
 from algorithms.user_user_lsh import user_user_lsh_collaborative_filtering
+
+def part1():
+    n_locations = 20 #number of locations from the json file 
+    n_items = 100 #number of items from the json file
+    with open('data/driver_attributes.json', 'r', encoding='utf-8') as f:
+        driver_attributes = json.load(f)
+    with open('data/actual.json', 'r', encoding='utf-8') as f:
+        actual_data = json.load(f)
+    with open('data/standard.json', 'r', encoding='utf-8') as f:
+        standard_data = json.load(f)
+    with open('data/items.json', 'r', encoding='utf-8') as items_file:
+        items = json.load(items_file)[:n_items] 
+
+    features = def_features(standard_data, actual_data)
+    std_routes = [route_to_vector(item["route"], features) for item in standard_data]
+    act_routes = [route_to_vector(item["route"], features) for item in actual_data]   
+    max_quantity = max(max(row) for row in act_routes) 
+    drivers = set()
+
+    for route in actual_data:
+        drivers.add(route["driver"])
+
+    # build utility matrix
+    u = build_utility_matrix(std_routes, act_routes, actual_data, drivers)
+
+    # build user profiles
+    profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
+    centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=False) 
+    recommended_routes = centroids_to_routes(centroids, len(std_routes), features, max_quantity)
+
+    score_one = 0.0
+    score_two = 0.0
+
+    for driver in driver_attributes:
+        for i in range(10): # each driver does 10 routes
+            route_to_follow = random.randint(0, len(std_routes) - 1)
+            route_one = [recommended_routes[route_to_follow]]
+            route_two = standard_data[route_to_follow]["route"]
+
+            actual_route_one = route_to_vector(modify_route(copy.deepcopy(route_one), driver, items), features)
+            actual_route_two = route_to_vector(modify_route(copy.deepcopy(route_two), driver, items), features)
+
+            score_one += 1 - cosine_similarity(route_to_vector(route_one, features), actual_route_one)
+            score_two += 1 - cosine_similarity(route_to_vector(route_two, features), actual_route_two)
+
+    score_one /= (100 * len(driver_attributes)) 
+    score_two /= (100 * len(driver_attributes))
+
+    print("FIRST = ", score_one) 
+    print("SECOND = ", score_two) 
+
 
 
 def part2_rmsqd():
@@ -243,7 +296,25 @@ def transform_utility_matrix(u_dict):
             u[-1].append(u_dict[driver][route]) 
     return u
 
-part = 3
+def centroids_to_routes(centroids, m, features, max_quantity):
+    results = []
+
+    for _ in range(int(m / len(centroids))):
+        tmp = centroids.copy()
+
+        for i in range(len(centroids)):
+            max_rating = 0
+
+            for j in range(len(centroids[0])):
+                tmp[i][j] += tmp[i][j] / 100 * random.uniform(-5.0, 5.0) # add/sub +/- 5%
+
+                if tmp[i][j] > max_rating:
+                    max_rating = tmp[i][j]
+            
+            for solution in get_best_route(tmp[i], features, max_quantity, max_rating):
+                results.append(solution)
+    
+    return results
 
 if __name__ == '__main__':
-    part2()
+    part1()
