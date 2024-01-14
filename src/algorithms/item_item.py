@@ -48,8 +48,9 @@ def item_item_collaborative_filtering(u, k=5):
                     if rating1 is not None and rating2 is not None: 
                         ratings_r1[driver] = rating1
                         ratings_r2[driver] = rating2
-                               
-                similarity = calculate_cosine_similarity(ratings_r1, ratings_r2) 
+                
+                
+                similarity = calculate_cosine_similarity(ratings_r1, ratings_r2)  
                 similarities[(route1, route2)] = similarity
     #print(similarities)
 
@@ -69,9 +70,10 @@ def item_item_collaborative_filtering(u, k=5):
                     u[driver][route] = estimated_rating
                 else: 
                     u[driver][route] = 0 
+
     #return u
 
-    result = np.zeros((len(drivers), k), dtype='U20')
+    result = np.zeros((len(drivers), k), dtype=int)
     for i, driver in enumerate(drivers):
             sorted_items = sorted(u[driver].items(), key=lambda x: x[1], reverse=True)
             sorted_routes = [route[0] for route in sorted_items]
@@ -79,13 +81,14 @@ def item_item_collaborative_filtering(u, k=5):
             #index of top k routes
             r_indices = [list(u[driver].keys()).index(route) for route in sorted_routes[:k]]
             result[i, :] = r_indices
+
             
             #name of top k routes
             #r_names = sorted_routes[:k]
             #result[i, :] = np.array(r_names, dtype='U20')
 
     return result 
-    
+ 
 '''
     result = {}
     for driver in drivers:
