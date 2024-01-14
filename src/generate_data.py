@@ -1,3 +1,4 @@
+import copy
 import json
 import random
 from data.generate_std_routes import generate_random_route
@@ -13,9 +14,10 @@ path_actual = 'data/actual.json' #path of the output of the actual routes json f
 #### Parameters ####
 n_locations = 20 #number of locations from the json file 
 n_items = 8 #number of items from the json file
-n_std_routes = 1000 #number of standard routes to create 
 n_drivers = 100 #number of drivers
-x = 0.15 #how much to fill the utility matrix
+##### FIXED #####
+n_std_routes = 10000 #number of standard routes to create 
+x = 0.3 #how much to fill the utility matrix
 
 std = []
 drivers = []
@@ -34,8 +36,8 @@ for i in range(n_std_routes):
     })
 
 for i in range(n_drivers):
-    upper_bound = random.randint(0, 10) / 10
-    lower_bound = random.randint(0, 10) / 10
+    upper_bound = random.uniform(0.9, 1.0)
+    lower_bound = random.uniform(0.9, 1.0)
 
     drivers.append({
         "id": f"d{i+1}",
@@ -61,7 +63,7 @@ for driver in drivers:
                 "id": f"a{element_id}",
                 "driver": driver["id"],
                 "sroute": standard["id"],
-                "route": modify_route(standard["route"], driver, items)
+                "route": modify_route(copy.deepcopy(standard["route"]), driver, items)
             }            
             act.append(actual_element)
             element_id += 1

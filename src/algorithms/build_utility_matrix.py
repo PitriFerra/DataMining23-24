@@ -38,18 +38,24 @@ def calculate_cosine_similarity(vec1, vec2):
     return similarity.item()
 
 def build_utility_matrix(s_data, a_data, drivers, features):
-    #initialization None 
-    utility_matrix = {driver: OrderedDict() for driver in drivers}
+    utility_matrix = []
 
-    for driver in utility_matrix:
-        for route in s_data:
-            utility_matrix[driver][route['id']] = None
+    for driver in drivers:
+        utility_matrix.append([None] * len(s_data))
 
-    for standard_route in s_data:
-        for actual_route in a_data:
-            #if there is a match, it means we have corresponding routes 
-            if actual_route['sroute'] == standard_route['id']:
-                utility_matrix[actual_route['driver']][standard_route['id']] = cosine_similarity([route_to_vector(standard_route['route'], features)], 
-                                                                                                 [route_to_vector(actual_route['route'], features)]).item()
+    for actual_route in a_data:
+        #if there is a match, it means we have corresponding routes 
+        driver_index = int(actual_route['driver'][1:]) - 1
+        std_index = int(actual_route['sroute'][1:]) - 1
+        std_route = s_data[int(actual_route['sroute'][1:]) - 1]
+        std_vec = route_to_vector(std_route['route'], features)
+        act_vec = route_to_vector(actual_route['route'], features)
+
+        for i in std_vec:
+            if std_vec[i] == 0 and act_vec[i] == 0:
+                std_vec.pop(i)
+                act_vec.pop(i)
+
+        utility_matrix[driver_index][std_index] = cosine_similarity([std_vec], [act_vec]).item()
 
     return utility_matrix
