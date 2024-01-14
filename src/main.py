@@ -2,6 +2,7 @@ import numpy as np
 import random
 from algorithms.build_profiles import build_profiles
 from algorithms.build_utility_matrix import build_utility_matrix
+from algorithms.build_utility_matrix import build_utility_matrix_dict
 from algorithms.cluster import kmeans_cluster, DBSCAN_cluster
 from algorithms.build_route_vector import route_to_vector
 from algorithms.item_item import item_item_collaborative_filtering
@@ -15,13 +16,9 @@ from algorithms.part3 import get_best_route
 from algorithms.part3 import get_best_routes
 import sys
 import time
-
-
-# A Python program to demonstrate working of OrderedDict
 from collections import OrderedDict
 
 def main(argv):
-    start_time = time.time()
     # ##### PART1 #####
     # read all JSON routes and transfrom them into feature vectors
     with open('data/standard.json', 'r', encoding='utf-8') as f:
@@ -45,55 +42,58 @@ def main(argv):
           
     # build user profiles
     profiles, max_rating = build_profiles(u, act_routes, len(u), len(u[0]), len(features))
-    '''
+
     # cluster users and output recommended routes
-    if str(sys.argv).__contains__("-dbscan"):
-        dbscan = DBSCAN_cluster(profiles, reduce_dimensions=False, plot=False)
-        labels_to_routes(dbscan, len(std_routes))
-    else:
+    if str(sys.argv).__contains__("-p1"):
         centroids = kmeans_cluster(profiles, len(profiles), reduce_dimensions=True, plot=True) 
         centroids_to_routes(centroids, len(std_routes), features, max_quantity)
-    '''
 
     # ##### PART2 #####
-    # # user-user collaborative filtering with implementation of LSH
-    #result = user_user_lsh_collaborative_filtering(u_dict, k=5, lsh=False)
-    #print(user_user)  
-    
-    # # item-item collaborative filtering
-    #result = item_item_collaborative_filtering(u_dict, k=5)  
-    #print(item_item)
+    if str(sys.argv).__contains__("-p2"):
+        if str(sys.argv).__contains__("-user_user"):
+            # user-user
+            result = user_user_lsh_collaborative_filtering(u, k=5, lsh=False)
+        
+        elif str(sys.argv).__contains__("-item_item"):
+            # item-item
+            u_dict = build_utility_matrix_dict(standard_data, actual_data, drivers, features)
+            result = item_item_collaborative_filtering(u_dict, k=5)  
+        
+        elif str(sys.argv).__contains__("-user_user_lsh"):
+            # user user + LSH
+            result = user_user_lsh_collaborative_filtering(u, std_routes, 5)
+        
+        elif str(sys.argv).__contains__("-content_based"):
+            # content based
+            result = content_based_filtering(profiles, std_routes, k=5, lsh=False)
 
-    # # item_item collaborative filtering with LSH  
-    result = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
-    #print(item_item_lsh)  
+        elif str(sys.argv).__contains__("-content_based_lsh"):
+            # content based + LSH
+            result = content_based_filtering(profiles, std_routes, k=5, lsh=True)
 
-    # user user collaborative filtering with LSH
-    #result = user_user_lsh_collaborative_filtering(u, std_routes, 5)
-    # print(user_user_lsh_collaborative_filtering)
+        elif str(sys.argv).__contains__("-hybrid"):
+            # # hybrid 
+            item_item_lsh = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
+            content_based_lsh = content_based_filtering(profiles, std_routes, k=5, lsh=True)
+            result = hybrid_filtering(item_item_lsh_collaborative_filtering, content_based_lsh)
+        
+        else:
+            # item_item + LSH
+            result = item_item_lsh_collaborative_filtering(u, std_routes, k=5)
 
-    # user user collaborative filtering without LSH
-    #result = user_user_collaborative_filtering(u, std_routes, 5)
-    # print(user_user)
-    
-    # # content based
-    #result = content_based_filtering(profiles, std_routes, k=5, lsh=True)
-
-    # # hybrid 
-    #result = item_item_collaborative_filtering(u_dict,5)
+        output_recommended_routes(result)
     
     # ##### PART3 #####
-    results = []
-    i = 1
-    
-    for profile in profiles:
-        results.append({"driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
-        i += 1
+    if str(sys.argv).__contains__("-p3"):
+        results = []
+        i = 1
+        
+        for profile in profiles:
+            results.append({"driver": f"d{i}", "route": get_best_route(profile, features, max_quantity, max_rating)})
+            i += 1
 
-    with open('solutions/perfectRoute.json', 'w') as json_file:
-        json.dump(results, json_file, indent=2)
-    end_time = time.time()
-    print(end_time - start_time)
+        with open('perfectRoute.json', 'w') as json_file:
+            json.dump(results, json_file, indent=2)
     
     
 def dict_to_vec(std_routes, act_routes, features):
@@ -154,14 +154,6 @@ def def_features(std_data, act_data):
             i += 1
     
     return features 
-
-def labels_to_routes(dbscan, m):
-    if len(dbscan.components_) != 0:
-        # naive approach: output one route per core point
-        with open("recStandard.json", "w") as f:
-            for i in range(int(m / len(dbscan.components_))):
-                print("hola")
-                #json.dump(get_best_route(dbscan.components_), f) 
     
 def centroids_to_routes(centroids, m, features, max_quantity):
     results = []
@@ -178,11 +170,20 @@ def centroids_to_routes(centroids, m, features, max_quantity):
                 if tmp[i][j] > max_rating:
                     max_rating = tmp[i][j]
             
-            for solution in get_best_routes(tmp, features, max_quantity, max_rating):
+            for solution in get_best_route(tmp[i], features, max_quantity, max_rating):
                 results.append(solution)
         
-    with open("solutions/recStandard.json", "w") as f:
+    with open("recStandard.json", "w") as f:
         json.dump(results, f, indent = 2)
+
+def output_recommended_routes(result):
+    output = []
+
+    for index, solution in enumerate(result):
+        output.append({"driver": f"d{index + 1}", "routes": [f"s{route}" for route in solution]})
+
+    with open('driver.json', 'w') as json_file:
+        json.dump(output, json_file, indent=2)
 
 if __name__ == '__main__':
     main(sys.argv[1:]) 
