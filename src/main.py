@@ -157,6 +157,7 @@ def def_features(std_data, act_data):
     
 def centroids_to_routes(centroids, m, features, max_quantity):
     results = []
+    count = 1
 
     for _ in range(int(m / len(centroids))):
         tmp = centroids.copy()
@@ -171,7 +172,8 @@ def centroids_to_routes(centroids, m, features, max_quantity):
                     max_rating = tmp[i][j]
             
             for solution in get_best_route(tmp[i], features, max_quantity, max_rating):
-                results.append(solution)
+                results.append({"id": f"s{count}", "route": solution})
+                count += 1
         
     with open("recStandard.json", "w") as f:
         json.dump(results, f, indent = 2)
