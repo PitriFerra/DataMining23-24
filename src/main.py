@@ -171,10 +171,9 @@ def centroids_to_routes(centroids, m, features, max_quantity):
                 if tmp[i][j] > max_rating:
                     max_rating = tmp[i][j]
             
-            for solution in get_best_route(tmp[i], features, max_quantity, max_rating):
-                results.append({"id": f"s{count}", "route": solution})
-                count += 1
-        
+            results.append({"id": f"s{count}", "route": get_best_route(tmp[i], features, max_quantity, max_rating)})
+            count += 1
+            
     with open("recStandard.json", "w") as f:
         json.dump(results, f, indent = 2)
 
